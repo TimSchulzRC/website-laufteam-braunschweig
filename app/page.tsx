@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden bg-offWhite">
       <section className="w-full flex items-center flex-col">
-        <div className="h-[500px] sm:h-[600px] md:h-[800px] w-full">
+        <div className="h-[500px] sm:h-[600px] md:h-[800px] w-full relative">
           <Image
             className="h-full w-full object-cover object-right-top"
             src="/header-image.jpg"
@@ -12,16 +12,41 @@ export default function Home() {
             width={1700}
             height={500}
           />
+
+          <div className="w-full absolute bottom-0 left-0">
+            <Image
+              className="w-full object-cover object-right-top "
+              src="/triangle_15deg.svg"
+              alt=""
+              height={100}
+              width={373.205}
+            />
+            <div className="bg-darkBlue text-offWhite my-[-1px] px-10">
+              <h1 className="text-5xl mb-6">
+                DM in <br /> <span className="text-red">Uzelen</span>
+              </h1>
+              <a href="/" className="uppercase font-bold">
+                Jetzt lesen!
+              </a>
+            </div>
+          </div>
+          <Image
+            className="w-full object-cover object-right-top scale-y-[-1]"
+            src="/triangle_15deg.svg"
+            alt=""
+            height={100}
+            width={373.205}
+          />
         </div>
-        <div className="h-[600px] w-[200%] bg-darkBlue rotate-[15deg] mt-[-100px] "></div>
-        <div className="w-full mt-[-580px] z-10">
+        {/* <div className="h-[600px] w-[200%] bg-darkBlue rotate-[15deg] mt-[-100px] "></div> */}
+        {/* <div className="w-full mt-[-580px] z-10">
           <h1 className="text-offWhite italic text-4xl uppercase ">
             DM in
             <br />
             <span className="text-red">Uelzen</span>
           </h1>
         </div>
-        <div className="h-[800px] w-[200%] bg-offWhite rotate-[-15deg]"></div>
+        <div className="h-[800px] w-[200%] bg-offWhite rotate-[-15deg]"></div> */}
         {/* <div className="h-[500px] w-full bg-offWhite mt-[-600px]"></div> */}
       </section>
       {/* <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
