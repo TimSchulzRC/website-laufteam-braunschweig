@@ -15,6 +15,10 @@ const config: Config = {
       offWhite: "#E7E5E2",
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-roboto)"],
+        display: ["var(--font-josefin-sans)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

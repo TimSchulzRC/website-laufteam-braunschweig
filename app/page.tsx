@@ -1,6 +1,29 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+      <section className="w-full flex items-center flex-col">
+        <div className="h-[500px] sm:h-[600px] md:h-[800px] w-full">
+          <Image
+            className="h-full w-full object-cover object-right-top"
+            src="/header-image.jpg"
+            alt="Header Image"
+            width={1700}
+            height={500}
+          />
+        </div>
+        <div className="h-[600px] w-[200%] bg-darkBlue rotate-[15deg] mt-[-100px] "></div>
+        <div className="w-full mt-[-580px] z-10">
+          <h1 className="text-offWhite italic text-4xl uppercase ">
+            DM in
+            <br />
+            <span className="text-red">Uelzen</span>
+          </h1>
+        </div>
+        <div className="h-[800px] w-[200%] bg-offWhite rotate-[-15deg]"></div>
+        {/* <div className="h-[500px] w-full bg-offWhite mt-[-600px]"></div> */}
+      </section>
       {/* <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;

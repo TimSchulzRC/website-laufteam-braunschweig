@@ -1,9 +1,17 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/app/components/Navbar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Josefin_Sans, Roboto } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontRoboto = Roboto({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-roboto",
+});
+const fontJosefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-josefin-sans",
+});
 
 export const metadata: Metadata = {
   title: "Laufteam Braunschweig",
@@ -17,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body className={inter.className}>
+      <body className={`${fontRoboto.variable} ${fontJosefinSans.variable}`}>
         <Navbar />
         {children}
       </body>
