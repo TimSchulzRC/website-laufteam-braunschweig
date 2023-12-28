@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       red: "#BF2C38",
-      orange: "accent",
+      orange: "#C9824A",
       darkBlue: "#30313E",
       grey: "#86848A",
       offWhite: "#E7E5E2",

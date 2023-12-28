@@ -3,7 +3,13 @@ export default function Button({
   className,
 }: {
   children: string;
-  className: string;
+  className?: string;
 }) {
-  return <button className={`${className}`}>{children}</button>;
+  return (
+    <div className="bg-orange text-offWhite p-2 -skew-x-[15deg]">
+      <button className={`skew-x-[15deg] italic ${className}`}>
+        {children}
+      </button>
+    </div>
+  );
 }

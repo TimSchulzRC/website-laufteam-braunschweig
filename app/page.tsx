@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "./components/Button";
 import Section from "./components/Section";
 
 export default function Home() {
@@ -67,7 +68,7 @@ export default function Home() {
           />
         </div>
       </Section>
-      <Section className="bg-darkBlue p-10">
+      <Section className="bg-darkBlue px-10 py-24">
         <Image
           className="w-32 object-contain col-span-2"
           src="/logo.svg"
@@ -80,14 +81,15 @@ export default function Home() {
           <span className="text-red">Laufleidenschaft</span>{" "}
           <span>vereint</span>
         </h2>
-        <p className="text-offWhite text-center">
+        <p className="text-offWhite text-center mb-8">
           Das Laufteam Braunschweig ist ein Verbund ausgewählter Spitzensportler
           der Region Braunschweig und steht leistungsstarken und
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der
           Startgemeinschaft LG Braunschweig Mitglied sind.
         </p>
+        <Button>Mehr erfahren</Button>
       </Section>
-      <Section>test</Section>
+      {/* <Section>test</Section> */}
     </main>
   );
 }
