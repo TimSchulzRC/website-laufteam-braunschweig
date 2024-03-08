@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import type { Metadata } from "next";
 import { Josefin_Sans, Roboto } from "next/font/google";
+import LogoContextProvider from "./components/LogoContext";
 import "./globals.css";
 
 const fontRoboto = Roboto({
@@ -29,8 +30,10 @@ export default function RootLayout({
       <body
         className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
       >
-        <Navbar />
-        {children}
+        <LogoContextProvider>
+          <Navbar />
+          {children}
+        </LogoContextProvider>
       </body>
     </html>
   );

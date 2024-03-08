@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-darkBlue;
+}
+
 h1,
 h2,
 h3,
@@ -9,4 +13,18 @@ h4,
 h5,
 h6 {
   @apply font-display;
+}
+
+.link {
+  @apply text-orange;
+  @apply hover:text-orange-light;
+  @apply hover:underline;
+}
+
+.triangle-color {
+  @apply fill-red;
+}
+
+.cursive {
+  @apply skew-x-[-15deg];
 }
