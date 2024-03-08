@@ -8,7 +8,7 @@ export default function SectionCTA() {
       <div className="container max-w-lg flex items-center flex-col">
         <Image
           className="w-32 object-contain col-span-2"
-          src="/logo.svg"
+          src="/svg/logo_no_text.svg"
           width={102}
           height={118}
           alt=""

@@ -55,7 +55,7 @@ export default function Header() {
         <div className="absolute w-full h-full top-0 hidden md:flex">
           <div className="md:w-[250px] lg:w-[350px] h-full bg-darkBlue flex md:pt-16 lg:pt-20">
             <Image
-              src="/images/logo.svg"
+              src="/svg/logo_text.svg"
               height={67}
               width={274}
               alt={""}
