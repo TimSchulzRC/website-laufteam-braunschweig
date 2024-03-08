@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useContext } from "react";
-import { LogoContext } from "./LogoContext";
+import { LogoContext } from "./components/LogoContext";
 
 export default function Navbar() {
   const [logoHidden] = useContext(LogoContext);
@@ -14,12 +15,12 @@ export default function Navbar() {
         }`}
       >
         {logoHidden && (
-          <a href="/" className={`italic uppercase font-display font-bold`}>
+          <Link href="/" className={`italic uppercase font-display font-bold`}>
             <span className="text-offWhite">Laufteam</span>{" "}
             <span className="text-red">Braunschweig</span>
-          </a>
+          </Link>
         )}
-        <button className="icon-button">
+        <button className="icon-button md:hidden">
           <Image
             src="/icon-menu.svg" // TODO: use icon with sharp corners
             alt="Menü Icon"

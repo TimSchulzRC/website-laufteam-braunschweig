@@ -1,0 +1,35 @@
+import LinkCard from "../components/LinkCard";
+import Section from "../components/Section";
+
+export default function SectionCards() {
+  return (
+    <Section className="bg-red py-10 justify-items-center">
+      <div className="container gap-10 flex justify-center flex-wrap">
+        <LinkCard
+          title="Das Team"
+          href="/"
+          image="/images/img_1.webp"
+          imageAlt=""
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </LinkCard>
+        <LinkCard
+          title="Hall of Fame"
+          href="/"
+          image="/images/img_2.webp"
+          imageAlt=""
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </LinkCard>
+        <LinkCard
+          title="Zur Geschichte"
+          href="/"
+          image="/images/img_3.webp"
+          imageAlt=""
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </LinkCard>
+      </div>
+    </Section>
+  );
+}

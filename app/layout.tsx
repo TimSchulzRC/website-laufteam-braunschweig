@@ -1,4 +1,4 @@
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/Navbar";
 import type { Metadata } from "next";
 import { Josefin_Sans, Roboto } from "next/font/google";
 import LogoContextProvider from "./components/LogoContext";

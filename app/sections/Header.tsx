@@ -2,10 +2,10 @@
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
 import { useCallback, useContext, useEffect, useMemo, useRef } from "react";
-import Button from "./Button";
-import { LogoContext } from "./LogoContext";
-import Section from "./Section";
-import Triangle from "./Triangle";
+import Button from "../components/Button";
+import { LogoContext } from "../components/LogoContext";
+import Section from "../components/Section";
+import Triangle from "../components/Triangle";
 
 export default function Header() {
   const logoRef = useRef<HTMLImageElement>(null);
