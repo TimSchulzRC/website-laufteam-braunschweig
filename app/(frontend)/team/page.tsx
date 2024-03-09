@@ -1,8 +1,6 @@
 import LinkCard from "@/app/components/LinkCard";
 import { getRunners } from "@/sanity/sanity-utils";
 
-export const revalidate = 1;
-
 export default async function Team() {
   const members = await getRunners();
   console.log(members);
