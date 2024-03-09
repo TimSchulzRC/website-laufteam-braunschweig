@@ -4,7 +4,7 @@ import Section from "../../../components/Section";
 export default function SectionCards() {
   return (
     <Section className="bg-red py-10 justify-items-center">
-      <div className="container gap-10 flex justify-center flex-wrap">
+      <div className="container gap-10 flex justify-around flex-wrap">
         <LinkCard
           title="Das Team"
           href="/"
