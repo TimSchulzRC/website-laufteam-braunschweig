@@ -19,26 +19,26 @@ export default function Triangle({
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
-      viewBox="0 0 100 373.205"
+      viewBox="0 0 100 373"
       className={`${flipHorizontal && "scale-x-[-1]"} ${
         flipVertical && "scale-y-[-1]"
       } ${className}`}
       fill="none"
     >
-      <polygon points="0,0 0,373 100,373.205" fill={colors?.[color]} />
+      <polygon points="0,0 0,373 100,373" fill={colors?.[color]} />
     </svg>
   ) : (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
-      viewBox="0 0 373.205 100"
+      viewBox="0 0 373 100"
       className={`${flipHorizontal && "scale-x-[-1]"} ${
         flipVertical && "scale-y-[-1]"
       } ${className}`}
       fill="none"
     >
-      <polygon points="0,0 0,100 373.205,100" fill={colors?.[color]} />
+      <polygon points="0,0 0,100 373,100" fill={colors?.[color]} />
     </svg>
   );
 }

@@ -100,7 +100,7 @@ export default function Header() {
             </div>
           </div>
           <div>
-            <Triangle color="darkBlue" rotated flipVertical className="" />
+            <Triangle color="darkBlue" rotated flipVertical />
           </div>
         </div>
         <div className="w-full absolute bottom-0 left-0 md:hidden">
@@ -115,12 +115,6 @@ export default function Header() {
             <Button href="/" color="orange" skew className="w-44">
               Jetzt lesen!
             </Button>
-            {/* <Link
-              href="/"
-              className="link uppercase font-bold text-xl flex items-center gap-3"
-            >
-              Jetzt lesen! <DoubleArrowSharpIcon />
-            </Link> */}
           </div>
         </div>
       </div>
