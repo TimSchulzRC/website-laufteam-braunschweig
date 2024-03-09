@@ -2,9 +2,9 @@
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import Button from "../components/Button";
-import Section from "../components/Section";
-import Triangle from "../components/Triangle";
+import Button from "../../../components/Button";
+import Section from "../../../components/Section";
+import Triangle from "../../../components/Triangle";
 
 export default function Header() {
   const logoRef = useRef<HTMLImageElement>(null);
@@ -15,20 +15,12 @@ export default function Header() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navLogo?.classList.add("opacity-0");
-          navLogo?.parentElement?.classList.replace(
-            "justify-between",
-            "justify-end"
-          );
           if (logoRef.current) {
             logoRef.current.classList.remove("opacity-0");
             logoRef.current.style.transformOrigin = "bottom";
           }
         } else {
           navLogo?.classList.remove("opacity-0");
-          navLogo?.parentElement?.classList.replace(
-            "justify-end",
-            "justify-between"
-          );
           if (logoRef.current) {
             logoRef.current.classList.add("opacity-0");
           }

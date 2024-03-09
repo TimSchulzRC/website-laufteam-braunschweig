@@ -31,7 +31,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <ul className="flex gap-20 uppercase text-offWhite">
+        <ul className="hidden lg:flex gap-10 lg:gap-20 uppercase text-offWhite">
           <li>
             <Link href="/news" className="">
               News
@@ -53,7 +53,7 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <button className="icon-button md:hidden">
+        <button className="icon-button lg:hidden">
           <Image
             src="/icon-menu.svg" // TODO: use icon with sharp corners
             alt="Menü Icon"

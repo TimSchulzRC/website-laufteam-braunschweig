@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Button from "../components/Button";
-import Section from "../components/Section";
+import Button from "../../../components/Button";
+import Section from "../../../components/Section";
 
 export default function SectionCTA() {
   return (

@@ -1,7 +1,7 @@
-import Header from "../sections/Header";
-import SectionCTA from "../sections/SectionCTA";
-import SectionCards from "../sections/SectionCards";
-import SectionSponsors from "../sections/SectionSponsors";
+import Header from "./sections/Header";
+import SectionCTA from "./sections/SectionCTA";
+import SectionCards from "./sections/SectionCards";
+import SectionSponsors from "./sections/SectionSponsors";
 
 export default function Home() {
   return (

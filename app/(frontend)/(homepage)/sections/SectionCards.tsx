@@ -1,5 +1,5 @@
-import LinkCard from "../components/LinkCard";
-import Section from "../components/Section";
+import LinkCard from "../../../components/LinkCard";
+import Section from "../../../components/Section";
 
 export default function SectionCards() {
   return (
