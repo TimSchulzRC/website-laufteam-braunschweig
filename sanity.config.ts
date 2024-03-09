@@ -1,5 +1,11 @@
+import { HomeIcon } from "@sanity/icons";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
+import {
+  filteredDocumentListItems,
+  singletonDocumentListItem,
+  singletonTools,
+} from "sanity-plugin-singleton-tools";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./sanity/schemas";
 
@@ -15,7 +21,28 @@ export default defineConfig({
 
   basePath: "/admin",
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S, context) =>
+        S.list()
+          .title("Content")
+          .items([
+            singletonDocumentListItem({
+              S,
+              context,
+              type: "homepage",
+              id: "homepage",
+              icon: HomeIcon,
+            }),
+            S.divider(),
+            ...filteredDocumentListItems({ S, context }),
+          ]),
+    }),
+    singletonTools(),
+    visionTool(),
+  ],
 
-  schema: { types: schemaTypes },
+  schema: {
+    types: schemaTypes,
+  },
 });

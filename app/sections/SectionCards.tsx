@@ -8,7 +8,7 @@ export default function SectionCards() {
         <LinkCard
           title="Das Team"
           href="/"
-          image="/images/img_1.webp"
+          imageURL="/images/img_1.webp"
           imageAlt=""
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -16,7 +16,7 @@ export default function SectionCards() {
         <LinkCard
           title="Hall of Fame"
           href="/"
-          image="/images/img_2.webp"
+          imageURL="/images/img_2.webp"
           imageAlt=""
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -24,7 +24,7 @@ export default function SectionCards() {
         <LinkCard
           title="Zur Geschichte"
           href="/"
-          image="/images/img_3.webp"
+          imageURL="/images/img_3.webp"
           imageAlt=""
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit.

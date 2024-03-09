@@ -1,13 +1,9 @@
+import { Runner } from "@/types/Runner";
 import { createClient, groq } from "next-sanity";
+import clientConfig from "./config/client-config";
 
 export async function getPosts(): Promise<any> {
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
-  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
-
-  const client = createClient({
-    projectId,
-    dataset,
-  });
+  const client = createClient(clientConfig);
 
   return client.fetch(
     groq`*[_type == "post" ]{
@@ -20,6 +16,20 @@ export async function getPosts(): Promise<any> {
             name
         },
         "body": body
+    }`
+  );
+}
+
+export async function getRunners(): Promise<Runner[]> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "runner" ]{
+        _id,
+        name,
+        "slug": slug.current,
+        "imageURL": image.asset->url,
+        "bio": bio
     }`
   );
 }

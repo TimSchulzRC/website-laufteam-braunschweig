@@ -33,22 +33,22 @@ export default function Navbar() {
 
         <ul className="flex gap-20 uppercase text-offWhite">
           <li>
-            <Link href="/" className="">
+            <Link href="/news" className="">
               News
             </Link>
           </li>
           <li>
-            <Link href="/" className="">
+            <Link href="/about-us" className="">
               Über uns
             </Link>
           </li>
           <li>
-            <Link href="/" className="">
+            <Link href="/team" className="">
               Team
             </Link>
           </li>
           <li>
-            <Link href="/" className="">
+            <Link href="/contact" className="">
               Kontakt
             </Link>
           </li>
