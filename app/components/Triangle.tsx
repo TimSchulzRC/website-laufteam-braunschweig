@@ -24,6 +24,7 @@ export default function Triangle({
         flipVertical && "scale-y-[-1]"
       } ${className}`}
       fill="none"
+      shapeRendering={"crispEdges"}
     >
       <polygon points="0,0 0,373 100,373" fill={colors?.[color]} />
     </svg>
@@ -37,6 +38,7 @@ export default function Triangle({
         flipVertical && "scale-y-[-1]"
       } ${className}`}
       fill="none"
+      shapeRendering={"crispEdges"}
     >
       <polygon points="0,0 0,100 373,100" fill={colors?.[color]} />
     </svg>

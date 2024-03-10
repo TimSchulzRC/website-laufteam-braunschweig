@@ -9,11 +9,6 @@ export default defineType({
   },
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
-    },
-    {
       name: "linkCards",
       title: "Link Cards",
       type: "array",

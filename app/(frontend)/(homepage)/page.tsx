@@ -1,15 +1,18 @@
+import { getHomepage } from "@/sanity/sanity-utils";
 import Header from "./sections/Header";
 import SectionCTA from "./sections/SectionCTA";
 import SectionCards from "./sections/SectionCards";
 import SectionSponsors from "./sections/SectionSponsors";
 
-export default function Home() {
+export default async function Home() {
+  const { linkCards } = await getHomepage();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden bg-offWhite">
       <Header />
       <SectionSponsors />
       <SectionCTA />
-      <SectionCards />
+      <SectionCards linkCards={linkCards} />
     </main>
   );
 }
