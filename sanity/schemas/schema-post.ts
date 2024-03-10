@@ -34,12 +34,6 @@ export default defineType({
       },
     },
     {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
-    },
-    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
