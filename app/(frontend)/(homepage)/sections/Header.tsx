@@ -50,15 +50,15 @@ export default function Header() {
 
   return (
     <Section className="bg-darkBlue">
-      <div className="h-[600px] sm:h-[600px] md:h-[800px] w-full relative md:container">
+      <div className="h-[600px] sm:h-[600px] md:h-[800px] w-full relative ">
         <Image
-          className="h-full w-full object-cover object-right-top"
+          className="h-full w-full object-cover object-right-top md:ps-60 2xl:container"
           src="/images/img_3.webp"
           alt="Header Image"
           width={1440}
           height={1440}
         />
-        <div className="absolute w-full h-full top-0 hidden md:flex">
+        <div className="absolute w-full h-full top-0 left-1/2 hidden md:flex md:container mx-auto -translate-x-1/2">
           <div className="md:w-[250px] lg:w-[350px] h-full bg-darkBlue flex md:pt-16 lg:pt-20">
             <Image
               src="/svg/logo_text.svg"
@@ -110,7 +110,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <Triangle color="darkBlue" flipVertical className="md:hidden" />
+      <Triangle color="offWhite" flipHorizontal className="md:hidden" />
     </Section>
   );
 }
