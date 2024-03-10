@@ -1,5 +1,6 @@
 import Homepage from "@/types/Homepage";
 import Runner from "@/types/Runner";
+import TeamPage from "@/types/TeamPage";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
@@ -39,12 +40,30 @@ export async function getHomepage(): Promise<Homepage> {
   const client = createClient(clientConfig);
 
   return client.fetch(
-    groq`*[_type == "homepage" ][0]{
+    groq`*[_type == "homepage"][0]{
       linkCards[]{
         title,
         description,
         "imageURL": image.asset->url,
         link
+      }
+    }`
+  );
+}
+
+export async function getTeamPage(): Promise<TeamPage> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "team-page"][0]{
+      title,
+      subtitle,
+      infotext,
+      "image": {
+        "url": image.asset->url,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height,
+        "alt": imageAlt
       }
     }`
   );

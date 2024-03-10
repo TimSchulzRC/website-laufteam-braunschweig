@@ -1,26 +1,41 @@
 import LinkCard from "@/app/components/LinkCard";
-import { getRunners } from "@/sanity/sanity-utils";
+import { getRunners, getTeamPage } from "@/sanity/sanity-utils";
+import Image from "next/image";
 
 export default async function Team() {
   const members = await getRunners();
-  console.log(members);
+  const { image, title, subtitle, infotext } = await getTeamPage();
+
   return (
     <>
+      <section className="2xl:container relative">
+        <Image
+          className="w-full"
+          width={image.width}
+          height={image.height}
+          src={image.url}
+          alt={image.alt}
+        />
+        <div className="absolute bottom-0 z-10 w-full">
+          <svg
+            width="1500"
+            height="100"
+            viewBox="0 0 1500 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 100L1500 0V100H0Z" fill="#30313E" />
+          </svg>
+        </div>
+      </section>
       <section className="text-offWhite container py-24">
-        <h1 className="text-5xl uppercase text-red">Das Team</h1>
-        <hr className="my-5" />
         <div className="grid grid-cols-2">
+          <h1 className="text-5xl col-span-2 uppercase text-red">{title}</h1>
+          <hr className="my-5 col-span-2" />
           <h2 className="col-span-2 md:col-span-1 mb-2 text-2xl uppercase md:pe-10">
-            Unsere passionierten Läufer im Rampenlicht
+            {subtitle}
           </h2>
-          <p className="col-span-2 md:col-span-1">
-            Wir sind stolz darauf, eine Gemeinschaft zu repräsentieren, die
-            Disziplin, Ambition und die Liebe zum Laufsport teilt. Auf dieser
-            Seite möchten wir Ihnen die Herzen und Seelen unseres Teams
-            vorstellen - unsere leidenschaftlichen Läufer, die mit jedem Schritt
-            nicht nur ihre eigenen Grenzen überwinden, sondern auch die
-            Laufkultur in Braunschweig prägen.
-          </p>
+          <p className="col-span-2 md:col-span-1">{infotext}</p>
         </div>
       </section>
       <section className="bg-red">
