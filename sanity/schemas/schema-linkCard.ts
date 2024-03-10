@@ -1,9 +1,11 @@
+import { LinkIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "linkCard",
   title: "Link Card",
   type: "object",
+  icon: LinkIcon,
   fields: [
     {
       name: "title",

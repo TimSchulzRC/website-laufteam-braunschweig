@@ -1,5 +1,5 @@
+import Section from "@/app/components/Section";
 import Image from "next/image";
-import Section from "../../../components/Section";
 
 export default function SectionSponsors() {
   return (
