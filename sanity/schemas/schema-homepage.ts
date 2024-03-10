@@ -13,6 +13,12 @@ export default defineType({
       title: "Title",
       type: "string",
     },
+    {
+      name: "linkCards",
+      title: "Link Cards",
+      type: "array",
+      of: [{ type: "linkCard" }],
+    },
   ],
   preview: {
     select: {

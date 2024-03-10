@@ -1,4 +1,5 @@
-import { Runner } from "@/types/Runner";
+import LinkCard from "@/types/LinkCard";
+import Runner from "@/types/Runner";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
@@ -31,5 +32,20 @@ export async function getRunners(): Promise<Runner[]> {
         "imageURL": image.asset->url,
         "bio": bio
     }`
+  );
+}
+
+export async function getHomepageLinkCards(): Promise<LinkCard[]> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "homepage" ][0]
+      .linkCards[]{
+        title,
+        description,
+        "imageURL": image.asset->url,
+        link
+      }
+      `
   );
 }
