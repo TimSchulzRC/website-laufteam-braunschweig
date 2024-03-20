@@ -12,7 +12,7 @@ export default function SubPageTopSections({
     <>
       <section className="2xl:container relative">
         <Image
-          className="w-full"
+          className="w-full max-h-[600px] object-cover"
           width={image.width}
           height={image.height}
           src={image.url}

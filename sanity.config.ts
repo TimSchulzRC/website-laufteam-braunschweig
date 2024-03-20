@@ -1,4 +1,4 @@
-import { HomeIcon, UsersIcon } from "@sanity/icons";
+import { DocumentTextIcon, HomeIcon, UsersIcon } from "@sanity/icons";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import {
@@ -40,6 +40,13 @@ export default defineConfig({
               type: "team-page",
               id: "team-page",
               icon: UsersIcon,
+            }),
+            singletonDocumentListItem({
+              S,
+              context,
+              type: "news-page",
+              id: "news-page",
+              icon: DocumentTextIcon,
             }),
             S.divider(),
             ...filteredDocumentListItems({ S, context }),

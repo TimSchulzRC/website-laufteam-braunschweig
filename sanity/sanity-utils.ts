@@ -1,8 +1,9 @@
 import Homepage from "@/types/Homepage";
 import PostData from "@/types/PostData";
 import RunnerData from "@/types/RunnerData";
+import SubPageData from "@/types/SubPageData";
 import TeamPageData from "@/types/TeamPageData";
-import { createClient, groq } from "next-sanity";
+import { createClient, groq, PortableTextBlock } from "next-sanity";
 import clientConfig from "./config/client-config";
 
 export async function getPosts(): Promise<PostData[]> {
@@ -14,12 +15,43 @@ export async function getPosts(): Promise<PostData[]> {
         _createdAt,
         title,
         "slug": slug.current,
-        "image": image.asset->url,
+        "image": {
+            "url": image.asset->url,
+            "width": image.asset->metadata.dimensions.width,
+            "height": image.asset->metadata.dimensions.height,
+            "alt": imageAlt
+        },
+        publishedAt,
         runners[]->{
             name
         },
         body
     }`
+  );
+}
+
+export async function getPost(slug: string): Promise<PostData> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+        _id,
+        _createdAt,
+        title,
+        "slug": slug.current,
+        "image": {
+            "url": image.asset->url,
+            "width": image.asset->metadata.dimensions.width,
+            "height": image.asset->metadata.dimensions.height,
+            "alt": imageAlt
+        },
+        publishedAt,
+        runners[]->{
+            name
+        },
+        body
+    }`,
+    { slug }
   );
 }
 
@@ -70,8 +102,37 @@ export async function getTeamPage(): Promise<TeamPageData> {
   );
 }
 
-export function blocksToText(blocks) {
-  return blocks.map((block) =>
-    block.children.map((child) => child.text).join("")
+export async function getNewsPage(): Promise<SubPageData> {
+  const client = createClient(clientConfig);
+  return client.fetch(
+    groq`*[_type == "news-page"][0]{
+      title,
+      subtitle,
+      infotext,
+      "image": {
+        "url": image.asset->url,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height,
+        "alt": imageAlt
+      }
+    }`
+  );
+}
+
+export function portableTextToString(blocks: PortableTextBlock[]): string {
+  return blocks
+    .map((block) => block.children.map((child) => child.text).join(""))
+    .join("");
+}
+
+export function portableTextPreview(
+  blocks: PortableTextBlock[],
+  length?: number
+): string {
+  return (
+    portableTextToString(blocks)
+      .split(" ")
+      .slice(0, length || 20)
+      .join(" ") + " ..."
   );
 }

@@ -10,6 +10,7 @@ export default function LinkCard({
   href,
   children,
   className,
+  disableMaxWidth = false,
 }: {
   title: string;
   imageURL: string;
@@ -17,10 +18,15 @@ export default function LinkCard({
   href: string;
   children: ReactNode;
   className?: string;
+  disableMaxWidth?: boolean;
 }) {
   return (
     <div className={className}>
-      <div className="max-w-80 pt-[66px] flex flex-col h-full">
+      <div
+        className={`${
+          !disableMaxWidth && "max-w-80"
+        } pt-[66px] flex flex-col h-full`}
+      >
         <div>
           <Triangle color="offWhite" flipHorizontal />
         </div>
@@ -33,7 +39,7 @@ export default function LinkCard({
             className="-mt-48 relative z-10 mb-6 aspect-square object-cover"
           />
           <h3 className="text-2xl text-red font-bold">{title}</h3>
-          <p className="leading-7 mb-6 grow">{children}</p>
+          <div className="leading-7 mb-6 grow">{children}</div>
           <Button
             className="w-full flex justify-center"
             color="darkBlue"

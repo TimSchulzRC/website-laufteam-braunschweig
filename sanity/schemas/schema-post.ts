@@ -2,7 +2,7 @@ import { defineType } from "sanity";
 
 export default defineType({
   name: "post",
-  title: "Post",
+  title: "News",
   type: "document",
   fields: [
     {
@@ -26,12 +26,18 @@ export default defineType({
       to: { type: "author" },
     },
     {
-      name: "mainImage",
-      title: "Main image",
+      name: "image",
+      title: "Image",
       type: "image",
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: "imageAlt",
+      title: "Image Alt",
+      type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "publishedAt",

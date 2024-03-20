@@ -1,8 +1,8 @@
 import { defineType } from "sanity";
 
 export default defineType({
-  name: "team-page",
-  title: "Team Page",
+  name: "news-page",
+  title: "News Page",
   type: "document",
   options: {
     singleton: true,
