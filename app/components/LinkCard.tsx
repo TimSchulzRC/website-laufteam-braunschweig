@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 import Button from "./Button";
 import Triangle from "./Triangle";
 
@@ -14,7 +15,7 @@ export default function LinkCard({
   imageURL: string;
   imageAlt: string;
   href: string;
-  children: string;
+  children: ReactNode;
   className?: string;
 }) {
   return (

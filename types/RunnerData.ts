@@ -1,4 +1,4 @@
-type Runner = {
+type RunnerData = {
   _id: string;
   name: string;
   slug: string;
@@ -6,4 +6,4 @@ type Runner = {
   bio: string;
 };
 
-export default Runner;
+export default RunnerData;

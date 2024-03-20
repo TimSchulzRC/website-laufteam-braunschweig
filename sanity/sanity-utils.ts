@@ -1,10 +1,11 @@
 import Homepage from "@/types/Homepage";
-import Runner from "@/types/Runner";
-import TeamPage from "@/types/TeamPage";
+import PostData from "@/types/PostData";
+import RunnerData from "@/types/RunnerData";
+import TeamPageData from "@/types/TeamPageData";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
-export async function getPosts(): Promise<any> {
+export async function getPosts(): Promise<PostData[]> {
   const client = createClient(clientConfig);
 
   return client.fetch(
@@ -17,12 +18,12 @@ export async function getPosts(): Promise<any> {
         runners[]->{
             name
         },
-        "body": body
+        body
     }`
   );
 }
 
-export async function getRunners(): Promise<Runner[]> {
+export async function getRunners(): Promise<RunnerData[]> {
   const client = createClient(clientConfig);
 
   return client.fetch(
@@ -51,7 +52,7 @@ export async function getHomepage(): Promise<Homepage> {
   );
 }
 
-export async function getTeamPage(): Promise<TeamPage> {
+export async function getTeamPage(): Promise<TeamPageData> {
   const client = createClient(clientConfig);
 
   return client.fetch(
@@ -66,5 +67,11 @@ export async function getTeamPage(): Promise<TeamPage> {
         "alt": imageAlt
       }
     }`
+  );
+}
+
+export function blocksToText(blocks) {
+  return blocks.map((block) =>
+    block.children.map((child) => child.text).join("")
   );
 }
