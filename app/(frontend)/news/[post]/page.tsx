@@ -1,6 +1,6 @@
 import { getPost } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
-import Image from "next/Image";
+import Image from "next/image";
 
 type Props = {
   params: { post: string };
