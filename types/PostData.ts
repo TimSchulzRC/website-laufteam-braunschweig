@@ -11,6 +11,7 @@ type PostData = {
   author: AuthorObject;
   image: ImageData;
   publishedAt: Date;
+  location: string;
   runners: RunnerData[];
   body: PortableTextBlock[];
   preview: string;

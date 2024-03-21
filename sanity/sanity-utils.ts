@@ -22,6 +22,7 @@ export async function getPosts(): Promise<PostData[]> {
             "alt": imageAlt
         },
         publishedAt,
+        location,
         runners[]->{
             name
         },
@@ -46,6 +47,7 @@ export async function getPost(slug: string): Promise<PostData> {
             "alt": imageAlt
         },
         publishedAt,
+        location,
         runners[]->{
             name
         },

@@ -12,29 +12,39 @@ export default async function NewsPost({ params }: Props) {
   const date = new Date(post.publishedAt);
   return (
     <>
-      <section className="container relative mb-20">
+      <section className="container max-w-[800px] relative mb-20">
         <Image
-          className="col aspect-square object-cover"
+          className="col aspect-auto max-h-[500px] object-cover"
           src={post.image.url}
           alt={post.image.alt}
           width={post.image.width}
           height={post.image.height}
         />
-        <div className="absolute bottom-0 z-10 w-full">
+
+        <div className="absolute container bottom-0 left-1/2 -translate-x-1/2">
           <svg
-            width="1500"
-            height="100"
+            width="100%"
+            height="auto"
             viewBox="0 0 1500 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            shapeRendering="crispEdges"
           >
             <path d="M0 100L1500 0V100H0Z" fill="#30313E" />
           </svg>
         </div>
+        <div className="absolute container bottom-0 right-0 text-offWhite flex justify-end">
+          {post.location && <>{post.location}, </>}
+          {date.toLocaleDateString("de-DE", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          })}
+        </div>
       </section>
-      <section className="container text-offWhite">
+      <section className="container md:max-w-[800px] text-offWhite">
         <div className="col flex flex-col justify-center">
-          <h1 className="text-5xl uppercase text-red">{post.title}</h1>
+          <h1 className="text-4xl uppercase text-red">{post.title}</h1>
           <hr className="my-5 border-offWhite" />
         </div>
         <PortableText value={post.body} />
