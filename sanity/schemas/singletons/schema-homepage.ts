@@ -30,7 +30,7 @@ export default defineType({
     // },
     {
       name: "linkCards",
-      title: "Link Cards",
+      title: "Link Karten",
       type: "array",
       of: [{ type: "linkCard" }],
     },

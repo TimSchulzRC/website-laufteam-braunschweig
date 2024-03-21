@@ -16,6 +16,7 @@
     "@portabletext/react": "^3.0.15",
     "@sanity/icons": "^2.11.4",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/locale-de-de": "^1.1.2",
     "@sanity/react-loader": "^1.9.5",
     "@sanity/vision": "^3.35.1",
     "next": "14.1.4",

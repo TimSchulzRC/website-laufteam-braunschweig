@@ -2,7 +2,7 @@ import { defineType } from "sanity";
 
 export default defineType({
   name: "runner",
-  title: "Runner",
+  title: "Läufer",
   type: "document",
   fields: [
     {
@@ -12,13 +12,13 @@ export default defineType({
     },
     {
       name: "slug",
-      title: "Slug",
+      title: "URL-Segment",
       type: "slug",
       options: { source: "name" },
     },
     {
       name: "image",
-      title: "Image",
+      title: "Bild",
       type: "image",
       options: { hotspot: true },
     },

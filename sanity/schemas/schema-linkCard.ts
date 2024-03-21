@@ -9,17 +9,17 @@ export default defineType({
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Titel",
       type: "string",
     },
     {
       name: "description",
-      title: "Description",
+      title: "Beschreibung",
       type: "text",
     },
     {
       name: "image",
-      title: "Image",
+      title: "Bild",
       type: "image",
     },
     {

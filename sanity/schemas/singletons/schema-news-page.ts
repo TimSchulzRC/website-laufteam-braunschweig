@@ -2,7 +2,7 @@ import { defineType } from "sanity";
 
 export default defineType({
   name: "news-page",
-  title: "News Page",
+  title: "Newsseite",
   type: "document",
   options: {
     singleton: true,
@@ -10,7 +10,7 @@ export default defineType({
   fields: [
     {
       name: "image",
-      title: "Image",
+      title: "Bild",
       type: "image",
       options: {
         hotspot: true,
@@ -18,18 +18,18 @@ export default defineType({
     },
     {
       name: "imageAlt",
-      title: "Image Alt",
+      title: "Bild-Alt",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
       name: "title",
-      title: "Title",
+      title: "Titel",
       type: "string",
     },
     {
       name: "subtitle",
-      title: "Subtitle",
+      title: "Untertitel",
       type: "string",
     },
     {

@@ -7,12 +7,12 @@ export default defineType({
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Titel",
       type: "string",
     },
     {
       name: "slug",
-      title: "Slug",
+      title: "URL-Segment",
       type: "slug",
       options: {
         source: "title",
@@ -21,13 +21,13 @@ export default defineType({
     },
     {
       name: "author",
-      title: "Author",
+      title: "Autor",
       type: "reference",
       to: { type: "author" },
     },
     {
       name: "image",
-      title: "Image",
+      title: "Bild",
       type: "image",
       options: {
         hotspot: true,
@@ -35,24 +35,24 @@ export default defineType({
     },
     {
       name: "imageAlt",
-      title: "Image Alt",
+      title: "Bild-Alt",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
       name: "publishedAt",
-      title: "Published at",
+      title: "Veröffentlicht am",
       type: "datetime",
     },
     {
       name: "runners",
-      title: "Runners",
+      title: "Läufer",
       type: "array",
       of: [{ type: "reference", to: { type: "runner" } }],
     },
     {
       name: "body",
-      title: "Body",
+      title: "Text",
       type: "blockContent",
     },
   ],

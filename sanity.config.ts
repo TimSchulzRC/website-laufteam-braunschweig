@@ -1,4 +1,5 @@
 import { DocumentTextIcon, HomeIcon, UsersIcon } from "@sanity/icons";
+import { deDELocale } from "@sanity/locale-de-de";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import {
@@ -22,6 +23,7 @@ export default defineConfig({
   basePath: "/admin",
 
   plugins: [
+    deDELocale(),
     structureTool({
       structure: (S, context) =>
         S.list()
