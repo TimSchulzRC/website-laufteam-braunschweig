@@ -42,7 +42,11 @@ export default defineType({
     {
       name: "publishedAt",
       title: "Veröffentlicht am",
-      type: "datetime",
+      type: "date",
+      options: {
+        dateFormat: "DD.MM.YYYY",
+        calendarTodayLabel: "Heute",
+      },
     },
     { name: "location", title: "Ort", type: "string" },
     {
