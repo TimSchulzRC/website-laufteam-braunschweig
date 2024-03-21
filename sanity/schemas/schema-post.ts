@@ -44,6 +44,7 @@ export default defineType({
       title: "Veröffentlicht am",
       type: "datetime",
     },
+    { name: "location", title: "Ort", type: "string" },
     {
       name: "runners",
       title: "Läufer",
