@@ -20,7 +20,7 @@ export default async function Team() {
               imageURL={member.imageURL}
               href=""
             >
-              {member.info}
+              {member.infotext}
             </LinkCard>
           ))}
         </div>
