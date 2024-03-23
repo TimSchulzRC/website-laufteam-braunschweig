@@ -15,7 +15,7 @@ export default function SectionCards({ linkCards }: Props) {
             className="col-auto mx-auto"
             title={linkCard.title}
             imageURL={linkCard.image.url}
-            imageAlt=""
+            imageAlt={linkCard.image.alt}
             href={linkCard.link}
             key={linkCard.title}
           >
