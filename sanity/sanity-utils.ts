@@ -66,7 +66,9 @@ export async function getRunners(): Promise<RunnerData[]> {
         name,
         "slug": slug.current,
         "imageURL": image.asset->url,
-        "bio": bio
+        bio,
+        infotext,
+        birthDate
     }`
   );
 }

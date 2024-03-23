@@ -17,6 +17,16 @@ export default defineType({
       options: { source: "name" },
     },
     {
+      name: "birthDate",
+      title: "Geburtsdatum",
+      type: "date",
+    },
+    {
+      name: "infotext",
+      title: "Infotext",
+      type: "text",
+    },
+    {
       name: "image",
       title: "Bild",
       type: "image",
@@ -25,7 +35,8 @@ export default defineType({
     {
       name: "bio",
       title: "Bio",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     },
   ],
 });
