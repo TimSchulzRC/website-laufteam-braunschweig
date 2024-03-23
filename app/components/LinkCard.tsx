@@ -3,23 +3,27 @@ import { ReactNode } from "react";
 import Button from "./Button";
 import Triangle from "./Triangle";
 
-export default function LinkCard({
-  title,
-  imageURL,
-  imageAlt,
-  href,
-  children,
-  className,
-  disableMaxWidth = false,
-}: {
+type Props = {
   title: string;
+  subtitle?: string;
   imageURL: string;
   imageAlt: string;
   href: string;
   children: ReactNode;
   className?: string;
   disableMaxWidth?: boolean;
-}) {
+};
+
+export default function LinkCard({
+  title,
+  subtitle,
+  imageURL,
+  imageAlt,
+  href,
+  children,
+  className,
+  disableMaxWidth = false,
+}: Props) {
   return (
     <div className={className}>
       <div
@@ -39,6 +43,11 @@ export default function LinkCard({
             className="-mt-48 relative z-10 mb-6 aspect-square object-cover"
           />
           <h3 className="text-2xl text-red font-bold">{title}</h3>
+          {subtitle && (
+            <h4 className="text-lg text-darkBlue-light font-sans my-2">
+              {subtitle}
+            </h4>
+          )}
           <div className="leading-7 mb-6 grow">{children}</div>
           <Button
             className="w-full flex justify-center"

@@ -10,7 +10,7 @@ export default async function Team() {
     <>
       <SubPageTopSections pageData={pageData} />
       <section className="bg-red">
-        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3">
+        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {members.map((member) => (
             <LinkCard
               className="col-auto mx-auto"

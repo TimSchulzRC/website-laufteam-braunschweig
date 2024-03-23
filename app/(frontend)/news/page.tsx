@@ -13,20 +13,24 @@ export default async function News() {
   return (
     <div>
       <SubPageTopSections pageData={pageData} />
-      <section className="container grid lg:grid-cols-2 gap-10">
-        {posts.map((post) => (
-          <LinkCard
-            disableMaxWidth
-            className="col-2"
-            key={post._id}
-            title={post.title}
-            imageURL={post.image.url}
-            imageAlt={post.image.alt}
-            href={`/news/${post.slug}`}
-          >
-            {portableTextPreview(post.body, 50)}
-          </LinkCard>
-        ))}
+      <section className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+        {posts.map((post) => {
+          const date = new Date(post.publishedAt);
+          return (
+            <LinkCard
+              disableMaxWidth
+              className="col-2"
+              key={post._id}
+              title={post.title}
+              subtitle={post.publishedAt && date.toLocaleDateString("de-DE")}
+              imageURL={post.image.url}
+              imageAlt={post.image.alt}
+              href={`/news/${post.slug}`}
+            >
+              {portableTextPreview(post.body, 50)}
+            </LinkCard>
+          );
+        })}
       </section>
     </div>
   );
