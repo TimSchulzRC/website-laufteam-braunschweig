@@ -1,7 +1,9 @@
+import ImageData from "./ImageData";
+
 type LinkCardData = {
   title: string;
   description: string;
-  imageURL: string;
+  image: ImageData;
   link: string;
 };
 
