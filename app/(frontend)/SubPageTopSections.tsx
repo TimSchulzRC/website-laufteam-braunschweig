@@ -20,11 +20,12 @@ export default function SubPageTopSections({
         />
         <div className="absolute bottom-0 z-10 w-full">
           <svg
-            width="1500"
-            height="100"
+            width="100%"
+            height="auto"
             viewBox="0 0 1500 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            shapeRendering="crispEdges"
           >
             <path d="M0 100L1500 0V100H0Z" fill="#30313E" />
           </svg>

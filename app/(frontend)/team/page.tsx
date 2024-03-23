@@ -17,8 +17,8 @@ export default async function Team() {
               key={member._id}
               title={member.name}
               imageAlt={`Bild von  + ${member.name}`}
-              imageURL={member.imageURL}
-              href=""
+              imageURL={member.image.url}
+              href={`/team/${member.slug}`}
             >
               {member.infotext}
             </LinkCard>

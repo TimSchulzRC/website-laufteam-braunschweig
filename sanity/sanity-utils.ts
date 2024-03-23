@@ -65,11 +65,38 @@ export async function getRunners(): Promise<RunnerData[]> {
         _id,
         name,
         "slug": slug.current,
-        "imageURL": image.asset->url,
+        "image": {
+          "url": image.asset->url,
+          "width": image.asset->metadata.dimensions.width,
+          "height": image.asset->metadata.dimensions.height,
+          "alt": imageAlt
+        },
         bio,
         infotext,
         birthDate
     }`
+  );
+}
+
+export async function getRunner(slug: string): Promise<RunnerData> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "runner" && slug.current == $slug][0]{
+        _id,
+        name,
+        "slug": slug.current,
+        "image": {
+          "url": image.asset->url,
+          "width": image.asset->metadata.dimensions.width,
+          "height": image.asset->metadata.dimensions.height,
+          "alt": imageAlt
+        },
+        bio,
+        infotext,
+        birthDate
+    }`,
+    { slug }
   );
 }
 
@@ -81,7 +108,12 @@ export async function getHomepage(): Promise<Homepage> {
       linkCards[]{
         title,
         description,
-        "imageURL": image.asset->url,
+        "image": {
+          "url": image.asset->url,
+          "width": image.asset->metadata.dimensions.width,
+          "height": image.asset->metadata.dimensions.height,
+          "alt": imageAlt
+        },
         link
       }
     }`

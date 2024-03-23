@@ -1,10 +1,11 @@
 import { PortableTextBlock } from "next-sanity";
+import ImageData from "./ImageData";
 
 type RunnerData = {
   _id: string;
   name: string;
   slug: string;
-  imageURL: string;
+  image: ImageData;
   bio: PortableTextBlock[];
   infotext: string;
   birthDate: string;
