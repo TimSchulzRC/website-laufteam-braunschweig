@@ -22,7 +22,12 @@ export default async function News() {
               className="col-2"
               key={post._id}
               title={post.title}
-              subtitle={post.publishedAt && date.toLocaleDateString("de-DE")}
+              subtitle={
+                post.publishedAt &&
+                `${post.location && post.location} ${
+                  post.location && post.publishedAt && ", "
+                } ${post.publishedAt && date.toLocaleDateString("de-DE")}`
+              }
               imageURL={post.image.url}
               imageAlt={post.image.alt}
               href={`/news/${post.slug}`}

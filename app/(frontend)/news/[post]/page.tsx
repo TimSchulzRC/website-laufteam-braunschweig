@@ -34,12 +34,14 @@ export default async function NewsPost({ params }: Props) {
           </svg>
         </div>
         <div className="absolute container bottom-0 right-0 text-offWhite flex justify-end">
-          {post.location && <>{post.location}, </>}
-          {date.toLocaleDateString("de-DE", {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          })}
+          {post.location && post.location}
+          {post.location && post.publishedAt && ", "}
+          {post.publishedAt &&
+            date.toLocaleDateString("de-DE", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
         </div>
       </section>
       <section className="container md:max-w-[800px] text-offWhite">
