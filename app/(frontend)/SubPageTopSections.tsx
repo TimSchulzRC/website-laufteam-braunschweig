@@ -38,7 +38,7 @@ export default function SubPageTopSections({
           <h2 className="col-span-2 md:col-span-1 mb-2 text-2xl uppercase md:pe-10">
             {subtitle}
           </h2>
-          <p className="col-span-2 md:col-span-1">{infotext}</p>
+          <p className="col-span-2 md:col-span-1 m-0">{infotext}</p>
         </div>
       </section>
     </>
