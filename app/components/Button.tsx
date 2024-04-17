@@ -1,3 +1,5 @@
+"use client";
+
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Link from "next/link";
 import { ReactNode } from "react";
