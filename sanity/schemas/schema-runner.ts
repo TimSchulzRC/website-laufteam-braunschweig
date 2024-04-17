@@ -15,6 +15,7 @@ export default defineType({
       title: "URL-Segment",
       type: "slug",
       options: { source: "name" },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "birthDate",
