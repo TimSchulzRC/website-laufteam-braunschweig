@@ -22,15 +22,6 @@ export default function HeaderCarouselItem({
 }: Props) {
   const colors = config.theme?.extend?.colors as Record<string, string>;
   const logoRef = useRef<HTMLImageElement>(null);
-  console.log(
-    "HeaderCarouselItem",
-    imgURL,
-    title,
-    imgAlt,
-    postSlug,
-    colors,
-    logoRef
-  );
 
   const handelLeavingScreen = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -78,7 +69,7 @@ export default function HeaderCarouselItem({
           <Image
             className="h-full w-full object-cover"
             src={imgURL}
-            alt="Header Image"
+            alt={imgAlt}
             width={1440}
             height={1440}
           />

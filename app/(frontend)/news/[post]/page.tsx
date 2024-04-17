@@ -9,7 +9,6 @@ type Props = {
 
 export default async function NewsPost({ params }: Props) {
   const post = await getPost(params.post);
-  console.log(params);
   const date = new Date(post.publishedAt);
   return (
     <>

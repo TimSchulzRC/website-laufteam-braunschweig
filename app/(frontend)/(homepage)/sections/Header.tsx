@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderCarouselItem from "@/app/components/HeaderCarouselItem";
 import PostData from "@/types/PostData";
 import { Carousel } from "flowbite-react";
