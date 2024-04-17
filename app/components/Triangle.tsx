@@ -13,15 +13,15 @@ export default function Triangle({
   className?: string;
   rotated?: boolean;
 }) {
-  const colors = config.theme?.colors as Record<string, string>;
+  const colors = config.theme?.extend?.colors as Record<string, string>;
   return rotated ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100%"
+      width={rotated ? "" : "100%"}
       height="100%"
       viewBox="0 0 100 373"
-      className={`${flipHorizontal && "scale-x-[-1]"} ${
-        flipVertical && "scale-y-[-1]"
+      className={`${flipHorizontal ? "scale-x-[-1]" : ""} ${
+        flipVertical ? "scale-y-[-1]" : ""
       } ${className}`}
       fill="none"
       shapeRendering={"crispEdges"}
@@ -31,11 +31,11 @@ export default function Triangle({
   ) : (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100%"
+      width={rotated ? "" : "100%"}
       height="100%"
       viewBox="0 0 373 100"
-      className={`${flipHorizontal && "scale-x-[-1]"} ${
-        flipVertical && "scale-y-[-1]"
+      className={`${flipHorizontal ? "scale-x-[-1]" : ""} ${
+        flipVertical ? "scale-y-[-1]" : ""
       } ${className}`}
       fill="none"
       shapeRendering={"crispEdges"}

@@ -15,6 +15,26 @@ h6 {
   @apply font-display;
 }
 
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-3xl;
+}
+h3 {
+  @apply text-2xl;
+}
+h4 {
+  @apply text-xl;
+}
+h5 {
+  @apply text-lg;
+}
+
+p {
+  margin: 1em 0;
+}
+
 .link {
   @apply text-orange;
   @apply hover:text-orange-light;
@@ -27,4 +47,27 @@ h6 {
 
 .cursive {
   @apply skew-x-[-15deg];
+}
+
+.title {
+  --line-height: 1em; /* we should use line-height */
+  --line-count: 1; /* you can change the line count */
+
+  line-height: var(--line-height);
+  background-color: lightblue;
+  background-image: linear-gradient(red, red);
+  background-size: 100% calc(var(--line-height) * var(--line-count));
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  position: relative;
+  font-family: verdana;
+  text-align: left;
+}
+
+.carousel > div {
+  border-radius: 0;
+  border: 0;
 }

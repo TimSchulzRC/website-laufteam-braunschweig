@@ -31,6 +31,31 @@ export async function getPosts(): Promise<PostData[]> {
   );
 }
 
+export async function getMostRecentPosts(): Promise<PostData[]> {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type == "post" ] | order(publishedAt desc) [0...3]{
+        _id,
+        _createdAt,
+        title,
+        "slug": slug.current,
+        "image": {
+            "url": image.asset->url,
+            "width": image.asset->metadata.dimensions.width,
+            "height": image.asset->metadata.dimensions.height,
+            "alt": imageAlt
+        },
+        publishedAt,
+        location,
+        runners[]->{
+            name
+        },
+        body
+    }`
+  );
+}
+
 export async function getPost(slug: string): Promise<PostData> {
   const client = createClient(clientConfig);
 
@@ -156,6 +181,7 @@ export async function getNewsPage(): Promise<SubPageData> {
 }
 
 export function portableTextToString(blocks: PortableTextBlock[]): string {
+  if (!blocks || !blocks.length) return "";
   return blocks
     .map((block) => block.children.map((child) => child.text).join(""))
     .join("");

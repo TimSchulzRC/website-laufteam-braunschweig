@@ -24,8 +24,8 @@ export default async function News() {
               title={post.title}
               subtitle={
                 post.publishedAt &&
-                `${post.location && post.location} ${
-                  post.location && post.publishedAt && ", "
+                `${post.location ? post.location : ""} ${
+                  post.location && post.publishedAt ? ", " : ""
                 } ${post.publishedAt && date.toLocaleDateString("de-DE")}`
               }
               imageURL={post.image.url}

@@ -1,116 +1,26 @@
-"use client";
-import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
-import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import Button from "../../../components/Button";
+import HeaderCarouselItem from "@/app/components/HeaderCarouselItem";
+import PostData from "@/types/PostData";
+import { Carousel } from "flowbite-react";
 import Section from "../../../components/Section";
-import Triangle from "../../../components/Triangle";
 
-export default function Header() {
-  const logoRef = useRef<HTMLImageElement>(null);
+type Props = {
+  recentPosts: PostData[];
+};
 
-  const handelLeavingScreen = useCallback(
-    (entries: IntersectionObserverEntry[]) => {
-      const navLogo = document.getElementById("nav-logo");
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLogo?.classList.add("opacity-0");
-          if (logoRef.current) {
-            logoRef.current.classList.remove("opacity-0");
-            logoRef.current.style.transformOrigin = "bottom";
-          }
-        } else {
-          navLogo?.classList.remove("opacity-0");
-          if (logoRef.current) {
-            logoRef.current.classList.add("opacity-0");
-          }
-        }
-      });
-    },
-    []
-  );
-
-  const options = useMemo(
-    () => ({
-      root: null,
-      rootMargin: "0px",
-      threshold: 1,
-    }),
-    []
-  );
-
-  useEffect(() => {
-    const logo = logoRef.current;
-    const observer = new IntersectionObserver(handelLeavingScreen, options);
-    if (logo) observer.observe(logo);
-    return () => {
-      if (logo) observer.unobserve(logo);
-    };
-  }, [handelLeavingScreen, logoRef, options]);
-
+export default function Header({ recentPosts }: Props) {
   return (
     <Section className="bg-darkBlue">
-      <div className="h-[600px] sm:h-[600px] md:h-[800px] w-full relative ">
-        <Image
-          className="h-full w-full object-cover object-right-top md:ps-60 2xl:container"
-          src="/images/img_3.webp"
-          alt="Header Image"
-          width={1440}
-          height={1440}
-        />
-        <div className="absolute w-full h-full top-0 left-1/2 hidden md:flex md:container mx-auto -translate-x-1/2">
-          <div className="md:w-[250px] lg:w-[350px] h-full bg-darkBlue flex md:pt-16 lg:pt-20">
-            <Image
-              src="/svg/logo_text.svg"
-              height={67}
-              width={274}
-              alt={""}
-              className={`h-auto md:flex md:w-[300px] lg:w-[350px] z-20 absolute transition ease-in-out`}
-              style={{ transformOrigin: "top" }}
-              ref={logoRef}
-            />
-
-            <div className="absolute z-10 bottom-32 flex flex-col items-end">
-              <h1 className="text-offWhite italic font-bold md:text-5xl lg:text-6xl mb-12 uppercase ms-[-5px]">
-                DM in <br />
-                <span className="text-red">Uzelen</span>
-              </h1>
-              <div className="w-full pe-6">
-                <Button
-                  color="orange"
-                  className="w-full"
-                  showIcon={false}
-                  href="/"
-                  skew
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span>Jetzt lesen!</span>
-                    <DoubleArrowSharpIcon fontSize="small" />
-                  </div>
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <Triangle color="darkBlue" rotated flipVertical />
-          </div>
-        </div>
-        <div className="w-full absolute bottom-0 left-0 md:hidden">
-          <div className="w-full">
-            <Triangle color="darkBlue" />
-          </div>
-          <div className="bg-darkBlue text-offWhite my-[-1px] px-10 py-5 relative">
-            <h1 className="cursive font-bold text-5xl mb-6 uppercase ms-[-5px]">
-              DM in <br />
-              <span className="text-red">Uzelen</span>
-            </h1>
-            <Button href="/" color="orange" skew className="w-44">
-              Jetzt lesen!
-            </Button>
-          </div>
-        </div>
-      </div>
-      <Triangle color="offWhite" flipHorizontal className="md:hidden" />
+      <Carousel className="carousel" slide={false}>
+        {recentPosts.map((post, index) => (
+          <HeaderCarouselItem
+            key={index}
+            imgURL={post.image.url}
+            title={post.title}
+            imgAlt={post.image.alt}
+            postSlug={post.slug}
+          />
+        ))}
+      </Carousel>
     </Section>
   );
 }
