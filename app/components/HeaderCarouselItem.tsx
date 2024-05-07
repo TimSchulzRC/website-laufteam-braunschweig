@@ -59,18 +59,7 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
 
   return (
     <div>
-      <div className="h-[600px] sm:h-[600px] md:h-[800px] relative 2xl:container">
-        <div className="h-full lg:w-2/3 flex ms-auto">
-          {image.url && (
-            <Image
-              className="h-full w-full object-cover"
-              src={image.url}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-            />
-          )}
-        </div>
+      <div className="h-[600px] sm:h-[600px] md:h-[650px] relative 2xl:container">
         <div className="absolute lg:ps-20 2xl:ps-0 w-full h-full top-0 left-1/2 hidden lg:flex mx-auto -translate-x-1/2">
           <div className="w-1/3 h-full bg-darkBlue flex flex-col justify-between md:pb-32 md:pt-16 lg:pt-20">
             <Image
@@ -117,8 +106,19 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               </div>
             </div>
           </div>
-          <div>
-            <Triangle color="darkBlue" rotated flipVertical />
+          <div className="flex relative w-2/3">
+            <div className="h-full absolute">
+              <Triangle color="darkBlue" rotated flipVertical />
+            </div>
+            {image.url && (
+              <Image
+                className="h-full w-full object-cover object-left"
+                src={image.url}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+              />
+            )}
           </div>
         </div>
         <div className="w-full absolute bottom-0 left-0 lg:hidden">
