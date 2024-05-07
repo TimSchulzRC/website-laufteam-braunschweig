@@ -1,6 +1,7 @@
 "use client";
 
 import config from "@/tailwind.config";
+import ImageData from "@/types/ImageData";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef } from "react";
@@ -8,18 +9,12 @@ import Button from "./Button";
 import Triangle from "./Triangle";
 
 type Props = {
-  imgURL: string;
+  image: ImageData;
   title: string;
-  imgAlt: string;
   postSlug: string;
 };
 
-export default function HeaderCarouselItem({
-  imgURL,
-  title,
-  imgAlt,
-  postSlug,
-}: Props) {
+export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
   const colors = config.theme?.extend?.colors as Record<string, string>;
   const logoRef = useRef<HTMLImageElement>(null);
 
@@ -66,13 +61,15 @@ export default function HeaderCarouselItem({
     <div>
       <div className="h-[600px] sm:h-[600px] md:h-[800px] relative 2xl:container">
         <div className="h-full lg:w-2/3 flex ms-auto">
-          <Image
-            className="h-full w-full object-cover"
-            src={imgURL}
-            alt={imgAlt}
-            width={1440}
-            height={1440}
-          />
+          {image.url && (
+            <Image
+              className="h-full w-full object-cover"
+              src={image.url}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+            />
+          )}
         </div>
         <div className="absolute lg:ps-20 2xl:ps-0 w-full h-full top-0 left-1/2 hidden lg:flex mx-auto -translate-x-1/2">
           <div className="w-1/3 h-full bg-darkBlue flex flex-col justify-between md:pb-32 md:pt-16 lg:pt-20">

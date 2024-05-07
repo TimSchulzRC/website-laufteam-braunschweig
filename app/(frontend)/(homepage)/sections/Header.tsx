@@ -16,9 +16,8 @@ export default function Header({ recentPosts }: Props) {
         {recentPosts.map((post, index) => (
           <HeaderCarouselItem
             key={index}
-            imgURL={post.image.url}
+            image={post.image}
             title={post.title}
-            imgAlt={post.image.alt}
             postSlug={post.slug}
           />
         ))}
