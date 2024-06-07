@@ -1,3 +1,4 @@
+import AboutUsPageData from "@/types/AboutUsPageData";
 import Homepage from "@/types/Homepage";
 import PostData from "@/types/PostData";
 import RunnerData from "@/types/RunnerData";
@@ -170,6 +171,24 @@ export async function getNewsPage(): Promise<SubPageData> {
       title,
       subtitle,
       infotext,
+      "image": {
+        "url": image.asset->url,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height,
+        "alt": imageAlt
+      }
+    }`
+  );
+}
+
+export async function getAboutUsPage(): Promise<AboutUsPageData> {
+  const client = createClient(clientConfig);
+  return client.fetch(
+    groq`*[_type == "aboutUs-page"][0]{
+      title,
+      subtitle,
+      infotext,
+      content,
       "image": {
         "url": image.asset->url,
         "width": image.asset->metadata.dimensions.width,

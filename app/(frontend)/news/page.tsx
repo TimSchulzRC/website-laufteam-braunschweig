@@ -11,7 +11,7 @@ export default async function News() {
   const posts = await getPosts();
 
   return (
-    <div>
+    <>
       <SubPageTopSections pageData={pageData} />
       <section className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
         {posts.map((post) => {
@@ -24,8 +24,7 @@ export default async function News() {
               title={post.title}
               subtitle={
                 post.publishedAt &&
-                `${post.location ? post.location : ""} ${
-                  post.location && post.publishedAt ? ", " : ""
+                `${post.location ? post.location : ""} ${post.location && post.publishedAt ? ", " : ""
                 } ${post.publishedAt && date.toLocaleDateString("de-DE")}`
               }
               imageURL={post.image.url}
@@ -37,6 +36,6 @@ export default async function News() {
           );
         })}
       </section>
-    </div>
+    </>
   );
 }

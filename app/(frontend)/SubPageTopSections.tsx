@@ -11,13 +11,15 @@ export default function SubPageTopSections({
   return (
     <>
       <section className="2xl:container relative">
-        <Image
-          className="w-full max-h-[600px] object-cover"
-          width={image.width}
-          height={image.height}
-          src={image.url}
-          alt={image.alt}
-        />
+        {image.url && (
+          <Image
+            className="w-full max-h-[600px] object-cover"
+            width={image.width}
+            height={image.height}
+            src={image.url}
+            alt={image.alt}
+          />
+        )}
         <div className="absolute bottom-0 z-10 w-full">
           <svg
             width="100%"
