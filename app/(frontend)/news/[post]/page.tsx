@@ -1,4 +1,5 @@
 import { getPost } from "@/sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
 import ContentPageContentSection from "../../ContentPageContentSection";
 import ContentPageTopSection from "../../ContentPageTopSection";
 
@@ -23,7 +24,9 @@ export default async function NewsPost({ params }: Props) {
             })}
         </div>
       </ContentPageTopSection>
-      <ContentPageContentSection title={post.title}></ContentPageContentSection>
+      <ContentPageContentSection title={post.title}>
+        <PortableText value={post.body} />
+      </ContentPageContentSection>
     </>
   );
 }
