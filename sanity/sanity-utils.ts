@@ -188,7 +188,7 @@ export async function getAboutUsPage(): Promise<AboutUsPageData> {
       title,
       subtitle,
       infotext,
-      content,
+      sections,
       "image": {
         "url": image.asset->url,
         "width": image.asset->metadata.dimensions.width,

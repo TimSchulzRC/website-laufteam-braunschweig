@@ -2,6 +2,7 @@ import { DocumentTextIcon, HomeIcon, UsersIcon } from "@sanity/icons";
 import { deDELocale } from "@sanity/locale-de-de";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
+import { simplerColorInput } from "sanity-plugin-simpler-color-input";
 import {
   filteredDocumentListItems,
   singletonDocumentListItem,
@@ -63,6 +64,16 @@ export default defineConfig({
     }),
     singletonTools(),
     visionTool(),
+    simplerColorInput({
+      defaultColorFormat: "hsl",
+      defaultColorList: [
+        { label: "Rot", value: "#BF2C38" },
+        { label: "Orange", value: "#C9824A" },
+        { label: "Dunkelblau", value: "#30313E" },
+        { label: "Grau", value: "#86848A" },
+        { label: "OffWhite", value: "#E7E5E2" },
+      ],
+    }),
   ],
 
   schema: {

@@ -15,7 +15,27 @@ export default defineType({
       title: "Inhalt",
       type: "blockContent",
     },
+    {
+      name: "backgroundColor",
+      title: "Hintergrundfarbe",
+      type: "simplerColor",
+    },
+    {
+      name: "textColor",
+      title: "Textfarbe",
+      type: "simplerColor",
+    },
   ],
+  initialValue: {
+    backgroundColor: {
+      label: "Dunkelblau",
+      value: "#30313E",
+    },
+    textColor: {
+      label: "OffWhite",
+      value: "#E7E5E2",
+    },
+  },
   preview: {
     select: {
       title: "title",

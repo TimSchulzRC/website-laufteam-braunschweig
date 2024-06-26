@@ -1,8 +1,8 @@
-import { PortableTextBlock } from "next-sanity";
+import ContentSectionData from "./ContentSectionData";
 import SubPageData from "./SubPageData";
 
 interface AboutUsPageData extends SubPageData {
-  content: PortableTextBlock[];
+  sections: ContentSectionData[];
 }
 
 export default AboutUsPageData;

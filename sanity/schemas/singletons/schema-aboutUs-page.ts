@@ -38,19 +38,10 @@ export default defineType({
       type: "text",
     },
     {
-      name: "content",
-      title: "Seiteninhalt",
-      type: "blockContent",
-    },
-    {
       name: "sections",
       title: "Inhalt-Abschnitte",
       type: "array",
-      of: [
-        {
-          type: "section",
-        },
-      ],
+      of: [{ type: "section" }],
     },
   ],
   preview: {

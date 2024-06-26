@@ -1,5 +1,5 @@
+import ContentSection from "@/app/components/ContentSection";
 import { getAboutUsPage } from "@/sanity/sanity-utils";
-import { PortableText } from "next-sanity";
 import SubPageTopSections from "../SubPageTopSections";
 
 export default async function AboutUs() {
@@ -8,9 +8,9 @@ export default async function AboutUs() {
   return (
     <>
       <SubPageTopSections pageData={pageData} />
-      <section className="container text-offWhite">
-        <PortableText value={pageData.content} />
-      </section>
+      {pageData.sections.map((s) => (
+        <ContentSection key={s._key} data={s} />
+      ))}
     </>
   );
 }
