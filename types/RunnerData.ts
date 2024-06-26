@@ -5,9 +5,9 @@ type RunnerData = {
   _id: string;
   name: string;
   slug: string;
+  hallOfFame: boolean;
   image: ImageData;
   bio: PortableTextBlock[];
-  birthDate: string;
 };
 
 export default RunnerData;

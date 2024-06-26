@@ -97,9 +97,9 @@ export async function getRunners(): Promise<RunnerData[]> {
           "height": image.asset->metadata.dimensions.height,
           "alt": imageAlt
         },
+        hallOfFame,
         bio,
         infotext,
-        birthDate
     }`
   );
 }

@@ -18,15 +18,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "birthDate",
-      title: "Geburtsdatum",
-      type: "date",
-    },
-    {
       name: "image",
       title: "Bild",
       type: "image",
       options: { hotspot: true },
+    },
+    {
+      name: "hallOfFame",
+      title: "Hall of Fame",
+      type: "boolean",
     },
     {
       name: "bio",
@@ -35,4 +35,7 @@ export default defineType({
       of: [{ type: "block" }],
     },
   ],
+  initialValue: {
+    hallOfFame: false,
+  },
 });

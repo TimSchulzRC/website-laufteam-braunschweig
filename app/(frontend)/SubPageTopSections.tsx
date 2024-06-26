@@ -35,7 +35,7 @@ export default function SubPageTopSections({
       <section className="text-offWhite container py-24">
         <div className="grid grid-cols-2">
           <h1 className="text-5xl col-span-2 uppercase text-red">{title}</h1>
-          <hr className="my-5 col-span-2" />
+          <hr className="my-4 col-span-2" />
           <h2 className="col-span-2 md:col-span-1 mb-2 text-2xl uppercase md:pe-10">
             {subtitle}
           </h2>
