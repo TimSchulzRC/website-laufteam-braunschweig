@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "../../../components/Button";
 import Section from "../../../components/Section";
 
 export default function SectionCTA() {
@@ -24,9 +23,9 @@ export default function SectionCTA() {
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der
           Startgemeinschaft LG Braunschweig Mitglied sind.
         </p>
-        <Button href="/" color="orange" skew>
+        {/* <Button href="/" color="orange" skew>
           Mehr erfahren
-        </Button>
+        </Button> */}
       </div>
     </Section>
   );
