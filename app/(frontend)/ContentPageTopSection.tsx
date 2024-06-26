@@ -10,13 +10,15 @@ type Props = {
 export default function ContentPageTopSection({ image, children }: Props) {
   return (
     <section className="container max-w-[800px] relative mb-20">
-      <Image
-        className="col aspect-auto max-h-[500px] object-cover"
-        src={image.url}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-      />
+      {image.url && (
+        <Image
+          className="col aspect-auto max-h-[500px] object-cover"
+          src={image.url}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+        />
+      )}
       <div className="absolute container bottom-0 left-1/2 -translate-x-1/2">
         <svg
           width="100%"

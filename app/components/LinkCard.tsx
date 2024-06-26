@@ -10,7 +10,7 @@ type Props = {
   imageURL: string;
   imageAlt: string;
   href: string;
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   disableMaxWidth?: boolean;
 };

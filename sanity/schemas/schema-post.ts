@@ -59,7 +59,8 @@ export default defineType({
     {
       name: "body",
       title: "Text",
-      type: "blockContent",
+      type: "array",
+      of: [{ type: "block" }],
     },
   ],
 

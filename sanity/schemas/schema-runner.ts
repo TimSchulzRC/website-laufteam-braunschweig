@@ -23,11 +23,6 @@ export default defineType({
       type: "date",
     },
     {
-      name: "infotext",
-      title: "Infotext",
-      type: "text",
-    },
-    {
       name: "image",
       title: "Bild",
       type: "image",

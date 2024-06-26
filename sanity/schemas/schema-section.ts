@@ -14,7 +14,8 @@ export default defineType({
     {
       name: "content",
       title: "Inhalt",
-      type: "blockContent",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "backgroundColor",

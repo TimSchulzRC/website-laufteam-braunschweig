@@ -19,9 +19,7 @@ export default async function Team() {
               imageAlt={`Bild von  + ${member.name}`}
               imageURL={member.image.url}
               href={`/team/${member.slug}`}
-            >
-              {member.infotext}
-            </LinkCard>
+            />
           ))}
         </div>
       </section>

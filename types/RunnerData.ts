@@ -7,7 +7,6 @@ type RunnerData = {
   slug: string;
   image: ImageData;
   bio: PortableTextBlock[];
-  infotext: string;
   birthDate: string;
 };
 
