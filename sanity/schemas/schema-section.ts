@@ -10,6 +10,7 @@ export default defineType({
       title: "Titel",
       type: "string",
     },
+    { name: "disableTitle", title: "Titel ausblenden", type: "boolean" },
     {
       name: "content",
       title: "Inhalt",
@@ -27,6 +28,7 @@ export default defineType({
     },
   ],
   initialValue: {
+    disableTitle: false,
     backgroundColor: {
       label: "Dunkelblau",
       value: "#30313E",

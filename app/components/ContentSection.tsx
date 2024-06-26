@@ -45,16 +45,25 @@ export default function ContentSection({ data, className }: Props) {
 
   console.log(bgColor, textColor);
 
-  return (
-    <Section className={`${bgColor} ${textColor} ${className || ""} `}>
-      <div className="container grid grid-cols-2 py-10">
-        <h2 className="text-xl uppercase col-span-2">{data.title}</h2>
-        <hr className={`col-span-2 mt-2 ${borderColor}`} />
-        <div />
-        <div>
-          <PortableText value={data.content} />
-          <hr />
-        </div>
+  return data.disableTitle ? (
+    <Section
+      className={`container text-center ${bgColor} ${textColor} ${className || ""}`}
+    >
+      <div className="max-w-lg py-12">
+        <PortableText value={data.content} />
+      </div>
+    </Section>
+  ) : (
+    <Section
+      className={`container grid grid-cols-2 py-12 ${bgColor} ${textColor} ${className || ""}`}
+    >
+      <hr className={`col-span-2 mt-2 order-2 md:order-1 ${borderColor}`} />
+      <div className="h-full order-1 md:order-2">
+        <h2 className="text-xl uppercase col-span-2 mt-4">{data.title}</h2>
+      </div>
+      <div className="order-3 col-span-2 md:col-span-1">
+        <PortableText value={data.content} />
+        <hr />
       </div>
     </Section>
   );

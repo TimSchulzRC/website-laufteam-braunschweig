@@ -8,9 +8,11 @@ export default async function AboutUs() {
   return (
     <>
       <SubPageTopSections pageData={pageData} />
-      {pageData.sections.map((s) => (
-        <ContentSection key={s._key} data={s} />
-      ))}
+      <section className="bg-red py-24">
+        {pageData.sections.map((s) => (
+          <ContentSection className="mb-12" key={s._key} data={s} />
+        ))}
+      </section>
     </>
   );
 }
