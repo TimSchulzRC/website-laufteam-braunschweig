@@ -9,9 +9,7 @@ export default async function AboutUs() {
     <>
       <SubPageTopSections pageData={pageData} />
       <section className="container text-offWhite">
-        <div className="md:w-1/2">
-          <PortableText value={pageData.content} />
-        </div>
+        <PortableText value={pageData.content} />
       </section>
     </>
   );

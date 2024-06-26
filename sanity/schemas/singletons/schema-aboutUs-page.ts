@@ -42,6 +42,16 @@ export default defineType({
       title: "Seiteninhalt",
       type: "blockContent",
     },
+    {
+      name: "sections",
+      title: "Inhalt-Abschnitte",
+      type: "array",
+      of: [
+        {
+          type: "section",
+        },
+      ],
+    },
   ],
   preview: {
     select: {

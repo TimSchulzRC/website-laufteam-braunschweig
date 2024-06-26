@@ -20,7 +20,6 @@ export default function ContentPageTopSection({ image, children }: Props) {
       <div className="absolute container bottom-0 left-1/2 -translate-x-1/2">
         <svg
           width="100%"
-          height="auto"
           viewBox="0 0 1500 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

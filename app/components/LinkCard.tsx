@@ -36,13 +36,15 @@ export default function LinkCard({
           <Triangle color="offWhite" flipHorizontal />
         </div>
         <div className="bg-offWhite p-10 grow h-full flex flex-col">
-          <Image
-            src={imageURL}
-            alt={imageAlt}
-            height={1440}
-            width={1440}
-            className="-mt-48 relative z-10 mb-6 aspect-square object-cover"
-          />
+          {imageURL && (
+            <Image
+              src={imageURL}
+              alt={imageAlt}
+              height={1440}
+              width={1440}
+              className="-mt-48 relative z-10 mb-6 aspect-square object-cover"
+            />
+          )}
           <h3 className="text-2xl text-red font-bold">{title}</h3>
           {subtitle && (
             <h4 className="text-lg text-darkBlue-light font-sans my-2">

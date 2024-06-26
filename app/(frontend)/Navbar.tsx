@@ -18,13 +18,7 @@ export default function Navbar() {
             isHomepage && "opacity-0"
           }`}
         >
-          <Image
-            className="h-full object-contain col-span-2"
-            src="/svg/logo_no_text.svg"
-            width={24}
-            height={24}
-            alt=""
-          />
+          <Image src="/svg/logo_no_text.svg" width={24} height={24} alt="" />
           <div className="pt-1">
             <span className="text-offWhite">Laufteam</span>{" "}
             <span className="text-red">Braunschweig</span>

@@ -3,6 +3,7 @@ import blockContent from "./schema-blockContent";
 import linkCard from "./schema-linkCard";
 import post from "./schema-post";
 import runner from "./schema-runner";
+import section from "./schema-section";
 import aboutUsPage from "./singletons/schema-aboutUs-page";
 import homepage from "./singletons/schema-homepage";
 import newsPage from "./singletons/schema-news-page";
@@ -18,4 +19,5 @@ export const schemaTypes = [
   teamPage,
   newsPage,
   aboutUsPage,
+  section,
 ];
