@@ -4,7 +4,6 @@ import config from "@/tailwind.config";
 import ImageData from "@/types/ImageData";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef } from "react";
 import Button from "./Button";
 import Triangle from "./Triangle";
 
@@ -16,46 +15,6 @@ type Props = {
 
 export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
   const colors = config.theme?.extend?.colors as Record<string, string>;
-  const logoRef = useRef<HTMLImageElement>(null);
-
-  const handelLeavingScreen = useCallback(
-    (entries: IntersectionObserverEntry[]) => {
-      const navLogo = document.getElementById("nav-logo");
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLogo?.classList.add("lg:opacity-0");
-          if (logoRef.current) {
-            logoRef.current.classList.remove("lg:opacity-0");
-            logoRef.current.style.transformOrigin = "bottom";
-          }
-        } else {
-          navLogo?.classList.remove("lg:opacity-0");
-          if (logoRef.current) {
-            logoRef.current.classList.add("lg:opacity-0");
-          }
-        }
-      });
-    },
-    []
-  );
-
-  const options = useMemo(
-    () => ({
-      root: null,
-      rootMargin: "0px",
-      threshold: 1,
-    }),
-    []
-  );
-
-  useEffect(() => {
-    const logo = logoRef.current;
-    const observer = new IntersectionObserver(handelLeavingScreen, options);
-    if (logo) observer.observe(logo);
-    return () => {
-      if (logo) observer.unobserve(logo);
-    };
-  }, [handelLeavingScreen, logoRef, options]);
 
   return (
     <div>
@@ -69,7 +28,6 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               alt={""}
               className="h-full md:flex md:w-[300px] lg:w-[350px] z-20 transition ease-in-out"
               style={{ transformOrigin: "top" }}
-              ref={logoRef}
             />
 
             <div className="bottom-32 flex flex-col overflow-visible lg:max-w-72 ">
