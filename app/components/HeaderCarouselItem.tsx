@@ -25,7 +25,7 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               src="/svg/logo_text.svg"
               height={67}
               width={274}
-              alt={""}
+              alt="Laufteam Braunschweig Logo"
               className="h-full md:flex md:w-[300px] lg:w-[350px] z-20 transition ease-in-out"
               style={{ transformOrigin: "top" }}
             />

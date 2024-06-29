@@ -47,7 +47,7 @@ export default function Navbar() {
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-offWhite rounded-lg md:hidden focus:outline-none focus:ring-1 focus:ring-offWhite dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-offWhite md:hidden focus:outline-none focus:ring-1 focus:ring-offWhite dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -61,9 +61,8 @@ export default function Navbar() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="square"
-              stroke-linejoin="square"
-              stroke-width="2"
+              strokeLinecap="square"
+              strokeWidth="2"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>

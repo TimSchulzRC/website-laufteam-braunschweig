@@ -10,7 +10,7 @@ export default function SectionCTA() {
           src="/svg/logo_no_text.svg"
           width={102}
           height={118}
-          alt=""
+          alt="Logo von Laufteam Braunschweig ohne Text, Roter Löwenkopf"
         />
         <h2 className="flex flex-col items-center text-offWhite text-3xl text-bold italic my-6 uppercase font-bold">
           <span>Durch</span>

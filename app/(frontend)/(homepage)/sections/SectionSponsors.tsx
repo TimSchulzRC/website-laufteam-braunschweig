@@ -10,7 +10,7 @@ export default function SectionSponsors() {
           src="/sponsors/mietens.png"
           width={88}
           height={58}
-          alt=""
+          alt="Logo von Mietens"
         />
 
         <Image
@@ -18,7 +18,7 @@ export default function SectionSponsors() {
           src="/sponsors/body-med.png"
           width={134}
           height={107}
-          alt=""
+          alt="Logo von BodyMed"
         />
 
         <Image
@@ -26,7 +26,7 @@ export default function SectionSponsors() {
           src="/sponsors/bw.png"
           width={308}
           height={62}
-          alt=""
+          alt="Logo von Bartel Wotschke Ingenieure"
         />
       </div>
     </Section>
