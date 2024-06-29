@@ -12,7 +12,7 @@ type Props = {
 export default function Header({ recentPosts }: Props) {
   return (
     <Section className="bg-darkBlue">
-      <Carousel className="carousel">
+      <Carousel className="carousel" slide={false}>
         {recentPosts.map((post, index) => (
           <HeaderCarouselItem
             key={index}

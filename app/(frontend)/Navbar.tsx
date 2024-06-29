@@ -15,7 +15,7 @@ export default function Navbar() {
           id="nav-logo"
           href="/"
           className={`italic uppercase font-display font-bold flex items-center gap-2 transition ease-in-out ${
-            isHomepage && "opacity-0"
+            isHomepage && "lg:opacity-0"
           }`}
         >
           <Image src="/svg/logo_no_text.svg" width={24} height={24} alt="" />
@@ -25,31 +25,34 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <ul className="hidden lg:flex gap-10 lg:gap-20 uppercase text-offWhite">
-          <li>
-            <Link href="/news" className="">
-              News
-            </Link>
-          </li>
-          <li>
-            <Link href="/about-us" className="">
-              Über uns
-            </Link>
-          </li>
-          <li>
-            <Link href="/team" className="">
-              Team
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="">
-              Kontakt
-            </Link>
-          </li>
-        </ul>
+        <div className="hidden lg:flex">
+          <ul className="flex gap-10 lg:gap-20 uppercase text-offWhite">
+            <li>
+              <Link href="/news" className="">
+                News
+              </Link>
+            </li>
+            <li>
+              <Link href="/about-us" className="">
+                Über uns
+              </Link>
+            </li>
+            <li>
+              <Link href="/team" className="">
+                Team
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="">
+                Kontakt
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         <button className="icon-button lg:hidden">
           <Image
-            src="/icon-menu.svg" // TODO: use icon with sharp corners
+            src="/icon-menu.svg"
             alt="Menü Icon"
             height={24}
             width={24}
