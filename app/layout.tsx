@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Roboto } from "next/font/google";
 
+import Navbar from "@/app/components/Navbar";
 import "./globals.css";
-import Navbar from "./Navbar";
 
 const fontRoboto = Roboto({
   subsets: ["latin"],
@@ -22,16 +22,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
+  console.log(params);
   return (
     <html lang="de">
       <body
         className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
       >
         <Navbar />
-
         {children}
       </body>
     </html>

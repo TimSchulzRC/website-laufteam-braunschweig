@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   useEffect(() => setMenuOpen(false), [pathname]);
-
+  if (pathname.startsWith("/admin")) return null;
   return (
     <nav className="bg-darkBlue sticky top-0 w-full z-20 py-2">
       <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto container">
