@@ -4,6 +4,14 @@ import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
 
+export async function generateMetadata() {
+  const pageData = await getTeamPage();
+  return {
+    title: pageData.title,
+    description: pageData.infotext,
+  };
+}
+
 export default async function Team() {
   const members = await getRunners();
   const pageData = await getTeamPage();

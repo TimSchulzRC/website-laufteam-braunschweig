@@ -2,6 +2,14 @@ import ContentSection from "@/app/components/ContentSection";
 import { getAboutUsPage } from "@/sanity/sanity-utils";
 import SubPageTopSections from "../SubPageTopSections";
 
+export async function generateMetadata() {
+  const pageData = await getAboutUsPage();
+  return {
+    title: pageData.title,
+    description: pageData.infotext,
+  };
+}
+
 export default async function AboutUs() {
   const pageData = await getAboutUsPage();
 

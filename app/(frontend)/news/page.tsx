@@ -8,6 +8,14 @@ import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
 
+export async function generateMetadata() {
+  const pageData = await getNewsPage();
+  return {
+    title: pageData.title,
+    description: pageData.infotext,
+  };
+}
+
 export default async function News() {
   const pageData = await getNewsPage();
   const posts = await getPosts();

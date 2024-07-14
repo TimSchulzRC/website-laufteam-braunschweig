@@ -8,6 +8,14 @@ type Props = {
   params: { runner: string };
 };
 
+export async function generateMetadata({ params }: Props) {
+  const runner = await getRunner(params.runner);
+  return {
+    title: runner.name,
+    description: runner.name,
+  };
+}
+
 export default async function Runner({ params }: Props) {
   const runner = await getRunner(params.runner);
   if (!runner) return notFound();
