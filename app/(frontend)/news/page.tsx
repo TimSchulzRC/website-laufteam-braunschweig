@@ -4,6 +4,7 @@ import {
   getPosts,
   portableTextPreview,
 } from "@/sanity/sanity-utils";
+import PostData from "@/types/PostData";
 import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
@@ -20,11 +21,14 @@ export default async function News() {
   const pageData = await getNewsPage();
   const posts = await getPosts();
 
+  const sortByPublishedAt = (a: PostData, b: PostData): number =>
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+
   return (
     <>
       <SubPageTopSections pageData={pageData} />
       <section className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
-        {posts.map((post) => {
+        {posts.sort(sortByPublishedAt).map((post) => {
           const date = new Date(post.publishedAt);
           return (
             <LinkCard
