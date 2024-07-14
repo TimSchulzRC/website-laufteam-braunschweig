@@ -30,22 +30,22 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               style={{ transformOrigin: "top" }}
             />
 
-            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-72 ">
-              <h1 className=" text-offWhite italic font-bold md:text-4xl lg:text-5xl mb-12 uppercase ms-[-5px] ">
-                <div
-                  style={{
-                    backgroundColor: colors.red,
-                    backgroundImage: "linear-gradient(white, white)",
-                    backgroundSize: "100% calc(1em * 0.9)",
-                    backgroundRepeat: "no-repeat",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {title}
-                </div>
-              </h1>
+            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80 ">
+              <h2
+                className=" text-offWhite italic font-bold text-2xl md:text-3xl lg:text-4xl mb-12 uppercase ms-[-5px] text-wrap hyphens-auto"
+                style={{
+                  backgroundColor: colors.red,
+                  backgroundImage: "linear-gradient(white, white)",
+                  backgroundSize: "100% calc(1em * 0.9)",
+                  backgroundRepeat: "no-repeat",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  width: "100%",
+                }}
+              >
+                {title}
+              </h2>
               <div className="w-full pe-6 ">
                 <Button
                   color="orange"
@@ -91,21 +91,20 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
             <Triangle color="darkBlue" className="z-10" />
           </div>
           <div className="bg-darkBlue text-offWhite my-[-1px] px-10 py-5 relative h-52 flex flex-col justify-center">
-            <h1 className="italic text-3xl mb-6 uppercase ms-[-5px] max-w-[80%]">
-              <div
-                style={{
-                  backgroundColor: colors.red,
-                  backgroundImage: "linear-gradient(white, white)",
-                  backgroundSize: "100% calc(1em * 0.9)",
-                  backgroundRepeat: "no-repeat",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {title}
-              </div>
-            </h1>
+            <h2
+              className="italic text-2xl mb-6 uppercase ms-[-5px] max-w-[80%]"
+              style={{
+                backgroundColor: colors.red,
+                backgroundImage: "linear-gradient(white, white)",
+                backgroundSize: "100% calc(1em * 0.9)",
+                backgroundRepeat: "no-repeat",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              {title}
+            </h2>
             <Button
               href={"news/" + postSlug}
               color="orange"
