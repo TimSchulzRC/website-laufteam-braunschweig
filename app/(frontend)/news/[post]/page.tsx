@@ -1,5 +1,6 @@
 import { getPost } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import { notFound } from "next/navigation";
 import ContentPageContentSection from "../../ContentPageContentSection";
 import ContentPageTopSection from "../../ContentPageTopSection";
 
@@ -9,6 +10,7 @@ type Props = {
 
 export default async function NewsPost({ params }: Props) {
   const post = await getPost(params.post);
+  if (!post) return notFound();
   const date = new Date(post.publishedAt);
   return (
     <>

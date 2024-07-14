@@ -1,5 +1,6 @@
 import { getRunner } from "@/sanity/sanity-utils";
 import { PortableText } from "next-sanity";
+import { notFound } from "next/navigation";
 import ContentPageContentSection from "../../ContentPageContentSection";
 import ContentPageTopSection from "../../ContentPageTopSection";
 
@@ -9,6 +10,8 @@ type Props = {
 
 export default async function Runner({ params }: Props) {
   const runner = await getRunner(params.runner);
+  if (!runner) return notFound();
+  runner.image.alt = `Bild von ${runner.name}`;
 
   return (
     <div>
