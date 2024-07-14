@@ -131,6 +131,12 @@ export async function getHomepage(): Promise<Homepage> {
 
   return client.fetch(
     groq`*[_type == "homepage"][0]{
+      "headerImage": {
+        "url": headerImage.asset->url,
+        "width": headerImage.asset->metadata.dimensions.width,
+        "height": headerImage.asset->metadata.dimensions.height,
+        "alt": headerImageAlt
+      },
       linkCards[]{
         title,
         description,

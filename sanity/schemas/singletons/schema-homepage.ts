@@ -8,26 +8,11 @@ export default defineType({
     singleton: true,
   },
   fields: [
-    // {
-    //   name: "ctaTitle",
-    //   title: "CTA Title",
-    //   type: "string",
-    // },
-    // {
-    //   name: "ctaDescription",
-    //   title: "CTA Description",
-    //   type: "text",
-    // },
-    // {
-    //   name: "ctaLink",
-    //   title: "CTA Link",
-    //   type: "string",
-    // },
-    // {
-    //   name: "ctaLinkText",
-    //   title: "CTA Link Text",
-    //   type: "string",
-    // },
+    {
+      name: "headerImage",
+      title: "Header Bild",
+      type: "image",
+    },
     {
       name: "linkCards",
       title: "Link Karten",
