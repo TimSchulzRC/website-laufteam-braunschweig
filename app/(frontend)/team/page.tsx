@@ -2,6 +2,8 @@ import LinkCard from "@/app/components/LinkCard";
 import { getRunners, getTeamPage } from "@/sanity/sanity-utils";
 import SubPageTopSections from "../SubPageTopSections";
 
+export const revalidate = 60;
+
 export default async function Team() {
   const members = await getRunners();
   const pageData = await getTeamPage();

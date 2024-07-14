@@ -6,6 +6,8 @@ import {
 } from "@/sanity/sanity-utils";
 import SubPageTopSections from "../SubPageTopSections";
 
+export const revalidate = 60;
+
 export default async function News() {
   const pageData = await getNewsPage();
   const posts = await getPosts();
@@ -24,7 +26,8 @@ export default async function News() {
               title={post.title}
               subtitle={
                 post.publishedAt &&
-                `${post.location ? post.location : ""} ${post.location && post.publishedAt ? ", " : ""
+                `${post.location ? post.location : ""} ${
+                  post.location && post.publishedAt ? ", " : ""
                 } ${post.publishedAt && date.toLocaleDateString("de-DE")}`
               }
               imageURL={post.image.url}
