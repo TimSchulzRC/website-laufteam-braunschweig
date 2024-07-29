@@ -1,5 +1,8 @@
-import { getPost, portableTextPreview } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
+import { POST_QUERYResult } from "@/sanity.types";
+import { sanityFetch } from "@/sanity/client";
+import { POST_QUERY } from "@/sanity/queries";
+import { portableTextPreview } from "@/sanity/sanity-utils";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 import { notFound } from "next/navigation";
 import ContentPageContentSection from "../../ContentPageContentSection";
 import ContentPageTopSection from "../../ContentPageTopSection";
@@ -9,17 +12,26 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const post = await getPost(params.post);
+  const post = await sanityFetch<POST_QUERYResult>({
+    query: POST_QUERY,
+    params: { slug: params.post },
+  });
+  if (!post) return;
   return {
     title: post.title,
-    description: portableTextPreview(post.body, 50),
+    description: post.body
+      ? portableTextPreview(post.body as PortableTextBlock[], 50)
+      : post.title,
   };
 }
 
 export default async function NewsPost({ params }: Props) {
-  const post = await getPost(params.post);
+  const post = await sanityFetch<POST_QUERYResult>({
+    query: POST_QUERY,
+    params: { slug: params.post },
+  });
   if (!post) return notFound();
-  const date = new Date(post.publishedAt);
+  const date = new Date(post.publishedAt!);
   return (
     <>
       <ContentPageTopSection image={post.image}>
@@ -35,7 +47,7 @@ export default async function NewsPost({ params }: Props) {
         </div>
       </ContentPageTopSection>
       <ContentPageContentSection title={post.title}>
-        <PortableText value={post.body} />
+        {post.body && <PortableText value={post.body} />}
       </ContentPageContentSection>
     </>
   );

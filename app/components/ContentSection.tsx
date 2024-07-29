@@ -43,8 +43,6 @@ export default function ContentSection({ data, className }: Props) {
     ? borderColors[data.textColor.label]
     : "";
 
-  console.log(bgColor, textColor);
-
   return data.disableTitle ? (
     <Section
       className={`container text-center ${bgColor} ${textColor} ${className || ""}`}

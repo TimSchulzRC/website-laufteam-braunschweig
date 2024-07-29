@@ -1,11 +1,18 @@
 import LinkCard from "@/app/components/LinkCard";
-import { getRunners, getTeamPage } from "@/sanity/sanity-utils";
+import { RUNNERS_QUERYResult, TEAM_PAGE_QUERYResult } from "@/sanity.types";
+import { sanityFetch } from "@/sanity/client";
+import { RUNNERS_QUERY, TEAM_PAGE_QUERY } from "@/sanity/queries";
+import SubPageData from "@/types/SubPageData";
+import { notFound } from "next/navigation";
 import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
 
 export async function generateMetadata() {
-  const pageData = await getTeamPage();
+  const pageData = await sanityFetch<TEAM_PAGE_QUERYResult>({
+    query: TEAM_PAGE_QUERY,
+  });
+  if (!pageData) return;
   return {
     title: pageData.title,
     description: pageData.infotext,
@@ -13,12 +20,16 @@ export async function generateMetadata() {
 }
 
 export default async function Team() {
-  const members = await getRunners();
-  const pageData = await getTeamPage();
-
+  const members = await sanityFetch<RUNNERS_QUERYResult>({
+    query: RUNNERS_QUERY,
+  });
+  const pageData = await sanityFetch<TEAM_PAGE_QUERYResult>({
+    query: TEAM_PAGE_QUERY,
+  });
+  if (!pageData) return notFound();
   return (
     <>
-      <SubPageTopSections pageData={pageData} />
+      <SubPageTopSections pageData={pageData as SubPageData} />
       <section className="bg-red">
         <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {members
@@ -27,9 +38,9 @@ export default async function Team() {
               <LinkCard
                 className="col-auto mx-auto"
                 key={member._id}
-                title={member.name}
+                title={member.name || ""}
                 imageAlt={`Bild von  + ${member.name}`}
-                imageURL={member.image.url}
+                imageURL={member.image.url || ""}
                 href={`/team/${member.slug}`}
               />
             ))}
@@ -47,9 +58,9 @@ export default async function Team() {
               <LinkCard
                 className="col-auto mx-auto"
                 key={member._id}
-                title={member.name}
-                imageAlt={`Bild von  + ${member.name}`}
-                imageURL={member.image.url}
+                title={member.name || ""}
+                imageAlt={`Bild von ${member.name}`}
+                imageURL={member.image.url || ""}
                 href={`/team/${member.slug}`}
               />
             ))}

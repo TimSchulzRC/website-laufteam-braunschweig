@@ -1,4 +1,6 @@
-import { getRunner } from "@/sanity/sanity-utils";
+import { RUNNER_QUERYResult } from "@/sanity.types";
+import { sanityFetch } from "@/sanity/client";
+import { RUNNER_QUERY } from "@/sanity/queries";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import ContentPageContentSection from "../../ContentPageContentSection";
@@ -9,7 +11,11 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const runner = await getRunner(params.runner);
+  const runner = await sanityFetch<RUNNER_QUERYResult>({
+    query: RUNNER_QUERY,
+    params: { slug: params.runner },
+  });
+  if (!runner) return;
   return {
     title: runner.name,
     description: runner.name,
@@ -17,15 +23,17 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Runner({ params }: Props) {
-  const runner = await getRunner(params.runner);
+  const runner = await sanityFetch<RUNNER_QUERYResult>({
+    query: RUNNER_QUERY,
+    params: { slug: params.runner },
+  });
   if (!runner) return notFound();
-  runner.image.alt = `Bild von ${runner.name}`;
 
   return (
     <div>
       <ContentPageTopSection image={runner.image} />
       <ContentPageContentSection title={runner.name}>
-        <PortableText value={runner.bio} />
+        <PortableText value={runner.bio!} />
       </ContentPageContentSection>
     </div>
   );

@@ -14,9 +14,9 @@ export default function ContentPageTopSection({ image, children }: Props) {
         <Image
           className="col aspect-auto max-h-[500px] object-cover"
           src={image.url}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
+          alt={image.alt || ""}
+          width={image.width || 800}
+          height={image.height || 500}
         />
       )}
       <div className="absolute container bottom-0 left-1/2 -translate-x-1/2">

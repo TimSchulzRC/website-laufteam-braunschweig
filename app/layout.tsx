@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
-import { Josefin_Sans, Roboto } from "next/font/google";
-
 import Navbar from "@/app/components/Navbar";
+import type { Metadata } from "next";
+import { VisualEditing } from "next-sanity";
+import { Josefin_Sans, Roboto } from "next/font/google";
+import { draftMode } from "next/headers";
 import "./globals.css";
 
 const fontRoboto = Roboto({
@@ -27,14 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
-  console.log(params);
   return (
     <html lang="de">
       <body
         className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
       >
+        {draftMode().isEnabled && (
+          <a
+            className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
+            href="/api/draft-mode-disable"
+          >
+            Disable preview mode
+          </a>
+        )}
         <Navbar />
         {children}
+        {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
   );
