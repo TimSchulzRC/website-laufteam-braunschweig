@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 import clientConfig from "./config/client-config";
 import { token } from "./token";
 
-const client = createClient(clientConfig);
+export const client = createClient(clientConfig);
 
 export async function sanityFetch<QueryResponse>({
   query,

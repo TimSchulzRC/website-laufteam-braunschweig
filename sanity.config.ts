@@ -8,6 +8,7 @@ import {
   singletonDocumentListItem,
   singletonTools,
 } from "sanity-plugin-singleton-tools";
+import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./sanity/schemas";
 
@@ -25,6 +26,13 @@ export default defineConfig({
 
   plugins: [
     deDELocale(),
+    presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: "/api/draft-mode/enable",
+        },
+      },
+    }),
     structureTool({
       structure: (S, context) =>
         S.list()
