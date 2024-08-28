@@ -70,9 +70,9 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               <Image
                 className="h-full w-full object-cover object-left"
                 src={image.url}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
+                alt={image.alt || ""}
+                width={image.width || 1920}
+                height={image.height || 1080}
               />
             )}
           </div>
@@ -81,9 +81,9 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
           <Image
             className="flex lg:hidden w-full h-[400px] md:h-[600px] object-cover"
             src={image.url}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
+            alt={image.alt || ""}
+            width={image.width || 1920}
+            height={image.height || 1080}
           />
         )}
         <div className="w-full absolute bottom-0 left-0 lg:hidden">

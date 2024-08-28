@@ -1,6 +1,5 @@
 import Navbar from "@/app/components/Navbar";
 import type { Metadata } from "next";
-import { VisualEditing } from "next-sanity";
 import { Josefin_Sans, Roboto } from "next/font/google";
 import { draftMode } from "next/headers";
 import "./globals.css";
@@ -23,10 +22,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: any;
 }) {
   return (
     <html lang="de">
@@ -43,7 +40,6 @@ export default function RootLayout({
         )}
         <Navbar />
         {children}
-        {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
   );
