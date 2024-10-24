@@ -20,17 +20,6 @@ export default function SubPageTopSections({
             alt={image.alt || ""}
           />
         )}
-        <div className="absolute bottom-0 z-10 w-full">
-          <svg
-            width="100%"
-            viewBox="0 0 1500 99"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            shapeRendering="crispEdges"
-          >
-            <path d="M0 100L1500 0V100H0Z" fill="#30313E" />
-          </svg>
-        </div>
       </section>
       <section className="text-offWhite container py-24">
         <div className="grid grid-cols-2">
@@ -39,7 +28,6 @@ export default function SubPageTopSections({
           <h2 className="col-span-2 md:col-span-1 mb-2 text-2xl uppercase md:pe-10">
             {subtitle}
           </h2>
-          <p className="col-span-2 md:col-span-1 m-0">{infotext}</p>
         </div>
       </section>
     </>

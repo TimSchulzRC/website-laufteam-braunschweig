@@ -32,11 +32,6 @@ export default defineType({
       title: "Untertitel",
       type: "string",
     },
-    {
-      name: "infotext",
-      title: "Infotext",
-      type: "text",
-    },
   ],
   preview: {
     select: {
