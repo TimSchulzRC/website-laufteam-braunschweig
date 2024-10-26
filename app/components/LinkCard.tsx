@@ -32,10 +32,10 @@ export default function LinkCard({
           !disableMaxWidth && "max-w-80"
         } pt-[66px] flex flex-col h-full`}
       >
-        <div>
-          <Triangle color="offWhite" flipHorizontal />
+        <div className="-mb-[0.2px]">
+          <Triangle color="offWhite" className="" flipHorizontal />
         </div>
-        <div className="bg-offWhite p-10 grow h-full flex flex-col">
+        <div className="bg-offWhite p-10 grow h-full flex flex-col relative">
           {imageURL && (
             <Image
               src={imageURL}

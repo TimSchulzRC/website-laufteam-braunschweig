@@ -84,7 +84,7 @@ export default function Header({ image }: Props) {
             height={image.height || 1080}
           />
         )}
-        <div className="h-full absolute left-1/2 hidden md:block">
+        <div className="h-full absolute left-1/2 hidden md:block ">
           <Triangle color="darkBlue" rotated flipVertical />
         </div>
 
