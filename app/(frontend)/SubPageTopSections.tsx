@@ -10,7 +10,7 @@ export default function SubPageTopSections({
 }: Props) {
   return (
     <>
-      <section className="2xl:container relative">
+      <section className="relative">
         {image?.url && (
           <Image
             className="w-full max-h-[600px] object-cover object-top"

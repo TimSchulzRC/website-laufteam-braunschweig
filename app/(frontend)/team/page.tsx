@@ -31,7 +31,7 @@ export default async function Team() {
     <>
       <SubPageTopSections pageData={pageData as SubPageData} />
       <section className="bg-red">
-        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => !m.hallOfFame)
             .map((member) => (
@@ -51,7 +51,7 @@ export default async function Team() {
           <h1 className="text-5xl uppercase text-red">Hall of Fame</h1>
           <hr className="my-4" />
         </div>
-        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => m.hallOfFame)
             .map((member) => (
