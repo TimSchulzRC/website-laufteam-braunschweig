@@ -48,7 +48,7 @@ export default function Header({ image }: Props) {
     <Section className="bg-darkBlue" id="homepage-header-section">
       <div className="h-[600px] sm:h-[600px] md:h-[650px] w-full relative flex">
         <div className="container hidden md:block">
-          <div className="w-1/2 lg:w-1/3 h-full bg-darkBlue flex flex-col justify-center space-y-20 ">
+          <div className="w-1/2  h-full bg-darkBlue flex flex-col justify-center space-y-20 ">
             <Image
               src="/svg/logo_text.svg"
               height={67}
