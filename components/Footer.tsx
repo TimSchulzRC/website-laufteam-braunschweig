@@ -2,7 +2,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="container">
+    <footer className="container py-20 text-white">
+      <hr />
       <nav>
         <ul>
           <li>
@@ -11,7 +12,9 @@ export default function Footer() {
           <li>
             <Link href="/impressum">Impressum</Link>
           </li>
-          <li></li>
+          <li>
+            <Link href="/contact">Kontakt</Link>
+          </li>
         </ul>
       </nav>
     </footer>
