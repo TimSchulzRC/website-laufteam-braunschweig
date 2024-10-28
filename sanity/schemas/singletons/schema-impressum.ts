@@ -1,8 +1,8 @@
 import { defineType } from "sanity";
 
 export default defineType({
-  name: "datenschutz-page",
-  title: "Datenschutzerklärung",
+  name: "impressum-page",
+  title: "Impressum",
   type: "document",
   options: {
     singleton: true,
