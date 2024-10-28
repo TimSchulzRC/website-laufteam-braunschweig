@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import type { Metadata } from "next";
 import { Josefin_Sans, Roboto } from "next/font/google";
+import Footer from "./components/Footer";
 import "./globals.css";
 
 const fontRoboto = Roboto({
@@ -29,8 +30,11 @@ export default function RootLayout({
       <body
         className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
       >
-        <Navbar />
+        <header>
+          <Navbar />
+        </header>
         {children}
+        <Footer />
       </body>
     </html>
   );
