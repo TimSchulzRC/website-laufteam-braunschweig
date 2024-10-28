@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default function SubPageTopSections({
-  pageData: { image, title, subtitle, infotext },
+  pageData: { image, title, subtitle },
 }: Props) {
   return (
     <>
