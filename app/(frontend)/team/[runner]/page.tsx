@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props) {
     query: RUNNER_QUERY,
     params: { slug: params.runner },
   });
-  if (!runner) return;
+  if (!runner) return {};
   return {
     title: runner.name,
     description: runner.name,

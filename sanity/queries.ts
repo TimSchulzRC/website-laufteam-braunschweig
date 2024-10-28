@@ -57,6 +57,10 @@ export const TEAM_PAGE_QUERY = groq`*[_type == "team-page"][0]{
       }
     }`;
 
+export const DATENSCHUTZ_PAGE_QUERY = groq`*[_type == "datenschutz-page"][0]{
+      datenschutzerklaerung
+    }`;
+
 export const POSTS_QUERY = groq`*[_type == "post" ]{
         _id,
         _createdAt,

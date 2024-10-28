@@ -94,6 +94,33 @@ export type Section = {
   textColor?: SimplerColor;
 };
 
+export type DatenschutzPage = {
+  _id: string;
+  _type: "datenschutz-page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  datenschutzerklaerung?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  title?: string;
+};
+
 export type AboutUsPage = {
   _id: string;
   _type: "aboutUs-page";
@@ -140,7 +167,6 @@ export type NewsPage = {
   imageAlt?: string;
   title?: string;
   subtitle?: string;
-  infotext?: string;
 };
 
 export type TeamPage = {
@@ -163,7 +189,6 @@ export type TeamPage = {
   imageAlt?: string;
   title?: string;
   subtitle?: string;
-  infotext?: string;
 };
 
 export type LinkCard = {
@@ -421,7 +446,7 @@ export type SimplerColor = {
   value?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Section | AboutUsPage | NewsPage | TeamPage | LinkCard | Homepage | Runner | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | HighlightColor | TextColor | SimplerColor;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Section | DatenschutzPage | AboutUsPage | NewsPage | TeamPage | LinkCard | Homepage | Runner | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | HighlightColor | TextColor | SimplerColor;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries.ts
 // Variable: HOMEPAGE_QUERY
@@ -466,7 +491,7 @@ export type ABOUT_US_PAGE_QUERYResult = {
 export type NEWS_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
-  infotext: string | null;
+  infotext: null;
   image: {
     url: string | null;
     width: number | null;
@@ -479,13 +504,35 @@ export type NEWS_PAGE_QUERYResult = {
 export type TEAM_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
-  infotext: string | null;
+  infotext: null;
   image: {
     url: string | null;
     width: number | null;
     height: number | null;
     alt: string | null;
   };
+} | null;
+// Variable: DATENSCHUTZ_PAGE_QUERY
+// Query: *[_type == "datenschutz-page"][0]{      datenschutzerklaerung    }
+export type DATENSCHUTZ_PAGE_QUERYResult = {
+  datenschutzerklaerung: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
 } | null;
 // Variable: POSTS_QUERY
 // Query: *[_type == "post" ]{        _id,        _createdAt,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
@@ -664,3 +711,20 @@ export type RUNNER_QUERYResult = {
   infotext: null;
   birthDate: null;
 } | null;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[_type == \"homepage\"][0]{\n      \"headerImage\": {\n        \"url\": headerImage.asset->url,\n        \"width\": headerImage.asset->metadata.dimensions.width,\n        \"height\": headerImage.asset->metadata.dimensions.height,\n        \"alt\": headerImageAlt\n      },\n      linkCards[]{\n        title,\n        description,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": imageAlt\n        },\n        link\n      }\n    }": HOMEPAGE_QUERYResult;
+    "*[_type == \"aboutUs-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": ABOUT_US_PAGE_QUERYResult;
+    "*[_type == \"news-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": NEWS_PAGE_QUERYResult;
+    "*[_type == \"team-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": TEAM_PAGE_QUERYResult;
+    "*[_type == \"datenschutz-page\"][0]{\n      datenschutzerklaerung\n    }": DATENSCHUTZ_PAGE_QUERYResult;
+    "*[_type == \"post\" ]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": POSTS_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": POST_QUERYResult;
+    "*[_type == \"post\" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": MOST_RECENT_POSTS_QUERYResult;
+    "*[_type == \"runner\" ]{\n        _id,\n        name,\n        \"slug\": slug.current,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": imageAlt\n        },\n        hallOfFame,\n        bio,\n        infotext,\n    }": RUNNERS_QUERYResult;
+    "*[_type == \"runner\" && slug.current == $slug][0]{\n        _id,\n        name,\n        \"slug\": slug.current,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": \"Bild von \" + name\n        },\n        bio,\n        infotext,\n        birthDate\n    }": RUNNER_QUERYResult;
+  }
+}

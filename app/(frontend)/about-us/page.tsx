@@ -11,7 +11,7 @@ export async function generateMetadata() {
   const pageData = await sanityFetch<ABOUT_US_PAGE_QUERYResult>({
     query: ABOUT_US_PAGE_QUERY,
   });
-  if (!pageData) return;
+  if (!pageData) return {};
   return {
     title: pageData.title,
     description: pageData.infotext,

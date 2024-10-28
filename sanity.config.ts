@@ -58,6 +58,13 @@ export default defineConfig({
               id: "aboutUs-page",
               icon: DocumentTextIcon,
             }),
+            singletonDocumentListItem({
+              S,
+              context,
+              type: "datenschutz-page",
+              id: "datenschutz-page",
+              icon: DocumentTextIcon,
+            }),
             S.divider(),
             ...filteredDocumentListItems({ S, context }),
           ]),

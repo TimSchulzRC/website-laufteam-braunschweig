@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
     query: POST_QUERY,
     params: { slug: params.post },
   });
-  if (!post) return;
+  if (!post) return {};
   return {
     title: post.title,
     description: post.body

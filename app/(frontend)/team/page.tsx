@@ -12,7 +12,7 @@ export async function generateMetadata() {
   const pageData = await sanityFetch<TEAM_PAGE_QUERYResult>({
     query: TEAM_PAGE_QUERY,
   });
-  if (!pageData) return;
+  if (!pageData) return {};
   return {
     title: pageData.title,
     description: pageData.infotext,

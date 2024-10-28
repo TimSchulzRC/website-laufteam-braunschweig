@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["portabletext"]
+  "cSpell.words": ["portabletext"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
