@@ -19,24 +19,10 @@ export default async function Datenschutz() {
   });
   if (!pageData) return notFound();
   return (
-    <>
-      {/* <ContentPageTopSection >
-        <div className="absolute container bottom-0 right-0 text-offWhite flex justify-end">
-          {post.location && post.location}
-          {post.location && post.publishedAt && ", "}
-          {post.publishedAt &&
-            date.toLocaleDateString("de-DE", {
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-            })}
-        </div>
-      </ContentPageTopSection> */}
-      <ContentPageContentSection title="Datenschutzerklärung">
-        {pageData.datenschutzerklaerung && (
-          <PortableText value={pageData.datenschutzerklaerung} />
-        )}
-      </ContentPageContentSection>
-    </>
+    <ContentPageContentSection title="Datenschutzerklärung">
+      {pageData.datenschutzerklaerung && (
+        <PortableText value={pageData.datenschutzerklaerung} />
+      )}
+    </ContentPageContentSection>
   );
 }

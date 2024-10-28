@@ -61,6 +61,10 @@ export const DATENSCHUTZ_PAGE_QUERY = groq`*[_type == "datenschutz-page"][0]{
       datenschutzerklaerung
     }`;
 
+export const IMPRESSUM_PAGE_QUERY = groq`*[_type == "impressum-page"][0]{
+      impressum
+    }`;
+
 export const POSTS_QUERY = groq`*[_type == "post" ]{
         _id,
         _createdAt,

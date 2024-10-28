@@ -68,11 +68,13 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Section = {
-  _type: "section";
-  title?: string;
-  disableTitle?: boolean;
-  content?: Array<{
+export type ImpressumPage = {
+  _id: string;
+  _type: "impressum-page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  impressum?: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -90,8 +92,6 @@ export type Section = {
     _type: "block";
     _key: string;
   }>;
-  backgroundColor?: SimplerColor;
-  textColor?: SimplerColor;
 };
 
 export type DatenschutzPage = {
@@ -121,6 +121,32 @@ export type DatenschutzPage = {
   title?: string;
 };
 
+export type Section = {
+  _type: "section";
+  title?: string;
+  disableTitle?: boolean;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  backgroundColor?: SimplerColor;
+  textColor?: SimplerColor;
+};
+
 export type AboutUsPage = {
   _id: string;
   _type: "aboutUs-page";
@@ -142,9 +168,11 @@ export type AboutUsPage = {
   title?: string;
   subtitle?: string;
   infotext?: string;
-  sections?: Array<{
-    _key: string;
-  } & Section>;
+  sections?: Array<
+    {
+      _key: string;
+    } & Section
+  >;
 };
 
 export type NewsPage = {
@@ -226,9 +254,11 @@ export type Homepage = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  linkCards?: Array<{
-    _key: string;
-  } & LinkCard>;
+  linkCards?: Array<
+    {
+      _key: string;
+    } & LinkCard
+  >;
 };
 
 export type Runner = {
@@ -446,7 +476,32 @@ export type SimplerColor = {
   value?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Section | DatenschutzPage | AboutUsPage | NewsPage | TeamPage | LinkCard | Homepage | Runner | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | HighlightColor | TextColor | SimplerColor;
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityFileAsset
+  | Geopoint
+  | ImpressumPage
+  | DatenschutzPage
+  | Section
+  | AboutUsPage
+  | NewsPage
+  | TeamPage
+  | LinkCard
+  | Homepage
+  | Runner
+  | Post
+  | Author
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
+  | SanityAssetSourceData
+  | SanityImageMetadata
+  | Slug
+  | HighlightColor
+  | TextColor
+  | SimplerColor;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries.ts
 // Variable: HOMEPAGE_QUERY
@@ -476,9 +531,11 @@ export type ABOUT_US_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
   infotext: string | null;
-  sections: Array<{
-    _key: string;
-  } & Section> | null;
+  sections: Array<
+    {
+      _key: string;
+    } & Section
+  > | null;
   image: {
     url: string | null;
     width: number | null;
@@ -516,6 +573,28 @@ export type TEAM_PAGE_QUERYResult = {
 // Query: *[_type == "datenschutz-page"][0]{      datenschutzerklaerung    }
 export type DATENSCHUTZ_PAGE_QUERYResult = {
   datenschutzerklaerung: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+} | null;
+// Variable: IMPRESSUM_PAGE_QUERY
+// Query: *[_type == "impressum-page"][0]{      impressum    }
+export type IMPRESSUM_PAGE_QUERYResult = {
+  impressum: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -716,15 +795,16 @@ export type RUNNER_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"homepage\"][0]{\n      \"headerImage\": {\n        \"url\": headerImage.asset->url,\n        \"width\": headerImage.asset->metadata.dimensions.width,\n        \"height\": headerImage.asset->metadata.dimensions.height,\n        \"alt\": headerImageAlt\n      },\n      linkCards[]{\n        title,\n        description,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": imageAlt\n        },\n        link\n      }\n    }": HOMEPAGE_QUERYResult;
-    "*[_type == \"aboutUs-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": ABOUT_US_PAGE_QUERYResult;
-    "*[_type == \"news-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": NEWS_PAGE_QUERYResult;
-    "*[_type == \"team-page\"][0]{\n      title,\n      subtitle,\n      infotext,\n      \"image\": {\n        \"url\": image.asset->url,\n        \"width\": image.asset->metadata.dimensions.width,\n        \"height\": image.asset->metadata.dimensions.height,\n        \"alt\": imageAlt\n      }\n    }": TEAM_PAGE_QUERYResult;
-    "*[_type == \"datenschutz-page\"][0]{\n      datenschutzerklaerung\n    }": DATENSCHUTZ_PAGE_QUERYResult;
-    "*[_type == \"post\" ]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": POSTS_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": POST_QUERYResult;
-    "*[_type == \"post\" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        title,\n        \"slug\": slug.current,\n        \"image\": {\n            \"url\": image.asset->url,\n            \"width\": image.asset->metadata.dimensions.width,\n            \"height\": image.asset->metadata.dimensions.height,\n            \"alt\": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }": MOST_RECENT_POSTS_QUERYResult;
-    "*[_type == \"runner\" ]{\n        _id,\n        name,\n        \"slug\": slug.current,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": imageAlt\n        },\n        hallOfFame,\n        bio,\n        infotext,\n    }": RUNNERS_QUERYResult;
-    "*[_type == \"runner\" && slug.current == $slug][0]{\n        _id,\n        name,\n        \"slug\": slug.current,\n        \"image\": {\n          \"url\": image.asset->url,\n          \"width\": image.asset->metadata.dimensions.width,\n          \"height\": image.asset->metadata.dimensions.height,\n          \"alt\": \"Bild von \" + name\n        },\n        bio,\n        infotext,\n        birthDate\n    }": RUNNER_QUERYResult;
+    '*[_type == "homepage"][0]{\n      "headerImage": {\n        "url": headerImage.asset->url,\n        "width": headerImage.asset->metadata.dimensions.width,\n        "height": headerImage.asset->metadata.dimensions.height,\n        "alt": headerImageAlt\n      },\n      linkCards[]{\n        title,\n        description,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": imageAlt\n        },\n        link\n      }\n    }': HOMEPAGE_QUERYResult;
+    '*[_type == "aboutUs-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': ABOUT_US_PAGE_QUERYResult;
+    '*[_type == "news-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': NEWS_PAGE_QUERYResult;
+    '*[_type == "team-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': TEAM_PAGE_QUERYResult;
+    '*[_type == "datenschutz-page"][0]{\n      datenschutzerklaerung\n    }': DATENSCHUTZ_PAGE_QUERYResult;
+    '*[_type == "impressum-page"][0]{\n      impressum\n    }': IMPRESSUM_PAGE_QUERYResult;
+    '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POST_QUERYResult;
+    '*[_type == "post" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': MOST_RECENT_POSTS_QUERYResult;
+    '*[_type == "runner" ]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": imageAlt\n        },\n        hallOfFame,\n        bio,\n        infotext,\n    }': RUNNERS_QUERYResult;
+    '*[_type == "runner" && slug.current == $slug][0]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": "Bild von " + name\n        },\n        bio,\n        infotext,\n        birthDate\n    }': RUNNER_QUERYResult;
   }
 }

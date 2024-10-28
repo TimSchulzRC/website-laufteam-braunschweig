@@ -18,9 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <body
       className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
     >
-      <header>
-        <Navbar />
-      </header>
+      <Navbar />
       {children}
       <Footer />
     </body>

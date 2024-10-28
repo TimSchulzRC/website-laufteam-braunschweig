@@ -8,7 +8,9 @@ export default function Footer() {
           <li>
             <Link href="/datenschutz">Datenschutzerklärung</Link>
           </li>
-          <li></li>
+          <li>
+            <Link href="/impressum">Impressum</Link>
+          </li>
           <li></li>
         </ul>
       </nav>
