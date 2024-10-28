@@ -1,7 +1,7 @@
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Josefin_Sans, Roboto } from "next/font/google";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import "./globals.css";
 
 const fontRoboto = Roboto({

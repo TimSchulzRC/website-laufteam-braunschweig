@@ -1,4 +1,4 @@
-import Section from "@/app/components/Section";
+import Section from "@/components/Section";
 import Image from "next/image";
 
 export default function SectionSponsors() {

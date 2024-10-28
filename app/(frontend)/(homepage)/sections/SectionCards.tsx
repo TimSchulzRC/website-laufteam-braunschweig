@@ -1,6 +1,6 @@
-import LinkCard from "@/app/components/LinkCard";
+import LinkCard from "@/components/LinkCard";
 import LinkCardData from "@/types/LinkCardData";
-import Section from "../../../components/Section";
+import Section from "../../../../components/Section";
 
 type Props = {
   linkCards: LinkCardData[];

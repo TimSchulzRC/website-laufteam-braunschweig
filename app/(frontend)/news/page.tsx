@@ -1,4 +1,4 @@
-import LinkCard from "@/app/components/LinkCard";
+import LinkCard from "@/components/LinkCard";
 import { NEWS_PAGE_QUERYResult, POSTS_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { NEWS_PAGE_QUERY, POSTS_QUERY } from "@/sanity/queries";

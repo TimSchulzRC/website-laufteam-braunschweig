@@ -1,4 +1,4 @@
-import ContentSection from "@/app/components/ContentSection";
+import ContentSection from "@/components/ContentSection";
 import { ABOUT_US_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { ABOUT_US_PAGE_QUERY } from "@/sanity/queries";

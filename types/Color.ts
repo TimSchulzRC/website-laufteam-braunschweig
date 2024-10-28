@@ -6,3 +6,5 @@ type Color =
   | { label: "OffWhite"; value: "#E7E5E2" };
 
 export default Color;
+
+export type DefaultColors = "red" | "orange" | "darkBlue" | "grey" | "offWhite";

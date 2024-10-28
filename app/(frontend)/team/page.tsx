@@ -1,4 +1,4 @@
-import LinkCard from "@/app/components/LinkCard";
+import LinkCard from "@/components/LinkCard";
 import { RUNNERS_QUERYResult, TEAM_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { RUNNERS_QUERY, TEAM_PAGE_QUERY } from "@/sanity/queries";

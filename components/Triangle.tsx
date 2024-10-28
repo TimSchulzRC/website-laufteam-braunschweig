@@ -1,4 +1,5 @@
 import config from "@/tailwind.config";
+import { DefaultColors } from "@/types/Color";
 
 export default function Triangle({
   color,

@@ -1,8 +1,8 @@
 "use client";
 
-import Button from "@/app/components/Button";
-import Section from "@/app/components/Section";
-import Triangle from "@/app/components/Triangle";
+import Button from "@/components/Button";
+import Section from "@/components/Section";
+import Triangle from "@/components/Triangle";
 import ImageData from "@/types/ImageData";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
