@@ -24,7 +24,7 @@ export default function Header({ image }: Props) {
         }
       });
     },
-    []
+    [],
   );
 
   const options = useMemo(
@@ -32,7 +32,7 @@ export default function Header({ image }: Props) {
       root: null,
       threshold: 0.7,
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -46,19 +46,19 @@ export default function Header({ image }: Props) {
 
   return (
     <Section className="bg-darkBlue" id="homepage-header-section">
-      <div className="h-[600px] sm:h-[600px] md:h-[650px] w-full relative flex">
+      <div className="relative flex h-[600px] w-full sm:h-[600px] md:h-[650px]">
         <div className="container hidden md:block">
-          <div className="w-1/2  h-full bg-darkBlue flex flex-col justify-center space-y-20 ">
+          <div className="flex h-full w-1/2 flex-col justify-center space-y-20 bg-darkBlue">
             <Image
               src="/svg/logo_text.svg"
               height={67}
               width={274}
               alt="Laufteam Braunschweig Logo"
-              className="md:flex z-20 transition ease-in-out w-full"
+              className="w-full transition ease-in-out md:flex"
               style={{ transformOrigin: "top" }}
             />
-            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80 ">
-              <div className="w-full pe-6 ">
+            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80">
+              <div className="w-full pe-6">
                 <Button
                   color="orange"
                   className="w-full"
@@ -66,7 +66,7 @@ export default function Header({ image }: Props) {
                   href={"news"}
                   skew
                 >
-                  <div className="flex items-center justify-between w-full">
+                  <div className="flex w-full items-center justify-between">
                     <span>Aktuelle Neuigkeiten</span>
                     <DoubleArrowSharpIcon fontSize="small" />
                   </div>
@@ -77,31 +77,31 @@ export default function Header({ image }: Props) {
         </div>
         {image.url && (
           <Image
-            className="absolute right-0 w-full md:w-1/2 h-full object-cover object-left"
+            className="absolute right-0 h-full w-full object-cover object-left md:w-1/2"
             src={image.url}
             alt={image.alt || ""}
             width={image.width || 1920}
             height={image.height || 1080}
           />
         )}
-        <div className="h-full absolute left-1/2 hidden md:block ">
+        <div className="absolute left-1/2 hidden h-full md:block">
           <Triangle color="darkBlue" rotated flipVertical />
         </div>
 
-        <div className="w-full absolute bottom-0 left-0 md:hidden">
+        <div className="absolute bottom-0 left-0 w-full md:hidden">
           <Triangle
             color="darkBlue"
             className="z-10 -mb-[1px]"
             flipHorizontal
           />
-          <div className="bg-darkBlue text-offWhite p-10 relative flex flex-col justify-center items-center">
+          <div className="relative flex flex-col items-center justify-center bg-darkBlue p-10 text-offWhite">
             <div className="md:w-1/2">
               <Image
                 src="/svg/logo_text.svg"
                 height={67}
                 width={274}
                 alt="Laufteam Braunschweig Logo"
-                className="h-full w-full z-20 transition ease-in-out mb-10"
+                className="z-20 mb-10 h-full w-full transition ease-in-out"
                 style={{ transformOrigin: "top" }}
               />
               <Button

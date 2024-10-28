@@ -13,7 +13,7 @@ export default function Navbar() {
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
     const button = document.querySelector(
-      "button[aria-controls=navbar-default]"
+      "button[aria-controls=navbar-default]",
     );
     if (button) {
       const expanded = button.getAttribute("aria-expanded") === "true";
@@ -24,12 +24,12 @@ export default function Navbar() {
   useEffect(() => setMenuOpen(false), [pathname]);
   if (pathname.startsWith("/admin")) return null;
   return (
-    <nav className="bg-darkBlue sticky top-0 w-full z-20 py-2">
-      <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto container">
+    <nav className="fixed top-0 z-20 w-full bg-darkBlue py-2">
+      <div className="container mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
         <Link
           id="nav-logo"
           href="/"
-          className={`italic uppercase font-display font-bold flex items-center gap-2 transition ease-in-out max-w-[80%] ${
+          className={`flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic transition ease-in-out ${
             isHomepage && "lg:opacity-0"
           }`}
         >
@@ -47,13 +47,13 @@ export default function Navbar() {
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-offWhite md:hidden focus:outline-none focus:ring-1 focus:ring-offWhite dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex h-10 w-10 items-center justify-center p-2 text-sm text-offWhite focus:outline-none focus:ring-1 focus:ring-offWhite dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
           <span className="sr-only">Open main menu</span>
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -69,14 +69,14 @@ export default function Navbar() {
         </button>
         <div
           hidden={!menuOpen}
-          className="w-full md:block md:w-auto py-2 md:py-0"
+          className="w-full py-2 md:block md:w-auto md:py-0"
           id="navbar-default"
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 text-offWhite uppercase bg-darkBlue px-4 border md:border-0 border-offWhite ">
+          <ul className="flex flex-col border border-offWhite bg-darkBlue px-4 uppercase text-offWhite md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
             <li>
               <Link
                 href="/news"
-                className={`${pathname.startsWith("/news") && "underline font-bold"}`}
+                className={`${pathname.startsWith("/news") && "font-bold underline"}`}
               >
                 News
               </Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/about-us"
-                className={`${pathname.startsWith("/about-us") && "underline font-bold"}`}
+                className={`${pathname.startsWith("/about-us") && "font-bold underline"}`}
               >
                 Über uns
               </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/team"
-                className={`${pathname.startsWith("/team") && "underline font-bold"}`}
+                className={`${pathname.startsWith("/team") && "font-bold underline"}`}
               >
                 Team
               </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className={`${pathname.startsWith("/contact") && "underline font-bold"}`}
+                className={`${pathname.startsWith("/contact") && "font-bold underline"}`}
               >
                 Kontakt
               </Link>
