@@ -31,14 +31,14 @@ export default async function News() {
 
   const sortByPublishedAt = (
     a: POSTS_QUERYResult[0],
-    b: POSTS_QUERYResult[0]
+    b: POSTS_QUERYResult[0],
   ): number =>
     new Date(b.publishedAt!).getTime() - new Date(a.publishedAt!).getTime();
   if (!pageData) return notFound();
   return (
     <>
       <SubPageTopSections pageData={pageData as SubPageData} />
-      <section className="container grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <section className="container grid gap-10 md:grid-cols-2 xl:grid-cols-3">
         {posts.sort(sortByPublishedAt).map((post) => {
           const date = new Date(post.publishedAt!);
           return (
