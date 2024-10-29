@@ -14,6 +14,10 @@ const config: Config = {
       padding: {
         DEFAULT: "2rem",
       },
+      screens: {
+        xl: "1024px",
+        "2xl": "1024px",
+      },
     },
     extend: {
       colors: {

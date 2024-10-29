@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function SectionCTA() {
   return (
     <Section className="bg-darkBlue px-10 py-24">
-      <div className="container flex flex-col items-center md:max-w-lg">
+      <div className="container flex max-w-lg flex-col items-center">
         <Image
           className="col-span-2 w-32 object-contain"
           src="/svg/logo_no_text.svg"

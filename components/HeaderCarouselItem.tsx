@@ -30,7 +30,7 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               style={{ transformOrigin: "top" }}
             />
 
-            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80">
+            <div className="bottom-32 flex max-w-80 flex-col overflow-visible">
               <h2
                 className="mb-12 ms-[-5px] hyphens-auto text-wrap text-2xl font-bold uppercase italic text-offWhite md:text-3xl lg:text-4xl"
                 style={{

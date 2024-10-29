@@ -9,7 +9,7 @@ type Props = {
 
 export default function ContentPageTopSection({ image, children }: Props) {
   return (
-    <section className="container relative mb-20 md:max-w-[800px]">
+    <section className="container relative mb-20 max-w-[800px]">
       {image.url && (
         <Image
           className="col aspect-square w-full object-cover object-center"
