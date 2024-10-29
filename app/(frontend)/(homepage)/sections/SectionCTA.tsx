@@ -12,7 +12,7 @@ export default function SectionCTA() {
           height={118}
           alt="Logo von Laufteam Braunschweig ohne Text, Roter Löwenkopf"
         />
-        <h2 className="text-bold my-6 flex flex-col items-center text-3xl font-bold uppercase italic text-offWhite">
+        <h2 className="text-bold my-6 flex flex-col items-center hyphens-none text-3xl font-bold uppercase italic text-offWhite">
           <span>Durch</span>
           <span className="text-red">Laufleidenschaft</span>{" "}
           <span>vereint</span>
