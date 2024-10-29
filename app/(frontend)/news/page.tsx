@@ -43,13 +43,14 @@ export default async function News() {
           const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
           const location = post.location || "";
           const divider = date && location ? " | " : "";
+          const subtitle = `${date}${divider}${location}`;
           return (
             <LinkCard
               disableMaxWidth
               className="col-2"
               key={post._id}
               title={post.title || ""}
-              subtitle={`${date}${divider}${location}`}
+              subtitle={subtitle}
               imageURL={post.image.url || ""}
               imageAlt={post.image.alt || ""}
               href={`/news/${post.slug}`}

@@ -31,22 +31,14 @@ export default async function NewsPost({ params }: Props) {
     params: { slug: params.post },
   });
   if (!post) return notFound();
-  const date = new Date(post.publishedAt!);
+  const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
+  const location = post.location || "";
+  const divider = date && location ? " | " : "";
+  const subtitle = `${date}${divider}${location}`;
   return (
     <>
-      <ContentPageTopSection image={post.image}>
-        <div className="container absolute bottom-0 right-0 flex justify-end text-offWhite">
-          {post.location && post.location}
-          {post.location && post.publishedAt && ", "}
-          {post.publishedAt &&
-            date.toLocaleDateString("de-DE", {
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-            })}
-        </div>
-      </ContentPageTopSection>
-      <ContentPageContentSection title={post.title}>
+      <ContentPageTopSection image={post.image} />
+      <ContentPageContentSection title={post.title} subtitle={subtitle}>
         {post.body && <PortableText value={post.body} />}
       </ContentPageContentSection>
     </>
