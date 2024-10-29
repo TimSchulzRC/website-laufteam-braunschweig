@@ -40,19 +40,16 @@ export default async function News() {
       <SubPageTopSections pageData={pageData as SubPageData} />
       <section className="container grid gap-10 md:grid-cols-2 xl:grid-cols-3">
         {posts.sort(sortByPublishedAt).map((post) => {
-          const date = new Date(post.publishedAt!);
+          const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
+          const location = post.location || "";
+          const divider = date && location ? " | " : "";
           return (
             <LinkCard
               disableMaxWidth
               className="col-2"
               key={post._id}
               title={post.title || ""}
-              subtitle={
-                post.publishedAt ??
-                `${post.location ? post.location : ""} ${
-                  post.location && post.publishedAt ? ", " : ""
-                } ${post.publishedAt && date.toLocaleDateString("de-DE")}`
-              }
+              subtitle={`${date}${divider}${location}`}
               imageURL={post.image.url || ""}
               imageAlt={post.image.alt || ""}
               href={`/news/${post.slug}`}
