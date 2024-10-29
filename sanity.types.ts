@@ -118,7 +118,32 @@ export type DatenschutzPage = {
     _type: "block";
     _key: string;
   }>;
-  title?: string;
+};
+
+export type ContactPage = {
+  _id: string;
+  _type: "contact-page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  contactInformation?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 };
 
 export type Section = {
@@ -484,6 +509,7 @@ export type AllSanitySchemaTypes =
   | Geopoint
   | ImpressumPage
   | DatenschutzPage
+  | ContactPage
   | Section
   | AboutUsPage
   | NewsPage
@@ -568,6 +594,28 @@ export type TEAM_PAGE_QUERYResult = {
     height: number | null;
     alt: string | null;
   };
+} | null;
+// Variable: CONTACT_PAGE_QUERY
+// Query: *[_type == "contact-page"][0]{      contactInformation    }
+export type CONTACT_PAGE_QUERYResult = {
+  contactInformation: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
 } | null;
 // Variable: DATENSCHUTZ_PAGE_QUERY
 // Query: *[_type == "datenschutz-page"][0]{      datenschutzerklaerung    }
@@ -799,6 +847,7 @@ declare module "@sanity/client" {
     '*[_type == "aboutUs-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': ABOUT_US_PAGE_QUERYResult;
     '*[_type == "news-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': NEWS_PAGE_QUERYResult;
     '*[_type == "team-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': TEAM_PAGE_QUERYResult;
+    '*[_type == "contact-page"][0]{\n      contactInformation\n    }': CONTACT_PAGE_QUERYResult;
     '*[_type == "datenschutz-page"][0]{\n      datenschutzerklaerung\n    }': DATENSCHUTZ_PAGE_QUERYResult;
     '*[_type == "impressum-page"][0]{\n      impressum\n    }': IMPRESSUM_PAGE_QUERYResult;
     '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;

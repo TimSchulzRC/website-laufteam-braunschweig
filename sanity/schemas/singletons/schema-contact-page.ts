@@ -1,16 +1,16 @@
 import { defineType } from "sanity";
 
 export default defineType({
-  name: "datenschutz-page",
-  title: "Datenschutzerklärung",
+  name: "contact-page",
+  title: "Kontaktseite",
   type: "document",
   options: {
     singleton: true,
   },
   fields: [
     {
-      name: "datenschutzerklaerung",
-      title: "Datenschutzerklärung",
+      name: "contactInformation",
+      title: "Kontaktinformationen",
       type: "array",
       of: [{ type: "block" }],
     },

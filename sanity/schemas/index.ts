@@ -4,6 +4,7 @@ import post from "./schema-post";
 import runner from "./schema-runner";
 import section from "./schema-section";
 import aboutUsPage from "./singletons/schema-aboutUs-page";
+import contact from "./singletons/schema-contact-page";
 import datenschutz from "./singletons/schema-datenschutz";
 import homepage from "./singletons/schema-homepage";
 import impressum from "./singletons/schema-impressum";
@@ -20,6 +21,7 @@ export const schemaTypes = [
   newsPage,
   aboutUsPage,
   section,
+  contact,
   datenschutz,
   impressum,
 ];
