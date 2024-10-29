@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function SectionCTA() {
   return (
     <Section className="bg-darkBlue px-10 py-24">
-      <div className="container flex max-w-lg flex-col items-center">
+      <div className="container flex flex-col items-center md:max-w-lg">
         <Image
           className="col-span-2 w-32 object-contain"
           src="/svg/logo_no_text.svg"
@@ -17,7 +17,7 @@ export default function SectionCTA() {
           <span className="text-red">Laufleidenschaft</span>{" "}
           <span>vereint</span>
         </h2>
-        <p className="mb-8 max-w-[512px] text-balance text-center text-offWhite">
+        <p className="mb-8 text-balance text-center text-offWhite">
           Das Laufteam Braunschweig ist ein Verbund ausgewählter Spitzensportler
           der Region Braunschweig und steht leistungsstarken und
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der
