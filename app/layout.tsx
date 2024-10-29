@@ -32,6 +32,7 @@ export default function RootLayout({
           fontRoboto.variable,
           fontJosefinSans.variable,
           fontRoboto.className,
+          "overflow-x-hidden hyphens-auto",
         )}
       >
         {children}
