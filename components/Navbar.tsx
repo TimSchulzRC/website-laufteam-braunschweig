@@ -108,9 +108,9 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/kontakt"
                   className={cn(
-                    pathname.startsWith("/contact") && "font-bold underline",
+                    pathname.startsWith("/kontakt") && "font-bold underline",
                   )}
                 >
                   Kontakt
