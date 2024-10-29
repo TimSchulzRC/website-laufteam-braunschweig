@@ -1,8 +1,8 @@
 "use client";
 
 import { DefaultColors } from "@/types/Color";
+import cn from "@/util/classnames";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
-import clsx from "clsx";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -40,14 +40,14 @@ export default function Button({
       break;
   }
 
-  const containerClassName = clsx(
+  const containerClassName = cn(
     "inline-block text-offWhite p-3",
     skew && "-skew-x-[15deg]",
     href && "hover:underline",
     btnColor,
     className,
   );
-  const childClassName = clsx(
+  const childClassName = cn(
     "uppercase flex items-center gap-3 w-100",
     skew && "skew-x-[15deg]",
   );

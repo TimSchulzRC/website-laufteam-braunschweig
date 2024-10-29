@@ -1,5 +1,5 @@
 "use client";
-import clsx from "clsx";
+import cn from "@/util/classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link
             id="nav-logo"
             href="/"
-            className={clsx(
+            className={cn(
               "flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic transition ease-in-out",
               isHomepage && "lg:opacity-0",
             )}
@@ -79,7 +79,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/news"
-                  className={clsx(
+                  className={cn(
                     pathname.startsWith("/news") && "font-bold underline",
                   )}
                 >
@@ -89,7 +89,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/about-us"
-                  className={clsx(
+                  className={cn(
                     pathname.startsWith("/about-us") && "font-bold underline",
                   )}
                 >
@@ -99,7 +99,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/team"
-                  className={clsx(
+                  className={cn(
                     pathname.startsWith("/team") && "font-bold underline",
                   )}
                 >
@@ -109,7 +109,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/contact"
-                  className={clsx(
+                  className={cn(
                     pathname.startsWith("/contact") && "font-bold underline",
                   )}
                 >

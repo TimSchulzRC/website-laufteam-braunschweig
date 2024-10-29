@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -7,6 +6,7 @@ export const metadata: Metadata = {
   description: "Laufteam Braunschweig",
 };
 
+import cn from "@/util/classnames";
 import { Josefin_Sans, Roboto } from "next/font/google";
 
 const fontRoboto = Roboto({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={clsx(
+        className={cn(
           fontRoboto.variable,
           fontJosefinSans.variable,
           fontRoboto.className,

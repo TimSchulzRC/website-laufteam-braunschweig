@@ -1,5 +1,5 @@
 "use client";
-import clsx from "clsx";
+import cn from "@/util/classnames";
 import Image from "next/image";
 import { ReactNode } from "react";
 import Button from "./Button";
@@ -29,7 +29,7 @@ export default function LinkCard({
   return (
     <div className={className}>
       <div
-        className={clsx(
+        className={cn(
           !disableMaxWidth && "max-w-80",
           "flex h-full flex-col pt-[66px]",
         )}

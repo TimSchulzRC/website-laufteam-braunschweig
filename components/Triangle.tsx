@@ -1,6 +1,6 @@
 import config from "@/tailwind.config";
 import { DefaultColors } from "@/types/Color";
-import clsx from "clsx";
+import cn from "@/util/classnames";
 
 export default function Triangle({
   color,
@@ -21,7 +21,7 @@ export default function Triangle({
       xmlns="http://www.w3.org/2000/svg"
       height="100%"
       viewBox="0 0 100 373"
-      className={clsx(
+      className={cn(
         flipHorizontal && "scale-x-[-1]",
         flipVertical && "scale-y-[-1]",
         className,
@@ -41,7 +41,7 @@ export default function Triangle({
       width="100%"
       height="100%"
       viewBox="0 0 373 100"
-      className={clsx(
+      className={cn(
         flipHorizontal && "scale-x-[-1]",
         flipVertical && "scale-y-[-1]",
         className,
