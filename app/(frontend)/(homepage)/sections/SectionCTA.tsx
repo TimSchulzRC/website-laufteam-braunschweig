@@ -17,7 +17,7 @@ export default function SectionCTA() {
           <span className="text-red">Laufleidenschaft</span>{" "}
           <span>vereint</span>
         </h2>
-        <p className="mb-8 text-center text-offWhite">
+        <p className="mb-8 max-w-[512px] text-balance text-center text-offWhite">
           Das Laufteam Braunschweig ist ein Verbund ausgewählter Spitzensportler
           der Region Braunschweig und steht leistungsstarken und
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der
