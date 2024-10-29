@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -30,9 +31,10 @@ export default function Navbar() {
           <Link
             id="nav-logo"
             href="/"
-            className={`flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic transition ease-in-out ${
-              isHomepage && "lg:opacity-0"
-            }`}
+            className={clsx(
+              "flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic transition ease-in-out",
+              isHomepage && "lg:opacity-0",
+            )}
           >
             <Image
               src="/svg/logo_no_text.svg"
@@ -77,7 +79,9 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/news"
-                  className={`${pathname.startsWith("/news") && "font-bold underline"}`}
+                  className={clsx(
+                    pathname.startsWith("/news") && "font-bold underline",
+                  )}
                 >
                   News
                 </Link>
@@ -85,7 +89,9 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/about-us"
-                  className={`${pathname.startsWith("/about-us") && "font-bold underline"}`}
+                  className={clsx(
+                    pathname.startsWith("/about-us") && "font-bold underline",
+                  )}
                 >
                   Über uns
                 </Link>
@@ -93,7 +99,9 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/team"
-                  className={`${pathname.startsWith("/team") && "font-bold underline"}`}
+                  className={clsx(
+                    pathname.startsWith("/team") && "font-bold underline",
+                  )}
                 >
                   Team
                 </Link>
@@ -101,7 +109,9 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/contact"
-                  className={`${pathname.startsWith("/contact") && "font-bold underline"}`}
+                  className={clsx(
+                    pathname.startsWith("/contact") && "font-bold underline",
+                  )}
                 >
                   Kontakt
                 </Link>
