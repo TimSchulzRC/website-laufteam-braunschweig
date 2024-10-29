@@ -1,17 +1,15 @@
 import { DATENSCHUTZ_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { DATENSCHUTZ_PAGE_QUERY } from "@/sanity/queries";
+import { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import ContentPageContentSection from "../ContentPageContentSection";
 
-export async function generateMetadata() {
-  const pageData = await sanityFetch<DATENSCHUTZ_PAGE_QUERYResult>({
-    query: DATENSCHUTZ_PAGE_QUERY,
-  });
-  if (!pageData) return {};
-  return {};
-}
+export const metadata: Metadata = {
+  title: "Datenschutz",
+  description: "Datenschutzerklärung der Website des Laufteam Braunschweig",
+};
 
 export default async function Datenschutz() {
   const pageData = await sanityFetch<DATENSCHUTZ_PAGE_QUERYResult>({
