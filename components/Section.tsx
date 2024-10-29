@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 export default function Section({
   children,
   id,
@@ -10,7 +12,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`w-full flex items-center flex-col ${className}`}
+      className={clsx("flex w-full flex-col items-center", className)}
     >
       {children}
     </section>

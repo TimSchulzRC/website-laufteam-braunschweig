@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -27,7 +28,11 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={`${fontRoboto.variable} ${fontJosefinSans.variable} ${fontRoboto.className}`}
+        className={clsx(
+          fontRoboto.variable,
+          fontJosefinSans.variable,
+          fontRoboto.className,
+        )}
       >
         {children}
       </body>

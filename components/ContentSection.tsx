@@ -1,4 +1,5 @@
 import ContentSectionData from "@/types/ContentSectionData";
+import clsx from "clsx";
 import { PortableText } from "next-sanity";
 import Section from "./Section";
 
@@ -45,7 +46,7 @@ export default function ContentSection({ data, className }: Props) {
 
   return data.disableTitle ? (
     <Section
-      className={`container text-center ${bgColor} ${textColor} ${className || ""}`}
+      className={clsx("container text-center", bgColor, textColor, className)}
     >
       <div className="max-w-lg py-12">
         <PortableText value={data.content} />
@@ -53,11 +54,16 @@ export default function ContentSection({ data, className }: Props) {
     </Section>
   ) : (
     <Section
-      className={`container grid grid-cols-2 py-12 ${bgColor} ${textColor} ${className || ""}`}
+      className={clsx(
+        "container grid grid-cols-2 py-12",
+        bgColor,
+        textColor,
+        className,
+      )}
     >
-      <hr className={`col-span-2 mt-2 order-2 md:order-1 ${borderColor}`} />
-      <div className="h-full order-1 md:order-2">
-        <h2 className="text-xl uppercase col-span-2 mt-4">{data.title}</h2>
+      <hr className={clsx("order-2 col-span-2 mt-2 md:order-1", borderColor)} />
+      <div className="order-1 h-full md:order-2">
+        <h2 className="col-span-2 mt-4 text-xl uppercase">{data.title}</h2>
       </div>
       <div className="order-3 col-span-2 md:col-span-1">
         <PortableText value={data.content} />

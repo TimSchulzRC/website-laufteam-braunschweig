@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import Image from "next/image";
 import { ReactNode } from "react";
 import Button from "./Button";
@@ -28,32 +29,33 @@ export default function LinkCard({
   return (
     <div className={className}>
       <div
-        className={`${
-          !disableMaxWidth && "max-w-80"
-        } pt-[66px] flex flex-col h-full`}
+        className={clsx(
+          !disableMaxWidth && "max-w-80",
+          "flex h-full flex-col pt-[66px]",
+        )}
       >
         <div className="-mb-[0.2px]">
           <Triangle color="offWhite" className="" flipHorizontal />
         </div>
-        <div className="bg-offWhite p-10 grow h-full flex flex-col relative">
+        <div className="relative flex h-full grow flex-col bg-offWhite p-10">
           {imageURL && (
             <Image
               src={imageURL}
               alt={imageAlt}
               height={1440}
               width={1440}
-              className="-mt-48 relative z-10 mb-6 aspect-square object-cover"
+              className="relative z-10 -mt-48 mb-6 aspect-square object-cover"
             />
           )}
-          <h3 className="text-2xl text-red font-bold">{title}</h3>
+          <h3 className="text-2xl font-bold text-red">{title}</h3>
           {subtitle && (
-            <h4 className="text-lg text-darkBlue-light font-sans my-2">
+            <h4 className="my-2 font-sans text-lg text-darkBlue-light">
               {subtitle}
             </h4>
           )}
-          <div className="leading-7 mb-6 grow">{children}</div>
+          <div className="mb-6 grow leading-7">{children}</div>
           <Button
-            className="w-full flex justify-center"
+            className="flex w-full justify-center"
             color="darkBlue"
             href={href}
           >

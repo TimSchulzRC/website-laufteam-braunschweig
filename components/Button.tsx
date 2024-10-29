@@ -2,6 +2,7 @@
 
 import { DefaultColors } from "@/types/Color";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
+import clsx from "clsx";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -39,12 +40,17 @@ export default function Button({
       break;
   }
 
-  const containerClassName = `inline-block text-offWhite p-3 ${
-    skew && "-skew-x-[15deg]"
-  } ${href && "hover:underline"} ${btnColor} ${className}`;
-  const childClassName = `${
-    skew && "skew-x-[15deg]"
-  } uppercase flex items-center gap-3 w-100`;
+  const containerClassName = clsx(
+    "inline-block text-offWhite p-3",
+    skew && "-skew-x-[15deg]",
+    href && "hover:underline",
+    btnColor,
+    className,
+  );
+  const childClassName = clsx(
+    "uppercase flex items-center gap-3 w-100",
+    skew && "skew-x-[15deg]",
+  );
   return href ? (
     <Link href={href} className={containerClassName}>
       <div className={childClassName}>
