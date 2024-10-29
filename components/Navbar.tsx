@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-20 w-full bg-darkBlue py-2">
       <nav>
-        <div className="container mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
+        <div className="container mx-auto flex flex-wrap items-center justify-between">
           <Link
             id="nav-logo"
             href="/"
