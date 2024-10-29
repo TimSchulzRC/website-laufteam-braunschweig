@@ -13,7 +13,7 @@ export default function SubPageTopSections({
       <section className="relative">
         {image?.url && (
           <Image
-            className="w-full max-h-[600px] object-cover object-top"
+            className="max-h-[600px] w-full object-cover object-top"
             width={image.width || 1920}
             height={image.height || 1080}
             src={image.url}
@@ -21,11 +21,11 @@ export default function SubPageTopSections({
           />
         )}
       </section>
-      <section className="text-offWhite container py-24">
+      <section className="container py-24 text-offWhite">
         <div className="grid grid-cols-2">
-          <h1 className="text-5xl col-span-2 uppercase text-red">{title}</h1>
-          <hr className="my-4 col-span-2" />
-          <h2 className="col-span-2 md:col-span-1 mb-2 text-2xl uppercase md:pe-10">
+          <h1 className="col-span-2 text-5xl uppercase text-red">{title}</h1>
+          <hr className="col-span-2 my-4" />
+          <h2 className="col-span-2 mb-2 text-2xl uppercase md:col-span-1 md:pe-10">
             {subtitle}
           </h2>
         </div>

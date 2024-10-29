@@ -1,7 +1,7 @@
+import clientConfig from "@/sanity/config/client-config";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { PortableTextBlock } from "next-sanity";
-import clientConfig from "./config/client-config";
 
 const builder = imageUrlBuilder(clientConfig);
 
@@ -18,7 +18,7 @@ export function portableTextToString(blocks: PortableTextBlock[]): string {
 
 export function portableTextPreview(
   blocks: PortableTextBlock[],
-  length?: number
+  length?: number,
 ): string {
   if (!blocks || !blocks.length) return "";
   return (

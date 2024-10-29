@@ -1,5 +1,5 @@
+import clientConfig from "@/sanity/config/client-config";
 import { createClient, QueryParams } from "next-sanity";
-import clientConfig from "./config/client-config";
 
 const client = createClient(clientConfig);
 

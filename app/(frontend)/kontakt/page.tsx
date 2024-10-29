@@ -1,10 +1,10 @@
+import ContentPageContentSection from "@/components/page-components/ContentPageContentSection";
 import { CONTACT_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { CONTACT_PAGE_QUERY } from "@/sanity/queries";
 import { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
-import ContentPageContentSection from "../ContentPageContentSection";
 
 export const metadata: Metadata = {
   title: "Kontakt",

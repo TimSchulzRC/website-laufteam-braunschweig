@@ -1,11 +1,11 @@
+import ContentPageContentSection from "@/components/page-components/ContentPageContentSection";
+import ContentPageTopSection from "@/components/page-components/ContentPageTopSection";
 import { POST_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { POST_QUERY } from "@/sanity/queries";
 import { portableTextPreview } from "@/sanity/sanity-utils";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 import { notFound } from "next/navigation";
-import ContentPageContentSection from "../../ContentPageContentSection";
-import ContentPageTopSection from "../../ContentPageTopSection";
 
 type Props = {
   params: { post: string };
@@ -35,7 +35,7 @@ export default async function NewsPost({ params }: Props) {
   return (
     <>
       <ContentPageTopSection image={post.image}>
-        <div className="absolute container bottom-0 right-0 text-offWhite flex justify-end">
+        <div className="container absolute bottom-0 right-0 flex justify-end text-offWhite">
           {post.location && post.location}
           {post.location && post.publishedAt && ", "}
           {post.publishedAt &&

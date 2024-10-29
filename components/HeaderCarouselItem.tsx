@@ -1,11 +1,11 @@
 "use client";
 
+import Button from "@/components/Button";
+import Triangle from "@/components/Triangle";
 import config from "@/tailwind.config";
 import ImageData from "@/types/ImageData";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import Image from "next/image";
-import Button from "./Button";
-import Triangle from "./Triangle";
 
 type Props = {
   image: ImageData;
@@ -18,21 +18,21 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
 
   return (
     <div>
-      <div className="h-[600px] sm:h-[600px] md:h-[650px] relative 2xl:container">
-        <div className="absolute lg:ps-20 2xl:ps-0 w-full h-full top-0 left-1/2 hidden lg:flex mx-auto -translate-x-1/2">
-          <div className="w-1/3 h-full bg-darkBlue flex flex-col gap-10 justify-between md:pb-32 md:pt-16 lg:pt-20">
+      <div className="relative h-[600px] 2xl:container sm:h-[600px] md:h-[650px]">
+        <div className="absolute left-1/2 top-0 mx-auto hidden h-full w-full -translate-x-1/2 lg:flex lg:ps-20 2xl:ps-0">
+          <div className="flex h-full w-1/3 flex-col justify-between gap-10 bg-darkBlue md:pb-32 md:pt-16 lg:pt-20">
             <Image
               src="/svg/logo_text.svg"
               height={67}
               width={274}
               alt="Laufteam Braunschweig Logo"
-              className="h-full md:flex md:w-[300px] lg:w-[350px] z-20 transition ease-in-out"
+              className="z-20 h-full transition ease-in-out md:flex md:w-[300px] lg:w-[350px]"
               style={{ transformOrigin: "top" }}
             />
 
-            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80 ">
+            <div className="bottom-32 flex flex-col overflow-visible lg:max-w-80">
               <h2
-                className=" text-offWhite italic font-bold text-2xl md:text-3xl lg:text-4xl mb-12 uppercase ms-[-5px] text-wrap hyphens-auto"
+                className="mb-12 ms-[-5px] hyphens-auto text-wrap text-2xl font-bold uppercase italic text-offWhite md:text-3xl lg:text-4xl"
                 style={{
                   backgroundColor: colors.red,
                   backgroundImage: "linear-gradient(white, white)",
@@ -46,7 +46,7 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               >
                 {title}
               </h2>
-              <div className="w-full pe-6 ">
+              <div className="w-full pe-6">
                 <Button
                   color="orange"
                   className="w-full"
@@ -54,7 +54,7 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
                   href={"news/" + postSlug}
                   skew
                 >
-                  <div className="flex items-center justify-between w-full">
+                  <div className="flex w-full items-center justify-between">
                     <span>Jetzt lesen!</span>
                     <DoubleArrowSharpIcon fontSize="small" />
                   </div>
@@ -62,8 +62,8 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
               </div>
             </div>
           </div>
-          <div className="flex relative w-2/3">
-            <div className="h-full absolute">
+          <div className="relative flex w-2/3">
+            <div className="absolute h-full">
               <Triangle color="darkBlue" rotated flipVertical />
             </div>
             {image.url && (
@@ -79,20 +79,20 @@ export default function HeaderCarouselItem({ image, title, postSlug }: Props) {
         </div>
         {image.url && (
           <Image
-            className="flex lg:hidden w-full h-[400px] md:h-[600px] object-cover"
+            className="flex h-[400px] w-full object-cover md:h-[600px] lg:hidden"
             src={image.url}
             alt={image.alt || ""}
             width={image.width || 1920}
             height={image.height || 1080}
           />
         )}
-        <div className="w-full absolute bottom-0 left-0 lg:hidden">
+        <div className="absolute bottom-0 left-0 w-full lg:hidden">
           <div className="w-full">
             <Triangle color="darkBlue" className="z-10" />
           </div>
-          <div className="bg-darkBlue text-offWhite my-[-1px] px-10 py-5 relative h-52 flex flex-col justify-center">
+          <div className="relative my-[-1px] flex h-52 flex-col justify-center bg-darkBlue px-10 py-5 text-offWhite">
             <h2
-              className="italic text-2xl mb-6 uppercase ms-[-5px] max-w-[80%]"
+              className="mb-6 ms-[-5px] max-w-[80%] text-2xl uppercase italic"
               style={{
                 backgroundColor: colors.red,
                 backgroundImage: "linear-gradient(white, white)",

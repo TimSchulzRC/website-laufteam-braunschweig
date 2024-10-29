@@ -1,7 +1,7 @@
+import Section from "@/components/Section";
 import ContentSectionData from "@/types/ContentSectionData";
 import cn from "@/util/classnames";
 import { PortableText } from "next-sanity";
-import Section from "./Section";
 
 type Props = {
   data: ContentSectionData;

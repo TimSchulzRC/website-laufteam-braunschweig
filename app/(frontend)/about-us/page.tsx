@@ -5,7 +5,7 @@ import { ABOUT_US_PAGE_QUERY } from "@/sanity/queries";
 import ContentSectionData from "@/types/ContentSectionData";
 import SubPageData from "@/types/SubPageData";
 import { notFound } from "next/navigation";
-import SubPageTopSections from "../SubPageTopSections";
+import SubPageTopSections from "../../../components/page-components/SubPageTopSections";
 
 export async function generateMetadata() {
   const pageData = await sanityFetch<ABOUT_US_PAGE_QUERYResult>({

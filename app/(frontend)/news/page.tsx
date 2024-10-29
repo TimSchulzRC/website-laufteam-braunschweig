@@ -1,4 +1,5 @@
 import LinkCard from "@/components/LinkCard";
+import SubPageTopSections from "@/components/page-components/SubPageTopSections";
 import { NEWS_PAGE_QUERYResult, POSTS_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { NEWS_PAGE_QUERY, POSTS_QUERY } from "@/sanity/queries";
@@ -6,7 +7,6 @@ import { portableTextPreview } from "@/sanity/sanity-utils";
 import SubPageData from "@/types/SubPageData";
 import { PortableTextBlock } from "next-sanity";
 import { notFound } from "next/navigation";
-import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
 

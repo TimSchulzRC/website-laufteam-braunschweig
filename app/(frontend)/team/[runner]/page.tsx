@@ -1,10 +1,10 @@
+import ContentPageContentSection from "@/components/page-components/ContentPageContentSection";
+import ContentPageTopSection from "@/components/page-components/ContentPageTopSection";
 import { RUNNER_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { RUNNER_QUERY } from "@/sanity/queries";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
-import ContentPageContentSection from "../../ContentPageContentSection";
-import ContentPageTopSection from "../../ContentPageTopSection";
 
 type Props = {
   params: { runner: string };

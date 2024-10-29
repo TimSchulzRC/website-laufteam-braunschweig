@@ -1,23 +1,23 @@
+import Section from "@/components/Section";
 import Image from "next/image";
-import Section from "../../../../components/Section";
 
 export default function SectionCTA() {
   return (
     <Section className="bg-darkBlue px-10 py-24">
-      <div className="container max-w-lg flex items-center flex-col">
+      <div className="container flex max-w-lg flex-col items-center">
         <Image
-          className="w-32 object-contain col-span-2"
+          className="col-span-2 w-32 object-contain"
           src="/svg/logo_no_text.svg"
           width={102}
           height={118}
           alt="Logo von Laufteam Braunschweig ohne Text, Roter Löwenkopf"
         />
-        <h2 className="flex flex-col items-center text-offWhite text-3xl text-bold italic my-6 uppercase font-bold">
+        <h2 className="text-bold my-6 flex flex-col items-center text-3xl font-bold uppercase italic text-offWhite">
           <span>Durch</span>
           <span className="text-red">Laufleidenschaft</span>{" "}
           <span>vereint</span>
         </h2>
-        <p className="text-offWhite text-center mb-8">
+        <p className="mb-8 text-center text-offWhite">
           Das Laufteam Braunschweig ist ein Verbund ausgewählter Spitzensportler
           der Region Braunschweig und steht leistungsstarken und
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der

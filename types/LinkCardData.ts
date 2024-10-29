@@ -1,4 +1,4 @@
-import ImageData from "./ImageData";
+import ImageData from "@/types/ImageData";
 
 type LinkCardData = {
   title: string;

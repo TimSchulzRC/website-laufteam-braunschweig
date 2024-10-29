@@ -1,9 +1,9 @@
 "use client";
+import Button from "@/components/Button";
+import Triangle from "@/components/Triangle";
 import cn from "@/util/classnames";
 import Image from "next/image";
 import { ReactNode } from "react";
-import Button from "./Button";
-import Triangle from "./Triangle";
 
 type Props = {
   title: string;

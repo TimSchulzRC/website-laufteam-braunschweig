@@ -1,10 +1,10 @@
 import LinkCard from "@/components/LinkCard";
+import SubPageTopSections from "@/components/page-components/SubPageTopSections";
 import { RUNNERS_QUERYResult, TEAM_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { RUNNERS_QUERY, TEAM_PAGE_QUERY } from "@/sanity/queries";
 import SubPageData from "@/types/SubPageData";
 import { notFound } from "next/navigation";
-import SubPageTopSections from "../SubPageTopSections";
 
 export const revalidate = 60;
 
@@ -31,7 +31,7 @@ export default async function Team() {
     <>
       <SubPageTopSections pageData={pageData as SubPageData} />
       <section className="bg-red">
-        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3">
+        <div className="container grid gap-10 py-24 sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => !m.hallOfFame)
             .map((member) => (
@@ -51,7 +51,7 @@ export default async function Team() {
           <h1 className="text-5xl uppercase text-red">Hall of Fame</h1>
           <hr className="my-4" />
         </div>
-        <div className="container py-24 gap-10 grid sm:grid-cols-2 lg:grid-cols-3">
+        <div className="container grid gap-10 py-24 sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => m.hallOfFame)
             .map((member) => (
