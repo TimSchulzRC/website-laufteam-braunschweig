@@ -1,6 +1,6 @@
 "use client";
+import LionIcon from "@/components/LionIcon";
 import cn from "@/util/classnames";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -36,12 +36,7 @@ export default function Navbar() {
               isHomepage && "lg:opacity-0",
             )}
           >
-            <Image
-              src="/svg/logo_no_text.svg"
-              width={24}
-              height={24}
-              alt="Laufteam Braunschweig"
-            />
+            <LionIcon />
             <div className="pt-1">
               <span className="text-offWhite">Laufteam</span>{" "}
               <span className="text-red">Braunschweig</span>

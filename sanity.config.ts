@@ -1,3 +1,5 @@
+import LionIcon from "@/components/LionIcon";
+import { schemaTypes } from "@/sanity/schemas";
 import { DocumentTextIcon, HomeIcon, UsersIcon } from "@sanity/icons";
 import { deDELocale } from "@sanity/locale-de-de";
 import { visionTool } from "@sanity/vision";
@@ -9,14 +11,14 @@ import {
   singletonTools,
 } from "sanity-plugin-singleton-tools";
 import { structureTool } from "sanity/structure";
-import { schemaTypes } from "./sanity/schemas";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
-  name: "default",
-  title: "laufteam-braunschweig",
+  name: "laufteam-braunschweig",
+  title: "Laufteam Braunschweig",
+  icon: LionIcon,
 
   projectId,
   dataset,
