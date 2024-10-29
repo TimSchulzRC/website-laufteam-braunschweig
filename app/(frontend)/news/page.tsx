@@ -38,7 +38,7 @@ export default async function News() {
   return (
     <>
       <SubPageTopSections pageData={pageData as SubPageData} />
-      <section className="container grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+      <section className="container grid gap-10 md:grid-cols-2">
         {posts.sort(sortByPublishedAt).map((post) => {
           const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
           const location = post.location || "";
