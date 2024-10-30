@@ -4,7 +4,6 @@ import { HOMEPAGE_QUERY } from "@/sanity/queries";
 import LinkCardData from "@/types/LinkCardData";
 import { notFound } from "next/navigation";
 import Header from "./sections/Header";
-import SectionCTA from "./sections/SectionCTA";
 import SectionCards from "./sections/SectionCards";
 import SectionSponsors from "./sections/SectionSponsors";
 
@@ -25,7 +24,7 @@ export default async function Home() {
       <h1 className="hidden">Laufteam Braunschweig</h1>
       <Header image={homepageData.headerImage} />
       <SectionSponsors />
-      <SectionCTA />
+      {/* <SectionCTA /> */}
       <SectionCards linkCards={homepageData.linkCards as LinkCardData[]} />
     </main>
   );

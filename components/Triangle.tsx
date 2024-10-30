@@ -32,6 +32,8 @@ export default function Triangle({
       <polygon
         points="0,0 0,373 100,373"
         fill={colors?.[color]}
+        stroke="none"
+        stroke-width="0"
         shapeRendering="crispEdges"
       />
     </svg>
@@ -52,6 +54,8 @@ export default function Triangle({
       <polygon
         points="0,0 0,100 373,100"
         fill={colors?.[color]}
+        stroke="none"
+        stroke-width="0"
         shapeRendering="crispEdges"
       />
     </svg>

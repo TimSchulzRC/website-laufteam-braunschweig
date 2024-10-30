@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function SectionSponsors() {
   return (
-    <Section className="px-10 pb-10 md:pt-10">
-      <div className="grid grid-flow-row grid-cols-2 items-center gap-10 md:gap-20">
+    <Section className="container px-10 pb-16 md:pt-16">
+      <div className="grid grid-flow-row grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
         <Image
           className="h-42 object-contain"
           src="/sponsors/mietens-logo.webp"

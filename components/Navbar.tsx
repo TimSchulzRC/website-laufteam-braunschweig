@@ -70,7 +70,7 @@ export default function Navbar() {
             className="w-full py-2 md:block md:w-auto md:py-0"
             id="navbar-default"
           >
-            <ul className="flex flex-col border border-offWhite bg-darkBlue px-4 uppercase text-offWhite md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
+            <ul className="flex flex-col bg-darkBlue px-4 uppercase text-offWhite md:mt-0 md:flex-row md:space-x-8 rtl:space-x-reverse">
               <li>
                 <Link
                   href="/news"

@@ -23,9 +23,6 @@ export default function SectionCTA() {
           förderungswürdigen Athletinnen und Athleten offen, die in Vereinen der
           Startgemeinschaft LG Braunschweig Mitglied sind.
         </p>
-        {/* <Button href="/" color="orange" skew>
-          Mehr erfahren
-        </Button> */}
       </div>
     </Section>
   );

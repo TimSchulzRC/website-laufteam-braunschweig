@@ -13,7 +13,7 @@ export default function SubPageTopSections({
       <section className="relative">
         {image?.url && (
           <Image
-            className="max-h-[600px] w-full object-cover object-top"
+            className="h-[50vw] max-h-[50vh] w-full object-cover object-top"
             width={image.width || 1920}
             height={image.height || 1080}
             src={image.url}
