@@ -44,7 +44,7 @@ export default function LinkCard({
               alt={imageAlt}
               height={1440}
               width={1440}
-              className="relative z-10 -mt-48 mb-6 aspect-square object-cover"
+              className="relative z-10 -mt-48 mb-6 aspect-square object-cover object-top"
             />
           )}
           <h3 className="text-2xl font-bold text-red">{title}</h3>
