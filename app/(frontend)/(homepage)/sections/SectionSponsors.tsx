@@ -14,7 +14,7 @@ export default function SectionSponsors() {
         />
         <Image
           className="h-42 object-contain"
-          src="/sponsors/bw-Logo.png"
+          src="/sponsors/bw-logo.png"
           width={512}
           height={128}
           alt="Logo von Bartel Wotschke Ingenieure"
