@@ -56,7 +56,7 @@ export default async function Team() {
             .filter((m) => m.hallOfFame)
             .map((member) => (
               <LinkCard
-                className="col-auto mx-auto"
+                className="col-auto mx-auto [&_img]:grayscale"
                 key={member._id}
                 title={member.name || ""}
                 imageAlt={`Bild von ${member.name}`}
