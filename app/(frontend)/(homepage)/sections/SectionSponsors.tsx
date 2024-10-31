@@ -7,14 +7,14 @@ export default function SectionSponsors() {
       <div className="grid grid-flow-row grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
         <Image
           className="h-42 object-contain"
-          src="/sponsors/mietens-logo.webp"
+          src="/sponsors/logo-mietens.webp"
           width={512}
           height={128}
           alt="Logo von Mietens"
         />
         <Image
           className="h-42 object-contain"
-          src="/sponsors/bw-logo.png"
+          src="/sponsors/logo-bw.png"
           width={512}
           height={128}
           alt="Logo von Bartel Wotschke Ingenieure"
