@@ -9,7 +9,7 @@ import { getSubtitleFromPost } from "@/util/news";
 import { PortableTextBlock } from "next-sanity";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   const pageData = await sanityFetch<NEWS_PAGE_QUERYResult>({

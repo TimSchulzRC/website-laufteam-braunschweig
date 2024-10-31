@@ -8,7 +8,7 @@ import NewsSection from "./sections/NewsSection";
 import SectionCards from "./sections/SectionCards";
 import SectionSponsors from "./sections/SectionSponsors";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const homepageData = await sanityFetch<HOMEPAGE_QUERYResult>({

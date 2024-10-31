@@ -6,7 +6,7 @@ import { RUNNERS_QUERY, TEAM_PAGE_QUERY } from "@/sanity/queries";
 import SubPageData from "@/types/SubPageData";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   const pageData = await sanityFetch<TEAM_PAGE_QUERYResult>({
