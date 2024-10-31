@@ -4,44 +4,12 @@ import Section from "@/components/Section";
 import Triangle from "@/components/Triangle";
 import ImageData from "@/types/ImageData";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo } from "react";
 
 type Props = {
   image: ImageData;
 };
 
 export default function Header({ image }: Props) {
-  const handelLeavingScreen = useCallback(
-    (entries: IntersectionObserverEntry[]) => {
-      const navLogo = document.getElementById("nav-logo");
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLogo?.classList.add("lg:opacity-0");
-        } else {
-          navLogo?.classList.remove("lg:opacity-0");
-        }
-      });
-    },
-    [],
-  );
-
-  const options = useMemo(
-    () => ({
-      root: null,
-      threshold: 0.7,
-    }),
-    [],
-  );
-
-  useEffect(() => {
-    const toObserve = document.getElementById("homepage-header-section");
-    const observer = new IntersectionObserver(handelLeavingScreen, options);
-    if (toObserve) observer.observe(toObserve);
-    return () => {
-      if (toObserve) observer.unobserve(toObserve);
-    };
-  }, [handelLeavingScreen, options]);
-
   return (
     <Section className="-mt-1 bg-darkBlue" id="homepage-header-section">
       <div className="relative flex w-full flex-col md:h-[60vw] md:max-h-[70vh] md:flex-row">

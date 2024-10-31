@@ -4,10 +4,10 @@ import cn from "@/util/classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import NavLink from "./navigation/NavLink";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isHomepage = pathname === "/";
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,7 +23,6 @@ export default function Navbar() {
   };
 
   useEffect(() => setMenuOpen(false), [pathname]);
-  if (pathname.startsWith("/admin")) return null;
   return (
     <header className="sticky top-0 z-20 w-full bg-darkBlue py-2">
       <nav>
@@ -32,8 +31,7 @@ export default function Navbar() {
             id="nav-logo"
             href="/"
             className={cn(
-              "flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic transition ease-in-out",
-              isHomepage && "lg:opacity-0",
+              "flex max-w-[80%] items-center gap-2 font-display font-bold uppercase italic",
             )}
           >
             <LionIcon />
@@ -72,44 +70,16 @@ export default function Navbar() {
           >
             <ul className="flex flex-col bg-darkBlue px-4 uppercase text-offWhite md:mt-0 md:flex-row md:space-x-8 rtl:space-x-reverse">
               <li>
-                <Link
-                  href="/news"
-                  className={cn(
-                    pathname.startsWith("/news") && "font-bold underline",
-                  )}
-                >
-                  News
-                </Link>
+                <NavLink href="/news">News</NavLink>
               </li>
               <li>
-                <Link
-                  href="/about-us"
-                  className={cn(
-                    pathname.startsWith("/about-us") && "font-bold underline",
-                  )}
-                >
-                  Über uns
-                </Link>
+                <NavLink href="/about-us">Über uns</NavLink>
               </li>
               <li>
-                <Link
-                  href="/team"
-                  className={cn(
-                    pathname.startsWith("/team") && "font-bold underline",
-                  )}
-                >
-                  Team
-                </Link>
+                <NavLink href="/team">Team</NavLink>
               </li>
               <li>
-                <Link
-                  href="/kontakt"
-                  className={cn(
-                    pathname.startsWith("/kontakt") && "font-bold underline",
-                  )}
-                >
-                  Kontakt
-                </Link>
+                <NavLink href="/kontakt">Kontakt</NavLink>
               </li>
             </ul>
           </div>
