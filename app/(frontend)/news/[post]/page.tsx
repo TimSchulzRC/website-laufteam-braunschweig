@@ -4,6 +4,7 @@ import { POST_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { POST_QUERY } from "@/sanity/queries";
 import { portableTextPreview } from "@/sanity/sanity-utils";
+import { getSubtitleFromPost } from "@/util/news";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 import { notFound } from "next/navigation";
 
@@ -31,14 +32,13 @@ export default async function NewsPost({ params }: Props) {
     params: { slug: params.post },
   });
   if (!post) return notFound();
-  const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
-  const location = post.location || "";
-  const divider = date && location ? " | " : "";
-  const subtitle = `${date}${divider}${location}`;
   return (
     <>
       <ContentPageTopSection image={post.image} />
-      <ContentPageContentSection title={post.title} subtitle={subtitle}>
+      <ContentPageContentSection
+        title={post.title}
+        subtitle={getSubtitleFromPost(post)}
+      >
         {post.body && <PortableText value={post.body} />}
       </ContentPageContentSection>
     </>

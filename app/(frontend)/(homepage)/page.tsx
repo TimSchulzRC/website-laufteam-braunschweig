@@ -4,6 +4,7 @@ import { HOMEPAGE_QUERY } from "@/sanity/queries";
 import LinkCardData from "@/types/LinkCardData";
 import { notFound } from "next/navigation";
 import Header from "./sections/Header";
+import NewsSection from "./sections/NewsSection";
 import SectionCards from "./sections/SectionCards";
 import SectionSponsors from "./sections/SectionSponsors";
 
@@ -14,17 +15,13 @@ export default async function Home() {
     query: HOMEPAGE_QUERY,
   });
 
-  // const recentPosts = await sanityFetch<MOST_RECENT_POSTS_QUERYResult>({
-  //   query: MOST_RECENT_POSTS_QUERY,
-  // });
-
   if (!homepageData) return notFound();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden bg-offWhite">
       <h1 className="hidden">Laufteam Braunschweig</h1>
       <Header image={homepageData.headerImage} />
       <SectionSponsors />
-      {/* <SectionCTA /> */}
+      <NewsSection />
       <SectionCards linkCards={homepageData.linkCards as LinkCardData[]} />
     </main>
   );

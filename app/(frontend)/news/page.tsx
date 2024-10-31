@@ -5,6 +5,7 @@ import { sanityFetch } from "@/sanity/client";
 import { NEWS_PAGE_QUERY, POSTS_QUERY } from "@/sanity/queries";
 import { portableTextPreview } from "@/sanity/sanity-utils";
 import SubPageData from "@/types/SubPageData";
+import { getSubtitleFromPost } from "@/util/news";
 import { PortableTextBlock } from "next-sanity";
 import { notFound } from "next/navigation";
 
@@ -40,17 +41,13 @@ export default async function News() {
       <SubPageTopSections pageData={pageData as SubPageData} />
       <section className="container grid gap-10 md:grid-cols-2">
         {posts.sort(sortByPublishedAt).map((post) => {
-          const date = new Date(post.publishedAt!).toLocaleDateString("de-DE");
-          const location = post.location || "";
-          const divider = date && location ? " | " : "";
-          const subtitle = `${date}${divider}${location}`;
           return (
             <LinkCard
               disableMaxWidth
               className="col-2"
               key={post._id}
               title={post.title || ""}
-              subtitle={subtitle}
+              subtitle={getSubtitleFromPost(post)}
               imageURL={post.image.url || ""}
               imageAlt={post.image.alt || ""}
               href={`/news/${post.slug}`}

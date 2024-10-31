@@ -662,10 +662,13 @@ export type IMPRESSUM_PAGE_QUERYResult = {
   }> | null;
 } | null;
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" ]{        _id,        _createdAt,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" ]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
+  _updatedAt: string;
+  _type: "post";
+  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
@@ -699,10 +702,13 @@ export type POSTS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{        _id,        _createdAt,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" && slug.current == $slug][0]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
 export type POST_QUERYResult = {
   _id: string;
   _createdAt: string;
+  _updatedAt: string;
+  _type: "post";
+  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
@@ -736,10 +742,13 @@ export type POST_QUERYResult = {
   }> | null;
 } | null;
 // Variable: MOST_RECENT_POSTS_QUERY
-// Query: *[_type == "post" ] | order(publishedAt desc) [0...3]{        _id,        _createdAt,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" ] | order(publishedAt desc) [0...3]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
 export type MOST_RECENT_POSTS_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
+  _updatedAt: string;
+  _type: "post";
+  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
@@ -850,9 +859,9 @@ declare module "@sanity/client" {
     '*[_type == "contact-page"][0]{\n      contactInformation\n    }': CONTACT_PAGE_QUERYResult;
     '*[_type == "datenschutz-page"][0]{\n      datenschutzerklaerung\n    }': DATENSCHUTZ_PAGE_QUERYResult;
     '*[_type == "impressum-page"][0]{\n      impressum\n    }': IMPRESSUM_PAGE_QUERYResult;
-    '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POST_QUERYResult;
-    '*[_type == "post" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': MOST_RECENT_POSTS_QUERYResult;
+    '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POST_QUERYResult;
+    '*[_type == "post" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': MOST_RECENT_POSTS_QUERYResult;
     '*[_type == "runner" ]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": imageAlt\n        },\n        hallOfFame,\n        bio,\n        infotext,\n    }': RUNNERS_QUERYResult;
     '*[_type == "runner" && slug.current == $slug][0]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": "Bild von " + name\n        },\n        bio,\n        infotext,\n        birthDate\n    }': RUNNER_QUERYResult;
   }

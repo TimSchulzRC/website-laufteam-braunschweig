@@ -69,7 +69,7 @@ export default function Header({ image }: Props) {
           </div>
         </div>
         <div className="relative md:static">
-          <div className="absolute bottom-0 w-full">
+          <div className="absolute bottom-0 w-full md:hidden">
             <Triangle color="darkBlue" flipHorizontal />
           </div>
           {image.url && (
