@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import NavLink from "./navigation/NavLink";
 
 export default function Footer() {
   return (
@@ -24,13 +25,13 @@ export default function Footer() {
       <nav>
         <ul className="flex flex-col justify-end md:flex-row md:gap-8">
           <li>
-            <Link href="/datenschutz">Datenschutzerklärung</Link>
+            <NavLink href="/datenschutz">Datenschutzerklärung</NavLink>
           </li>
           <li>
-            <Link href="/impressum">Impressum</Link>
+            <NavLink href="/impressum">Impressum</NavLink>
           </li>
           <li>
-            <Link href="/kontakt">Kontakt</Link>
+            <NavLink href="/kontakt">Kontakt</NavLink>
           </li>
         </ul>
       </nav>

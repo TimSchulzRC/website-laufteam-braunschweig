@@ -24,7 +24,7 @@ export default function Button({
   let btnColor = "";
   switch (color) {
     case "darkBlue":
-      btnColor = "bg-darkBlue hover:bg-darkBlue-light";
+      btnColor = "bg-darkBlue hover:bg-darkBlue-light hover:text-orange-light";
       break;
     case "red":
       btnColor = "bg-red hover:bg-red-light";
