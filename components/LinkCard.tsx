@@ -1,15 +1,18 @@
 "use client";
 import Button from "@/components/Button";
 import Triangle from "@/components/Triangle";
+import clientConfig from "@/sanity/config/client-config";
 import cn from "@/util/classnames";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 import { ReactNode } from "react";
 
 type Props = {
   title: string;
   subtitle?: string;
-  imageURL: string;
-  imageAlt: string;
+  image: SanityImageSource | null;
+  imageAlt?: string;
   href: string;
   children?: ReactNode;
   className?: string;
@@ -19,13 +22,14 @@ type Props = {
 export default function LinkCard({
   title,
   subtitle,
-  imageURL,
+  image,
   imageAlt,
   href,
   children,
   className,
   disableMaxWidth = false,
 }: Props) {
+  const imageProps = useNextSanityImage(clientConfig, image);
   return (
     <div className={className}>
       <div
@@ -38,13 +42,11 @@ export default function LinkCard({
           <Triangle color="offWhite" className="" flipHorizontal />
         </div>
         <div className="relative flex h-full grow flex-col bg-offWhite p-10">
-          {imageURL && (
+          {image && imageProps && (
             <Image
-              src={imageURL}
-              alt={imageAlt}
-              height={1440}
-              width={1440}
-              className="relative z-10 -mt-48 mb-6 aspect-square object-cover object-top"
+              {...imageProps}
+              alt={imageAlt || ""}
+              className="relative z-10 -mt-48 mb-6 aspect-square w-full object-cover object-top"
             />
           )}
           <h3 className="text-2xl font-bold text-red">{title}</h3>

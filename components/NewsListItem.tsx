@@ -1,13 +1,19 @@
-import { POST_QUERYResult } from "@/sanity.types";
+"use client";
+
+import { MOST_RECENT_POSTS_QUERYResult } from "@/sanity.types";
+import clientConfig from "@/sanity/config/client-config";
 import { getSubtitleFromPost } from "@/util/news";
+import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-  post: POST_QUERYResult;
+  post: MOST_RECENT_POSTS_QUERYResult[0];
 };
 
 export default function NewsListItem({ post }: Props) {
+  const imageProps = useNextSanityImage(clientConfig, post.image);
+
   if (!post) return null;
 
   return (
@@ -21,13 +27,11 @@ export default function NewsListItem({ post }: Props) {
         </span>
         <span className="text-2xl">{post.title}</span>
       </Link>
-      {post.image.url && (
+      {post.image && imageProps && (
         <Image
-          className="col-span-2 col-start-7 h-16 w-16 object-cover transition-all ease-in-out md:col-span-1 md:col-start-8"
-          src={post.image.url}
+          {...imageProps}
           alt={post.image.alt || ""}
-          width={post.image.width || 100}
-          height={post.image.height || 100}
+          className="col-span-2 col-start-7 h-16 w-16 object-cover transition-all ease-in-out md:col-span-1 md:col-start-8"
         />
       )}
     </li>

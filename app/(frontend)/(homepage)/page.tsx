@@ -19,7 +19,10 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden bg-offWhite">
       <h1 className="hidden">Laufteam Braunschweig</h1>
-      <Header image={homepageData.headerImage} />
+      <Header
+        image={homepageData.headerImage}
+        imageAlt={homepageData.headerImage?.alt}
+      />
       <SectionSponsors />
       <NewsSection />
       <SectionCards linkCards={homepageData.linkCards as LinkCardData[]} />

@@ -3,7 +3,6 @@ import SubPageTopSections from "@/components/page-components/SubPageTopSections"
 import { RUNNERS_QUERYResult, TEAM_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { RUNNERS_QUERY, TEAM_PAGE_QUERY } from "@/sanity/queries";
-import SubPageData from "@/types/SubPageData";
 import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
@@ -29,7 +28,12 @@ export default async function Team() {
   if (!pageData) return notFound();
   return (
     <>
-      <SubPageTopSections pageData={pageData as SubPageData} />
+      <SubPageTopSections
+        image={pageData.image}
+        imageAlt={pageData.image?.alt}
+        title={pageData.title}
+        subtitle={pageData.subtitle}
+      />
       <section className="bg-red">
         <div className="container grid gap-10 py-24 sm:grid-cols-2 lg:grid-cols-3">
           {members
@@ -39,8 +43,8 @@ export default async function Team() {
                 className="col-auto mx-auto"
                 key={member._id}
                 title={member.name || ""}
+                image={member.image}
                 imageAlt={`Bild von  + ${member.name}`}
-                imageURL={member.image.url || ""}
                 href={`/team/${member.slug}`}
               />
             ))}
@@ -59,8 +63,8 @@ export default async function Team() {
                 className="col-auto mx-auto [&_img]:grayscale"
                 key={member._id}
                 title={member.name || ""}
+                image={member.image}
                 imageAlt={`Bild von ${member.name}`}
-                imageURL={member.image.url || ""}
                 href={`/team/${member.slug}`}
               />
             ))}

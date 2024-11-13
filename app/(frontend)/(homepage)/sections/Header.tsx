@@ -2,14 +2,19 @@
 
 import Section from "@/components/Section";
 import Triangle from "@/components/Triangle";
-import ImageData from "@/types/ImageData";
+import clientConfig from "@/sanity/config/client-config";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 
 type Props = {
-  image: ImageData;
+  image: SanityImageSource | null;
+  imageAlt?: string;
 };
 
-export default function Header({ image }: Props) {
+export default function Header({ image, imageAlt }: Props) {
+  const imageProps = useNextSanityImage(clientConfig, image);
+
   return (
     <Section className="-mt-1 bg-darkBlue" id="homepage-header-section">
       <div className="relative flex w-full flex-col md:h-[60vw] md:max-h-[70vh] md:flex-row">
@@ -40,13 +45,11 @@ export default function Header({ image }: Props) {
           <div className="absolute bottom-0 w-full md:hidden">
             <Triangle color="darkBlue" flipHorizontal />
           </div>
-          {image.url && (
+          {image && imageProps && (
             <Image
-              className="right-0 h-full w-full object-cover md:absolute md:w-1/2 md:object-left"
-              src={image.url}
-              alt={image.alt || ""}
-              width={image.width || 1920}
-              height={image.height || 1080}
+              {...imageProps}
+              alt={imageAlt || ""}
+              className="right-0 h-full w-full object-cover md:absolute md:w-1/2 md:object-left" // alt={image.alt || ""}
             />
           )}
         </div>

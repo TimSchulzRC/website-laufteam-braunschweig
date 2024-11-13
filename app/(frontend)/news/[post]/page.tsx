@@ -34,7 +34,7 @@ export default async function NewsPost({ params }: Props) {
   if (!post) return notFound();
   return (
     <>
-      <ContentPageTopSection image={post.image} />
+      <ContentPageTopSection image={post.image} imageAlt={post.image?.alt} />
       <ContentPageContentSection
         title={post.title}
         subtitle={getSubtitleFromPost(post)}

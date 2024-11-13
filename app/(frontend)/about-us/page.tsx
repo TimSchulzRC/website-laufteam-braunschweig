@@ -3,7 +3,6 @@ import { ABOUT_US_PAGE_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { ABOUT_US_PAGE_QUERY } from "@/sanity/queries";
 import ContentSectionData from "@/types/ContentSectionData";
-import SubPageData from "@/types/SubPageData";
 import { notFound } from "next/navigation";
 import SubPageTopSections from "../../../components/page-components/SubPageTopSections";
 
@@ -25,7 +24,12 @@ export default async function AboutUs() {
   if (!pageData) return notFound();
   return (
     <>
-      <SubPageTopSections pageData={pageData as SubPageData} />
+      <SubPageTopSections
+        image={pageData.image}
+        imageAlt={pageData.image?.alt}
+        title={pageData.title}
+        subtitle={pageData.subtitle}
+      />
       {pageData.sections && (
         <div className="bg-red py-24">
           {pageData.sections.map((s) => (

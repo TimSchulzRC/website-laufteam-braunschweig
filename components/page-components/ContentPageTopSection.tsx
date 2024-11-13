@@ -1,22 +1,30 @@
-import ImageData from "@/types/ImageData";
+"use client";
+
+import clientConfig from "@/sanity/config/client-config";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 import { ReactNode } from "react";
 
 type Props = {
+  image: SanityImageSource | null;
+  imageAlt?: string;
   children?: ReactNode;
-  image: ImageData;
 };
 
-export default function ContentPageTopSection({ image, children }: Props) {
+export default function ContentPageTopSection({
+  image,
+  imageAlt,
+  children,
+}: Props) {
+  const imageProps = useNextSanityImage(clientConfig, image);
   return (
     <section className="container relative mb-20 max-w-[800px]">
-      {image.url && (
+      {image && imageProps && (
         <Image
+          {...imageProps}
+          alt={imageAlt || ""}
           className="col aspect-square w-full object-cover object-center"
-          src={image.url}
-          alt={image.alt || ""}
-          width={image.width || 800}
-          height={image.height || 500}
         />
       )}
       <div className="container absolute bottom-0 left-1/2 -translate-x-1/2">

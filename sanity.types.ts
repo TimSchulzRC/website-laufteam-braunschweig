@@ -187,9 +187,9 @@ export type AboutUsPage = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
-  imageAlt?: string;
   title?: string;
   subtitle?: string;
   infotext?: string;
@@ -215,9 +215,9 @@ export type NewsPage = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
-  imageAlt?: string;
   title?: string;
   subtitle?: string;
 };
@@ -237,9 +237,9 @@ export type TeamPage = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
-  imageAlt?: string;
   title?: string;
   subtitle?: string;
 };
@@ -257,6 +257,7 @@ export type LinkCard = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
   link?: string;
@@ -277,6 +278,7 @@ export type Homepage = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
   linkCards?: Array<
@@ -349,9 +351,9 @@ export type Post = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
     _type: "image";
   };
-  imageAlt?: string;
   publishedAt?: string;
   location?: string;
   runners?: Array<{
@@ -531,28 +533,40 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries.ts
 // Variable: HOMEPAGE_QUERY
-// Query: *[_type == "homepage"][0]{      "headerImage": {        "url": headerImage.asset->url,        "width": headerImage.asset->metadata.dimensions.width,        "height": headerImage.asset->metadata.dimensions.height,        "alt": headerImageAlt      },      linkCards[]{        title,        description,        "image": {          "url": image.asset->url,          "width": image.asset->metadata.dimensions.width,          "height": image.asset->metadata.dimensions.height,          "alt": imageAlt        },        link      }    }
+// Query: *[_type == "homepage"][0]{      headerImage,      linkCards[]{        title,        description,        image,        link      }    }
 export type HOMEPAGE_QUERYResult = {
   headerImage: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
   linkCards: Array<{
     title: string | null;
     description: string | null;
     image: {
-      url: string | null;
-      width: number | null;
-      height: number | null;
-      alt: null;
-    };
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
     link: string | null;
   }> | null;
 } | null;
 // Variable: ABOUT_US_PAGE_QUERY
-// Query: *[_type == "aboutUs-page"][0]{      title,      subtitle,      infotext,      sections,      "image": {        "url": image.asset->url,        "width": image.asset->metadata.dimensions.width,        "height": image.asset->metadata.dimensions.height,        "alt": imageAlt      }    }
+// Query: *[_type == "aboutUs-page"][0]{      title,      subtitle,      infotext,      sections,      image    }
 export type ABOUT_US_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
@@ -563,37 +577,55 @@ export type ABOUT_US_PAGE_QUERYResult = {
     } & Section
   > | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
 } | null;
 // Variable: NEWS_PAGE_QUERY
-// Query: *[_type == "news-page"][0]{      title,      subtitle,      infotext,      "image": {        "url": image.asset->url,        "width": image.asset->metadata.dimensions.width,        "height": image.asset->metadata.dimensions.height,        "alt": imageAlt      }    }
+// Query: *[_type == "news-page"][0]{      title,      subtitle,      infotext,      image    }
 export type NEWS_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
   infotext: null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
 } | null;
 // Variable: TEAM_PAGE_QUERY
-// Query: *[_type == "team-page"][0]{      title,      subtitle,      infotext,      "image": {        "url": image.asset->url,        "width": image.asset->metadata.dimensions.width,        "height": image.asset->metadata.dimensions.height,        "alt": imageAlt      }    }
+// Query: *[_type == "team-page"][0]{      title,      subtitle,      infotext,      image    }
 export type TEAM_PAGE_QUERYResult = {
   title: string | null;
   subtitle: string | null;
   infotext: null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
 } | null;
 // Variable: CONTACT_PAGE_QUERY
 // Query: *[_type == "contact-page"][0]{      contactInformation    }
@@ -662,21 +694,24 @@ export type IMPRESSUM_PAGE_QUERYResult = {
   }> | null;
 } | null;
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" ]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" ]{        _id,        _createdAt,        title,        "slug": slug.current,        image,        publishedAt,        location,        runners[]->{            name        },        body    }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
-  _updatedAt: string;
-  _type: "post";
-  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
   publishedAt: string | null;
   location: string | null;
   runners: Array<{
@@ -702,21 +737,24 @@ export type POSTS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" && slug.current == $slug][0]{        _id,        _createdAt,        title,        "slug": slug.current,        image,        publishedAt,        location,        runners[]->{            name        },        body    }
 export type POST_QUERYResult = {
   _id: string;
   _createdAt: string;
-  _updatedAt: string;
-  _type: "post";
-  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
   publishedAt: string | null;
   location: string | null;
   runners: Array<{
@@ -742,21 +780,24 @@ export type POST_QUERYResult = {
   }> | null;
 } | null;
 // Variable: MOST_RECENT_POSTS_QUERY
-// Query: *[_type == "post" ] | order(publishedAt desc) [0...3]{        _id,        _createdAt,        _updatedAt,        _type,        _rev,        title,        "slug": slug.current,        "image": {            "url": image.asset->url,            "width": image.asset->metadata.dimensions.width,            "height": image.asset->metadata.dimensions.height,            "alt": imageAlt        },        publishedAt,        location,        runners[]->{            name        },        body    }
+// Query: *[_type == "post" ] | order(publishedAt desc) [0...3]{        _id,        _createdAt,        title,        "slug": slug.current,        image,        publishedAt,        location,        runners[]->{            name        },        body    }
 export type MOST_RECENT_POSTS_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
-  _updatedAt: string;
-  _type: "post";
-  _rev: string;
   title: string | null;
   slug: string | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
   publishedAt: string | null;
   location: string | null;
   runners: Array<{
@@ -782,17 +823,22 @@ export type MOST_RECENT_POSTS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: RUNNERS_QUERY
-// Query: *[_type == "runner" ]{        _id,        name,        "slug": slug.current,        "image": {          "url": image.asset->url,          "width": image.asset->metadata.dimensions.width,          "height": image.asset->metadata.dimensions.height,          "alt": imageAlt        },        hallOfFame,        bio,        infotext,    }
+// Query: *[_type == "runner" ]{        _id,        name,        "slug": slug.current,        image,        hallOfFame,        bio,        infotext,    }
 export type RUNNERS_QUERYResult = Array<{
   _id: string;
   name: string | null;
   slug: string | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
   hallOfFame: boolean | null;
   bio: Array<{
     children?: Array<{
@@ -815,17 +861,22 @@ export type RUNNERS_QUERYResult = Array<{
   infotext: null;
 }>;
 // Variable: RUNNER_QUERY
-// Query: *[_type == "runner" && slug.current == $slug][0]{        _id,        name,        "slug": slug.current,        "image": {          "url": image.asset->url,          "width": image.asset->metadata.dimensions.width,          "height": image.asset->metadata.dimensions.height,          "alt": "Bild von " + name        },        bio,        infotext,        birthDate    }
+// Query: *[_type == "runner" && slug.current == $slug][0]{        _id,        name,        "slug": slug.current,        image,        bio,        infotext,        birthDate    }
 export type RUNNER_QUERYResult = {
   _id: string;
   name: string | null;
   slug: string | null;
   image: {
-    url: string | null;
-    width: number | null;
-    height: number | null;
-    alt: string | null;
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
   bio: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -852,17 +903,17 @@ export type RUNNER_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homepage"][0]{\n      "headerImage": {\n        "url": headerImage.asset->url,\n        "width": headerImage.asset->metadata.dimensions.width,\n        "height": headerImage.asset->metadata.dimensions.height,\n        "alt": headerImageAlt\n      },\n      linkCards[]{\n        title,\n        description,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": imageAlt\n        },\n        link\n      }\n    }': HOMEPAGE_QUERYResult;
-    '*[_type == "aboutUs-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': ABOUT_US_PAGE_QUERYResult;
-    '*[_type == "news-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': NEWS_PAGE_QUERYResult;
-    '*[_type == "team-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      "image": {\n        "url": image.asset->url,\n        "width": image.asset->metadata.dimensions.width,\n        "height": image.asset->metadata.dimensions.height,\n        "alt": imageAlt\n      }\n    }': TEAM_PAGE_QUERYResult;
+    '*[_type == "homepage"][0]{\n      headerImage,\n      linkCards[]{\n        title,\n        description,\n        image,\n        link\n      }\n    }': HOMEPAGE_QUERYResult;
+    '*[_type == "aboutUs-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      image\n    }': ABOUT_US_PAGE_QUERYResult;
+    '*[_type == "news-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      image\n    }': NEWS_PAGE_QUERYResult;
+    '*[_type == "team-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      image\n    }': TEAM_PAGE_QUERYResult;
     '*[_type == "contact-page"][0]{\n      contactInformation\n    }': CONTACT_PAGE_QUERYResult;
     '*[_type == "datenschutz-page"][0]{\n      datenschutzerklaerung\n    }': DATENSCHUTZ_PAGE_QUERYResult;
     '*[_type == "impressum-page"][0]{\n      impressum\n    }': IMPRESSUM_PAGE_QUERYResult;
-    '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POST_QUERYResult;
-    '*[_type == "post" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        _updatedAt,\n        _type,\n        _rev,\n        title,\n        "slug": slug.current,\n        "image": {\n            "url": image.asset->url,\n            "width": image.asset->metadata.dimensions.width,\n            "height": image.asset->metadata.dimensions.height,\n            "alt": imageAlt\n        },\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': MOST_RECENT_POSTS_QUERYResult;
-    '*[_type == "runner" ]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": imageAlt\n        },\n        hallOfFame,\n        bio,\n        infotext,\n    }': RUNNERS_QUERYResult;
-    '*[_type == "runner" && slug.current == $slug][0]{\n        _id,\n        name,\n        "slug": slug.current,\n        "image": {\n          "url": image.asset->url,\n          "width": image.asset->metadata.dimensions.width,\n          "height": image.asset->metadata.dimensions.height,\n          "alt": "Bild von " + name\n        },\n        bio,\n        infotext,\n        birthDate\n    }': RUNNER_QUERYResult;
+    '*[_type == "post" ]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        image,\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POSTS_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        image,\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': POST_QUERYResult;
+    '*[_type == "post" ] | order(publishedAt desc) [0...3]{\n        _id,\n        _createdAt,\n        title,\n        "slug": slug.current,\n        image,\n        publishedAt,\n        location,\n        runners[]->{\n            name\n        },\n        body\n    }': MOST_RECENT_POSTS_QUERYResult;
+    '*[_type == "runner" ]{\n        _id,\n        name,\n        "slug": slug.current,\n        image,\n        hallOfFame,\n        bio,\n        infotext,\n    }': RUNNERS_QUERYResult;
+    '*[_type == "runner" && slug.current == $slug][0]{\n        _id,\n        name,\n        "slug": slug.current,\n        image,\n        bio,\n        infotext,\n        birthDate\n    }': RUNNER_QUERYResult;
   }
 }

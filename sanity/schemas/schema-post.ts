@@ -33,12 +33,17 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: "imageAlt",
-      title: "Bild-Alt",
-      type: "string",
-      validation: (Rule) => Rule.required(),
+      fields: [
+        {
+          name: "alt",
+          title: "Alt-Text",
+          type: "string",
+          options: {
+            isHighlighted: true,
+          },
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     },
     {
       name: "publishedAt",

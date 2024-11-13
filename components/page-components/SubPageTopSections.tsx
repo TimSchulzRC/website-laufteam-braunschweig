@@ -1,23 +1,33 @@
-import SubPageData from "@/types/SubPageData";
+"use client";
+
+import clientConfig from "@/sanity/config/client-config";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useNextSanityImage } from "next-sanity-image";
 import Image from "next/image";
 
 type Props = {
-  pageData: SubPageData;
+  image: SanityImageSource | null;
+  imageAlt?: string;
+  title: string | null;
+  subtitle: string | null;
 };
 
 export default function SubPageTopSections({
-  pageData: { image, title, subtitle },
+  image,
+  imageAlt,
+  title,
+  subtitle,
 }: Props) {
+  const imageProps = useNextSanityImage(clientConfig, image);
+
   return (
     <>
       <section className="relative">
-        {image?.url && (
+        {image && imageProps && (
           <Image
+            {...imageProps}
+            alt={imageAlt || ""}
             className="h-[50vw] max-h-[50vh] w-full object-cover object-top"
-            width={image.width || 1920}
-            height={image.height || 1080}
-            src={image.url}
-            alt={image.alt || ""}
           />
         )}
       </section>

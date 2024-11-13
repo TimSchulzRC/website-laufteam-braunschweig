@@ -12,6 +12,20 @@ export default defineType({
       name: "headerImage",
       title: "Header Bild",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt-Text",
+          type: "string",
+          options: {
+            isHighlighted: true,
+          },
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     },
     {
       name: "linkCards",

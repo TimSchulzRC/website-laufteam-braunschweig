@@ -1,9 +1,9 @@
-import ImageData from "@/types/ImageData";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 interface SubPageData {
   title?: string;
   subtitle?: string;
-  image?: ImageData;
+  image?: SanityImageSource;
 }
 
 export default SubPageData;

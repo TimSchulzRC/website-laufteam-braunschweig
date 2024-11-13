@@ -31,7 +31,10 @@ export default async function Runner({ params }: Props) {
 
   return (
     <div>
-      <ContentPageTopSection image={runner.image} />
+      <ContentPageTopSection
+        image={runner.image}
+        imageAlt={runner.name || ""}
+      />
       <ContentPageContentSection title={runner.name}>
         <PortableText value={runner.bio!} />
       </ContentPageContentSection>

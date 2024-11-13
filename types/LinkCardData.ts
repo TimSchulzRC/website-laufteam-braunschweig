@@ -1,9 +1,9 @@
-import ImageData from "@/types/ImageData";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 type LinkCardData = {
   title: string;
   description: string;
-  image: ImageData;
+  image: ({ alt: string } & SanityImageSource) | null;
   link: string;
 };
 

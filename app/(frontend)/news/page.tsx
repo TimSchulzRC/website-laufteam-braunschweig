@@ -4,7 +4,6 @@ import { NEWS_PAGE_QUERYResult, POSTS_QUERYResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/client";
 import { NEWS_PAGE_QUERY, POSTS_QUERY } from "@/sanity/queries";
 import { portableTextPreview } from "@/sanity/sanity-utils";
-import SubPageData from "@/types/SubPageData";
 import { getSubtitleFromPost } from "@/util/news";
 import { PortableTextBlock } from "next-sanity";
 import { notFound } from "next/navigation";
@@ -38,7 +37,12 @@ export default async function News() {
   if (!pageData) return notFound();
   return (
     <>
-      <SubPageTopSections pageData={pageData as SubPageData} />
+      <SubPageTopSections
+        image={pageData.image}
+        imageAlt={pageData.image?.alt}
+        title={pageData.title}
+        subtitle={pageData.subtitle}
+      />
       <section className="container grid gap-10 md:grid-cols-2">
         {posts.sort(sortByPublishedAt).map((post) => {
           return (
@@ -48,8 +52,8 @@ export default async function News() {
               key={post._id}
               title={post.title || ""}
               subtitle={getSubtitleFromPost(post)}
-              imageURL={post.image.url || ""}
-              imageAlt={post.image.alt || ""}
+              image={post.image}
+              imageAlt={post.image?.alt}
               href={`/news/${post.slug}`}
             >
               {portableTextPreview(post.body as PortableTextBlock[], 50)}
