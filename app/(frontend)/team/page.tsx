@@ -38,6 +38,7 @@ export default async function Team() {
         <div className="container grid gap-10 py-24 sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => !m.hallOfFame)
+            .sort(compareNames)
             .map((member) => (
               <LinkCard
                 className="col-auto mx-auto"
@@ -58,6 +59,7 @@ export default async function Team() {
         <div className="container grid gap-10 py-24 sm:grid-cols-2 lg:grid-cols-3">
           {members
             .filter((m) => m.hallOfFame)
+            .sort(compareNames)
             .map((member) => (
               <LinkCard
                 className="col-auto mx-auto [&_img]:grayscale"
@@ -71,5 +73,11 @@ export default async function Team() {
         </div>
       </section>
     </>
+  );
+}
+
+function compareNames(a: RUNNERS_QUERYResult[0], b: RUNNERS_QUERYResult[0]) {
+  return (a.name?.replace(/\s+/g, "") || "").localeCompare(
+    b.name?.replace(/\s+/g, "") || "",
   );
 }
