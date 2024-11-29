@@ -10,9 +10,10 @@ import Image from "next/image";
 type Props = {
   image: SanityImageSource | null;
   imageAlt?: string;
+  text?: string;
 };
 
-export default function Header({ image, imageAlt }: Props) {
+export default function Header({ image, imageAlt, text }: Props) {
   const imageProps = useNextSanityImage(clientConfig, image);
 
   return (
@@ -33,11 +34,8 @@ export default function Header({ image, imageAlt }: Props) {
               <span>vereint</span>
             </h2>
 
-            <p className="col-span-4 max-w-md text-balance text-center text-offWhite md:text-left">
-              Das Laufteam Braunschweig ist ein Verbund ausgewählter
-              Spitzensportler der Region Braunschweig und steht leistungsstarken
-              und förderungswürdigen Athletinnen und Athleten offen, die in
-              Vereinen der Startgemeinschaft LG Braunschweig Mitglied sind.
+            <p className="col-span-4 max-w-md hyphens-auto text-balance text-center text-offWhite md:text-left">
+              {text}
             </p>
           </div>
         </div>

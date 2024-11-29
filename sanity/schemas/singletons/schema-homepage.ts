@@ -28,6 +28,11 @@ export default defineType({
       ],
     },
     {
+      name: "headerText",
+      title: "Header Text",
+      type: "text",
+    },
+    {
       name: "linkCards",
       title: "Link Karten",
       type: "array",

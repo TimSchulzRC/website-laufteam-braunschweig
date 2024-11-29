@@ -1797,6 +1797,13 @@
         },
         "optional": true
       },
+      "headerText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "linkCards": {
         "type": "objectAttribute",
         "value": {

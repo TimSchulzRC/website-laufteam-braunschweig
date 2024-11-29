@@ -281,6 +281,7 @@ export type Homepage = {
     alt?: string;
     _type: "image";
   };
+  headerText?: string;
   linkCards?: Array<
     {
       _key: string;
@@ -533,7 +534,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries.ts
 // Variable: HOMEPAGE_QUERY
-// Query: *[_type == "homepage"][0]{      headerImage,      linkCards[]{        title,        description,        image,        link      }    }
+// Query: *[_type == "homepage"][0]{      headerImage,      headerText,      linkCards[]{        title,        description,        image,        link      }    }
 export type HOMEPAGE_QUERYResult = {
   headerImage: {
     asset?: {
@@ -547,6 +548,7 @@ export type HOMEPAGE_QUERYResult = {
     alt?: string;
     _type: "image";
   } | null;
+  headerText: string | null;
   linkCards: Array<{
     title: string | null;
     description: string | null;
@@ -903,7 +905,7 @@ export type RUNNER_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homepage"][0]{\n      headerImage,\n      linkCards[]{\n        title,\n        description,\n        image,\n        link\n      }\n    }': HOMEPAGE_QUERYResult;
+    '*[_type == "homepage"][0]{\n      headerImage,\n      headerText,\n      linkCards[]{\n        title,\n        description,\n        image,\n        link\n      }\n    }': HOMEPAGE_QUERYResult;
     '*[_type == "aboutUs-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      sections,\n      image\n    }': ABOUT_US_PAGE_QUERYResult;
     '*[_type == "news-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      image\n    }': NEWS_PAGE_QUERYResult;
     '*[_type == "team-page"][0]{\n      title,\n      subtitle,\n      infotext,\n      image\n    }': TEAM_PAGE_QUERYResult;

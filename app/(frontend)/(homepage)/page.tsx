@@ -22,6 +22,7 @@ export default async function Home() {
       <Header
         image={homepageData.headerImage}
         imageAlt={homepageData.headerImage?.alt}
+        text={homepageData.headerText || ""}
       />
       <SectionSponsors />
       <NewsSection />
