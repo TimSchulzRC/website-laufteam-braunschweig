@@ -13,7 +13,7 @@ export function portableTextToString(blocks: PortableTextBlock[]): string {
   if (!blocks || !blocks.length) return "";
   return blocks
     .map((block) => block.children.map((child) => child.text).join(""))
-    .join("");
+    .join("\n");
 }
 
 export function portableTextPreview(

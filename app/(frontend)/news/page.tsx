@@ -44,22 +44,20 @@ export default async function News() {
         subtitle={pageData.subtitle}
       />
       <section className="container grid gap-10 md:grid-cols-2">
-        {posts.sort(sortByPublishedAt).map((post) => {
-          return (
-            <LinkCard
-              disableMaxWidth
-              className="col-2"
-              key={post._id}
-              title={post.title || ""}
-              subtitle={getSubtitleFromPost(post)}
-              image={post.image}
-              imageAlt={post.image?.alt}
-              href={`/news/${post.slug}`}
-            >
-              {portableTextPreview(post.body as PortableTextBlock[], 50)}
-            </LinkCard>
-          );
-        })}
+        {posts.sort(sortByPublishedAt).map((post) => (
+          <LinkCard
+            disableMaxWidth
+            className="col-2"
+            key={post._id}
+            title={post.title || ""}
+            subtitle={getSubtitleFromPost(post)}
+            image={post.image}
+            imageAlt={post.image?.alt}
+            href={`/news/${post.slug}`}
+          >
+            {portableTextPreview(post.body as PortableTextBlock[], 50)}
+          </LinkCard>
+        ))}
       </section>
     </>
   );
