@@ -46,7 +46,7 @@
     "eslint-config-next": "15.0.1",
     "flowbite": "^2.5.2",
     "flowbite-react": "^0.10.2",
-    "postcss": "^8.4.47",
+    "postcss": "^8.5.10",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.14",
